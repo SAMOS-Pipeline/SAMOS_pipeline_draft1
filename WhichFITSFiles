@@ -1,0 +1,53 @@
+#!/usr/bin/env python
+
+import glob
+from SAMOSHelpers import *
+from astropy.io import fits
+
+instdir  = "LDSS3"
+datedir = sys.argv[1]
+mask = sys.argv[2]
+
+datadir = "../%s/%s" % (instdir,datedir)
+
+IsItHere(datadir)
+
+print("Scanning %s\n" %(datadir))
+images = glob.glob("%s/ccd????c1.fits"%(datadir))
+images.sort()
+
+fitslist = [fits.open(image) for image in images]
+fitslist, images = zip(*[(f,i) for f,i in zip(fitslist,images) if f[0].header["aperture"]==mask]) # IS THE MASK IN?
+fitslist, images = zip(*[(f,i) for f,i in zip(fitslist,images) if f[0].header["grism"]!="Open"])  # IS A DISPERSER IN?
+
+flatlist, flats = zip(*[(f,i) for f,i in zip(fitslist,images) if "flat" in f[0].header["object"].lower()])
+print("Found flats:")
+print(list(map(os.path.basename,flats)))
+
+lamplist, lamps = zip(*[(f,i) for f,i in zip(fitslist,images) if len([s for s in ["he","ne","ar"] if s in f[0].header["object"].lower()])>=2])
+print("Found lamps:")
+print(list(map(os.path.basename,lamps)))
+
+targlist, targs = zip(*[(f,i) for f,i in zip(fitslist,images) if i not in flats and i not in lamps])
+print("Found science:")
+print(list(map(os.path.basename,targs)))
+
+print("With exposure times:")
+exptimes = np.array([f[0].header["exptime"] for f in targlist])
+print(exptimes)
+
+targlist, targs = zip(*[(f,i) for f,i,t in zip(fitslist,images,exptimes) if t>0.5*exptimes.max()])
+print("Keeping science:")
+print(list(map(os.path.basename,targs)))
+
+db = open("%s.db"%(mask),"w")
+db.write("# lamp\n")
+[db.write("%s\n"%(lamp)) for lamp in lamps]
+db.write("# flat\n")
+[db.write("%s\n"%(flat)) for flat in flats]
+db.write("# targ\n")
+[db.write("%s\n"%(targ)) for targ in targs]
+db.close()
+
+if not os.path.exists(mask): os.mkdir(mask)
+

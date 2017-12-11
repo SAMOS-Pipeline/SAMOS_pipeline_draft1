@@ -1,0 +1,24 @@
+#!/usr/bin/env python
+
+import glob
+from astropy.io import fits
+from FlatNorm import *
+from SAMOSHelpers import *
+
+mask = sys.argv[1]
+
+flats_path = [os.path.join(mask,i) for i in os.listdir(mask) if (i[-4:]=='fits' and 'master_flat' not in i) and 'Flat' in fits.open(os.path.join(mask,i))[0].header['OBJECT'] ]
+print([i for i in flats_path])
+[IsItHere(i) for i in flats_path]
+
+print("Created list of flats in %s\n" %(mask))
+
+master_flat = "%s/%s%s" %(mask,mask,'master_flat.fits')
+
+MkFlatNorm(flats_path,master_flat)
+
+data_path = [os.path.join(mask,i) for i in os.listdir(mask) if i[-4:]=='fits' and 'N&S' in fits.open(os.path.join(mask,i))[0].header['OBJECT'] ]
+
+ 
+
+[NormFlatDiv(i,master_flat) for i in data_path ]
