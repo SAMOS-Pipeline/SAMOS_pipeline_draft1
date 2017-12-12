@@ -62,3 +62,22 @@ $$
   [bn]
  \end{pmatrix}
 $$
+
+With the new data matrix, the function makes a new fits file for the files originally entered as input.  The output fits are placed in their respective LMask directories and 'ccd' part of their original file names are replaced with LMask(1,2).
+
+To call this code, write,
+
+> `./OverscanAndtrim` LMask(1,2).db
+
+
+## `NormDivFlats`
+
+Once we have our cropped and bias subtracted fits files, we need to locate and combine the flat frames into one master flat, which will be divided from the science frames.
+First we make a stack of the flat field frames and scale them by their median.  then the stack is median combined and normalized, which gives the pixel-to-pixel variation in detector sensitivity.  
+The function outputs a fits file named LMask(1,2)master_flat.  Finally, the science frames are divided by the master flat and written out to new frames, which are placed in a directory named  **`flat_fielded`**.
+
+To call this routine, use
+> `./NormDivFlats` LMask(1,2)
+
+
+The function also creats thumbnail images of the output data frames.
