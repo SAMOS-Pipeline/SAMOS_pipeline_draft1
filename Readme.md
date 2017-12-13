@@ -2,6 +2,11 @@
 
 ## Getting started
 The working directory should begin having the following files and directory:
+
+* `FixBadPix`
+
+* `BadPix.py`
+
 * `NormDivFlats`
 
 * `FlatNorm.py`
@@ -80,4 +85,13 @@ To call this routine, use
 > `./NormDivFlats` LMask(1,2)
 
 
-The function also creats thumbnail images of the output data frames.
+The function also creates thumbnail images of the output data frames.
+
+## `FixBadPix`
+
+The next step is to clean up the cosmic rays from the data frames.  To do this, the user will call the routine `FixBadPix`.  What this function does is takes the LMask as input, and goes into its **flat_fielded** directory to pull out the input frames.
+Then, it creates the output directory **CR_corrected** (if it has not already been created) and makes a list of the output file names, which will have ''cr'' appended to the names from the input list.  The program then  calls a module with the routine `fixbad` from `BadPix.py` which uses the python library `astroscrappy` to identify and clean cosmic rays.
+`astroscrappy` is based on the L.A. Cosmic algorithm written by Pieter van Dokkum.  The routine `astroscrappy.detect_cosmics()` takes in the data and a mask array to first identify the bad pixels, then cleans them up by taking the median value of the surrounding pixels and outputs a cleaned data array (`dataCR`).  Finally, this new data array is turned into a fits file with the reduction history put into the header.
+
+To call this routine, use
+> `./FixBadPix` LMask(1,2) 
