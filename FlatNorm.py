@@ -38,7 +38,7 @@ def MkFlatNorm(input,output):
     print('Normalized master flat %s has been created.\n  Ready to be divided out of bias subtracted data frames.'%(output))
     
 
-def NormFlatDiv(input,mflat):
+def NormFlatDiv(input,mflat,output):
     
     data,header = fits.getdata(input,header=True)
     mflat_data,mheader = fits.getdata(mflat,header=True)
@@ -47,23 +47,15 @@ def NormFlatDiv(input,mflat):
     #print(input)
     
     
-    flat_fielded_data = 'fn'+os.path.basename(input)
-
-    
-    flat_fielded_path = "%s/%s/" % (os.path.split(input)[0],"flat_fielded")
-    
-    if not os.path.exists(flat_fielded_path):  os.mkdir(flat_fielded_path)
-    
-    
     hdu = fits.PrimaryHDU(out_data.astype("f"))
     hdu.header = header.copy()
     hdu.header.add_history('Flat Fielded')
-    hdu.writeto(flat_fielded_path+flat_fielded_data,overwrite=True)
+    hdu.writeto(output,overwrite=True)
     
-    pj = "%s/jpeg" % (os.path.split(flat_fielded_path)[0])
+    pj = "%s/jpeg" % (os.path.split(output)[0])
     if not os.path.exists(pj): os.mkdir(pj)
-    MakeThumbnail(os.path.join(flat_fielded_path,flat_fielded_data),pj)
+    MakeThumbnail(output,pj)
 
-    print("Flat fielded data has been created and stored in %s" %(flat_fielded_path))
+    print("Flat fielded data has been created and stored in %s" %(output))
     
     

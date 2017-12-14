@@ -5,20 +5,54 @@ from astropy.io import fits
 from FlatNorm import *
 from SAMOSHelpers import *
 
-mask = sys.argv[1]
+db = sys.argv[1]
+IsItHere(db)
+mask = db[:-3]
 
-flats_path = [os.path.join(mask,i) for i in os.listdir(mask) if (i[-4:]=='fits' and 'master_flat' not in i) and 'Flat' in fits.open(os.path.join(mask,i))[0].header['OBJECT'] ]
-print([i for i in flats_path])
-[IsItHere(i) for i in flats_path]
+f = open(db,"r")
+lines = [l.strip() for l in f]
+f.close()
+
+jlamp = [j for j,l in enumerate(lines) if "# OSLamps" in l]
+jflat = [j for j,l in enumerate(lines) if "# OSFlats" in l]
+jtarg = [j for j,l in enumerate(lines) if "# OSTargs" in l]
+if not jlamp or not jflat or not jtarg:
+   MuyMalo("Problem with what files are available!")
+
+jlamp = jlamp[0]
+jflat = jflat[0]
+jtarg = jtarg[0]
+
+#endjtarg = [j for j,l in enumerate(lines[jtarg+1:]) if "#" in l]
+#print(endjtarg)
+
+inflats = lines[jflat+1:jtarg]
+#intargs = lines[jtarg+1:jtarg+1+endjtarg[0]] 
+intargs = lines[jtarg+1:]
+
+print(inflats)
+print(intargs)
+
+[IsItHere(i) for i in inflats]
 
 print("Created list of flats in %s\n" %(mask))
 
 master_flat = "%s/%s%s" %(mask,mask,'master_flat.fits')
 
-MkFlatNorm(flats_path,master_flat)
-
-data_path = [os.path.join(mask,i) for i in os.listdir(mask) if i[-4:]=='fits' and 'N&S' in fits.open(os.path.join(mask,i))[0].header['OBJECT'] ]
-
+[MkFlatNorm(inflats,master_flat)]
  
 
-[NormFlatDiv(i,master_flat) for i in data_path ]
+flat_fielded_path = ["%s/%s/%s" % (mask,"flat_fielded",'fn'+os.path.basename(i)) for i in intargs]
+
+if not os.path.exists(os.path.split(flat_fielded_path[0])[0]):  os.mkdir(os.path.split(flat_fielded_path[0])[0])
+
+
+[NormFlatDiv(i,master_flat,j) for i,j in zip(intargs,flat_fielded_path)]
+
+
+
+db = open("%s.db"%(mask),"a")
+db.write("## Flat Fielded\n")
+db.write("# FFTargs\n")
+[db.write("%s\n"%(otarg)) for otarg in flat_fielded_path]
+db.close()

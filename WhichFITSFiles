@@ -8,7 +8,7 @@ instdir  = "LDSS3"
 datedir = sys.argv[1]
 mask = sys.argv[2]
 
-datadir = "../%s/%s" % (instdir,datedir)
+datadir = "%s/%s" % (instdir,datedir)
 
 IsItHere(datadir)
 
