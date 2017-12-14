@@ -26,6 +26,7 @@ jtarg = jtarg[0]
 #endjtarg = [j for j,l in enumerate(lines[jtarg+1:]) if "#" in l]
 #print(endjtarg)
 
+inlamps = lines[jlamp+1:jflat]
 inflats = lines[jflat+1:jtarg]
 #intargs = lines[jtarg+1:jtarg+1+endjtarg[0]] 
 intargs = lines[jtarg+1:]
@@ -42,17 +43,24 @@ master_flat = "%s/%s%s" %(mask,mask,'master_flat.fits')
 [MkFlatNorm(inflats,master_flat)]
  
 
-flat_fielded_path = ["%s/%s/%s" % (mask,"flat_fielded",'fn'+os.path.basename(i)) for i in intargs]
+targflat_fielded_path = ["%s/%s/%s" % (mask,"flat_fielded",'fn'+os.path.basename(i)) for i in intargs]
+lampflat_fielded_path = ["%s/%s/%s" % (mask,"flat_fielded",'fn'+os.path.basename(i)) for i in inlamps]
 
-if not os.path.exists(os.path.split(flat_fielded_path[0])[0]):  os.mkdir(os.path.split(flat_fielded_path[0])[0])
+if not os.path.exists(os.path.split(targflat_fielded_path[0])[0]):  os.mkdir(os.path.split(targflat_fielded_path[0])[0])
 
 
-[NormFlatDiv(i,master_flat,j) for i,j in zip(intargs,flat_fielded_path)]
+[NormFlatDiv(i,master_flat,j) for i,j in zip(intargs,targflat_fielded_path)]
+[NormFlatDiv(i,master_flat,j) for i,j in zip(inlamps,lampflat_fielded_path)]
 
 
 
 db = open("%s.db"%(mask),"a")
+db.write("\n")
 db.write("## Flat Fielded\n")
+db.write("# FFLamps\n")
+[db.write("%s\n"%(olamp)) for olamp in lampflat_fielded_path]
 db.write("# FFTargs\n")
-[db.write("%s\n"%(otarg)) for otarg in flat_fielded_path]
+[db.write("%s\n"%(otarg)) for otarg in targflat_fielded_path]
+
+
 db.close()
