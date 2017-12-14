@@ -21,7 +21,7 @@ if [ $answer =  "yes" ] || [ $answer = "y" ]
  echo "Deleting $DIR"/LMask*.SMF
  find . -type f -name "*.SMF" -exec rm -f {} \;
  echo "Deleted associated LMask files"
-  
+ find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf 
 else
  echo "Exiting without cleaning. "
  exit
