@@ -9,7 +9,13 @@ import matplotlib.pyplot as plt
 import regions
 import matplotlib.cm as cm
 
-#get the flat fielded data frames.
+"""
+
+This module is responsible for identifying the edges of the slits.  It creates a region file that is plotted 
+on top of the master_flat to show the regions picked out by the function.  Based on Flame pipeline.
+This still needs work for identifying slits that are close to each other.
+
+"""
 
 input = 'LMask1/LMask1master_flat.fits'
 data,header = fits.getdata(input,header=True)
@@ -68,8 +74,7 @@ def get_edges(data_in,approx_edge=1414,cutout_size=30,binsize=20,starting_pixel=
     return x_edge,y_edge
 
 
-
-region_filename = 'slits.reg'
+"""
 data,header = fits.getdata('LMask1/flat_fielded/fnLMask18150c1.fits',header=True)
 
 N_pix_x = data.shape[1]
@@ -85,19 +90,29 @@ slit_top = 1500 - space_top - bar_height * (index_first_bar-1.0) - 0.5*space_bet
 slit_bottom = 1500 - space_top - bar_height*(index_last_bar) + 0.5*space_between_slits
 
 target_position = 0.5*(slit_bottom+slit_top)
+"""
 
 
 
+region_filename = 'LMask1/slits.reg'
 hdu = fits.open('LMask1/LMask1master_flat.fits')
+
+xt,yt = get_edges(hdu[0].data)
+xb,yb = get_edges(hdu[0].data,approx_edge=1396,cutout_size=4,binsize=10)
 
 reg_string_top = """
 # Region file format: DS9 version 4.1  
 # Filename: LMask1/LMask1master_flat.fits
 global color=green width=1 font=helvetica 10 normal select=1 highlite=1 fixed=0 edit=1 move=1 delete=1 include=1 source=1
-image; line """+"(" + str(x_edge[0]) +','+str(y_edge[0])+','+str(x_edge[int(len(x_edge)/2)])+ \
-    ','+str(y_edge[int(len(y_edge)/2)])+")"+""" # color=cyan background
-image; line """+"(" + str(x_edge[int(len(x_edge)/2)]) +','+str(y_edge[int(len(y_edge)/2)])+ \
-    ','+str(x_edge[-1])+','+str(y_edge[-1])+")"+""" # color=cyan background """
+image; line """+"(" + str(xt[0]) +','+str(yt[0])+','+str(xt[int(len(xt)/2)])+ \
+    ','+str(yt[int(len(yt)/2)])+")"+""" # color=cyan background
+image; line """+"(" + str(xt[int(len(xt)/2)]) +','+str(yt[int(len(yt)/2)])+ \
+    ','+str(xt[-1])+','+str(yt[-1])+")"+""" # color=cyan background 
+image; line """+"(" + str(xb[0]) +','+str(yb[0])+','+str(xb[int(len(xb)/2)])+ \
+    ','+str(yb[int(len(yb)/2)])+")"+""" # color=pink background
+image; line  """+"(" + str(xb[int(len(xb)/2)]) +','+str(yb[int(len(yb)/2)])+ \
+    ','+str(xb[-1])+','+str(yb[-1])+")"+""" # color=pink background  
+    """
 
 
 r = regions.write_ds9(reg_string_top,region_filename)
@@ -108,15 +123,9 @@ ax.imshow(hdu[0].data, cmap=cm.gray,origin="lower")
 
 r2 = pyregion.parse(reg_string_top).as_imagecoord(header=hdu[0].header)
 
-print(r2[0].attr[1])
-
-
-
-
 
 patch_list, artist_list = r2.get_mpl_patches_texts()
 
-print(patch_list)
 
 for p in patch_list:
     ax.add_patch(p)
@@ -125,7 +134,7 @@ for t in artist_list:
 
 
 ax.imshow(hdu[0].data, cmap=cm.gray,origin="lower")
-print(r2[0].coord_list)
+
 
 plt.show()
 
