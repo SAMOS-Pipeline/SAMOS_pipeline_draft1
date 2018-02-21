@@ -17,10 +17,9 @@ This still needs work for identifying slits that are close to each other.
 
 """
 
-input = 'LMask1/LMask1master_flat.fits'
-data,header = fits.getdata(input,header=True)
 
-def get_edges(data_in,approx_edge=1414,cutout_size=30,binsize=20,starting_pixel=0):
+
+def get_edges(input,cutout_size=30,binsize=20):
     """
     approx_edge is approximate y-pixel for top of the slit.
     cutout size is number of y rows of pixels to check for variation.
@@ -28,39 +27,51 @@ def get_edges(data_in,approx_edge=1414,cutout_size=30,binsize=20,starting_pixel=
     algorithms adapted for python based on Flame data reduction pipeline written in IDL (Belli, Contursi, and Davies (2017))
     """
     
+    # read in file of approximate slit edges
+    approx_edges = np.genfromtxt("LMask1/approx_slit_edges.txt",skip_header=2)
+    data,header = fits.getdata(input,header=True)
     sz = data.shape
     N_pixel_x = sz[1] #number of x pixels
-    x_edge = []
-    y_edge = []
+    x_edges_main = []
+    y_edges_main = []
 
-    previous_ycoord = approx_edge
+    for approx_edge in approx_edges:
+    
+        starting_pixel = 0    
+        x_edge = []
+        y_edge = []
+        previous_ycoord = approx_edge
 
 
-    while starting_pixel < N_pixel_x:
+        while starting_pixel < N_pixel_x:
 
-        end_pixel = np.asarray([starting_pixel + binsize-1,N_pixel_x-1]).min()
-        cutout_bin = data[np.int(previous_ycoord) - np.int(cutout_size/2): np.int(previous_ycoord) + np.int(cutout_size/2),\
+            end_pixel = np.asarray([starting_pixel + binsize-1,N_pixel_x-1]).min()
+            cutout_bin = data[np.int(previous_ycoord) - np.int(cutout_size/2): np.int(previous_ycoord) + np.int(cutout_size/2),\
                         np.int(starting_pixel) : np.int(end_pixel)]
                                           
-        profile = np.median(cutout_bin, axis=1)
+            profile = np.median(cutout_bin, axis=1)
     
-        derivative = np.roll(profile,1)-profile
-        derivative[0] = 0
-        derivative[-1] = 0
-        peak,peak_location = derivative.max(),np.argmax(derivative)               
+            derivative = np.roll(profile,1)-profile
+            derivative[0] = 0
+            derivative[-1] = 0
+            peak,peak_location = derivative.max(),np.argmax(derivative)               
                         
                         
-        peak_location += (previous_ycoord - (cutout_size/2))                  
+            peak_location += (previous_ycoord - (cutout_size/2))                  
                         
-        x_edge.append(int(np.round(0.5*(starting_pixel + end_pixel),0)))
-        y_edge.append(int(peak_location))    
+            x_edge.append(int(np.round(0.5*(starting_pixel + end_pixel),0)))
+            y_edge.append(int(peak_location))    
     
-        previous_ycoord = peak_location
+            previous_ycoord = peak_location
     
-        starting_pixel += binsize
+            starting_pixel += binsize
     
-
-
+        x_edges_main.append(x_edge)
+        y_edges_main.append(y_edge)
+        
+    #print(x_edges_main)
+        
+    #fill in all other values with nans.  Not sure why yet but leaving it here for now.
     nan_arr = np.empty(N_pixel_x)
     nan_arr[:] = np.nan
     y_edge_full = nan_arr.copy()
@@ -71,7 +82,76 @@ def get_edges(data_in,approx_edge=1414,cutout_size=30,binsize=20,starting_pixel=
             else:
                 pass
                 
-    return x_edge,y_edge
+
+
+    #hdu = fits.open('LMask1/flat_fielded/fnLMask18150c1.fits')
+
+
+    str_tops = []
+    str_bottoms = []
+        
+    for i in range(len(x_edges_main)):
+    
+        
+        xt,yt = x_edges_main[i],y_edges_main[i]
+        xti,yti = int(xt[0]),int(yt[0])
+        xtf,ytf = int(xt[-1]),int(yt[-1])
+        xbi,ybi = xti,yti-21
+        xbf,ybf = xtf,ytf-21
+        str_top ='''physical; line '''+" "+str(xti)+" "+str(yti)+" "+str(xtf)+" "+str(ytf)+''' # color=cyan background\n'''
+        str_bottom = '''physical; line '''+" "+str(xbi)+" "+str(ybi)+" "+str(xbf)+" "+str(ybf)+''' # color=yellow background\n'''
+        
+        str_tops.append(str_top)
+        str_bottoms.append(str_bottom)
+           
+        
+        
+    region_txt = open('LMask1/reg_txt.txt','w')
+    region_txt.write( """# Region file format: DS9 version 4.1"""+"\n"+"""# File name: LMask1/LMask1master_flat.fits"""+"\n"+\
+    """global color=green width=1 font=helvetica 10 normal select=1 highlite=1 fixed=0 edit=1 move=1 delete=1 include=1 source=1\n""")
+    
+    for i in range(len(str_tops)):
+        region_txt.write(str(str_tops[i])+str(str_bottoms[i]))
+    
+    
+    region_txt.close()
+    
+    reg_string = open("LMask1/reg_txt.txt","r").read()
+
+    #r = regions.write_ds9(reg_string,region_filename)
+
+    fig = plt.figure()
+    ax = plt.subplot(111)
+    ax.imshow(data, cmap=cm.gray,origin="lower")
+
+    r2 = pyregion.parse(reg_string).as_imagecoord(header=header)
+
+
+    patch_list, artist_list = r2.get_mpl_patches_texts()
+
+
+    for p in patch_list:
+        ax.add_patch(p)
+    for t in artist_list:
+        ax.add_artist(t)
+
+    logscale_data = np.log(1000*data + 1)/np.log(1000)
+    ax.imshow(logscale_data, cmap=cm.gray,origin="lower")
+
+
+    plt.show()
+    
+    
+    return
+
+
+
+'''
+hdu = fits.PrimaryHDU(out_data.astype("f"))
+hdu.header = header.copy()
+hdu.header.add_history('One slit extracted')
+hdu.writeto('LMask1/single_slit.fits',overwrite=True)
+'''
 
 
 """
@@ -91,67 +171,6 @@ slit_bottom = 1500 - space_top - bar_height*(index_last_bar) + 0.5*space_between
 
 target_position = 0.5*(slit_bottom+slit_top)
 """
-
-
-
-region_filename = 'LMask1/slits.reg'
-hdu = fits.open('LMask1/LMask1master_flat.fits')
-
-xt,yt = get_edges(hdu[0].data)
-xb,yb = get_edges(hdu[0].data,approx_edge=1396,cutout_size=4,binsize=10)
-
-reg_string_top = """
-# Region file format: DS9 version 4.1  
-# Filename: LMask1/LMask1master_flat.fits
-global color=green width=1 font=helvetica 10 normal select=1 highlite=1 fixed=0 edit=1 move=1 delete=1 include=1 source=1
-image; line """+"(" + str(xt[0]) +','+str(yt[0])+','+str(xt[int(len(xt)/2)])+ \
-    ','+str(yt[int(len(yt)/2)])+")"+""" # color=cyan background
-image; line """+"(" + str(xt[int(len(xt)/2)]) +','+str(yt[int(len(yt)/2)])+ \
-    ','+str(xt[-1])+','+str(yt[-1])+")"+""" # color=cyan background 
-image; line """+"(" + str(xb[0]) +','+str(yb[0])+','+str(xb[int(len(xb)/2)])+ \
-    ','+str(yb[int(len(yb)/2)])+")"+""" # color=pink background
-image; line  """+"(" + str(xb[int(len(xb)/2)]) +','+str(yb[int(len(yb)/2)])+ \
-    ','+str(xb[-1])+','+str(yb[-1])+")"+""" # color=pink background  
-    """
-
-
-r = regions.write_ds9(reg_string_top,region_filename)
-
-fig = plt.figure()
-ax = plt.subplot(111)
-ax.imshow(hdu[0].data, cmap=cm.gray,origin="lower")
-
-r2 = pyregion.parse(reg_string_top).as_imagecoord(header=hdu[0].header)
-
-
-patch_list, artist_list = r2.get_mpl_patches_texts()
-
-
-for p in patch_list:
-    ax.add_patch(p)
-for t in artist_list:
-    ax.add_artist(t)
-
-
-ax.imshow(hdu[0].data, cmap=cm.gray,origin="lower")
-
-
-plt.show()
-
-
-
-
-'''
-hdu = fits.PrimaryHDU(out_data.astype("f"))
-hdu.header = header.copy()
-hdu.header.add_history('Flat Fielded')
-hdu.writeto(output,overwrite=True)
-'''
-
-
-
-
-
 
 
 
