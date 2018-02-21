@@ -1,27 +1,14 @@
-# Region file format: DS9 version 4.1
-# File name: LMask1/LMask1master_flat.fits
-global color=green width=1 font=helvetica 10 normal select=1 highlite=1 fixed=0 edit=1 move=1 delete=1 include=1 source=1
-physical; line  10 1415 1022 1408 # color=cyan background
-physical; line  10 1394 1022 1387 # color=yellow background
-physical; line  10 1391 1022 1383 # color=cyan background
-physical; line  10 1370 1022 1362 # color=yellow background
-physical; line  10 1351 1022 1354 # color=cyan background
-physical; line  10 1330 1022 1333 # color=yellow background
-physical; line  10 1285 1022 1278 # color=cyan background
-physical; line  10 1264 1022 1257 # color=yellow background
-physical; line  10 1250 1022 1246 # color=cyan background
-physical; line  10 1229 1022 1225 # color=yellow background
-physical; line  10 1199 1022 1192 # color=cyan background
-physical; line  10 1178 1022 1171 # color=yellow background
-physical; line  10 1163 1022 1161 # color=cyan background
-physical; line  10 1142 1022 1140 # color=yellow background
-physical; line  10 1115 1022 1108 # color=cyan background
-physical; line  10 1094 1022 1087 # color=yellow background
-physical; line  10 1076 1022 1069 # color=cyan background
-physical; line  10 1055 1022 1048 # color=yellow background
-physical; line  10 1021 1022 1014 # color=cyan background
-physical; line  10 1000 1022 993 # color=yellow background
-physical; line  10 960 1022 959 # color=cyan background
-physical; line  10 939 1022 938 # color=yellow background
-physical; line  10 926 1022 920 # color=cyan background
-physical; line  10 905 1022 899 # color=yellow background
+# Y pixel value for top edges of slits as read from DS9.  
+# Would be easier if included in the FITS header.
+1415
+1390
+1338
+1286
+1248
+1197
+1161
+1113
+1075
+1020
+958
+924
