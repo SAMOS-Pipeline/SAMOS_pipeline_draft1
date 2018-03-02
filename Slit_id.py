@@ -19,7 +19,7 @@ This still needs work for identifying slits that are close to each other.
 
 
 
-def get_edges(input,cutout_size=30,binsize=20):
+def get_edges(input,slit_edges,cutout_size=30,binsize=20):
     """
     approx_edge is approximate y-pixel for top of the slit.
     cutout size is number of y rows of pixels to check for variation.
@@ -27,8 +27,9 @@ def get_edges(input,cutout_size=30,binsize=20):
     algorithms adapted for python based on Flame data reduction pipeline written in IDL (Belli, Contursi, and Davies (2017))
     """
     
+    slit_txt = slit_edges+"_approx_slit_edges.txt"
     # read in file of approximate slit edges
-    approx_edges = np.genfromtxt("LMask1/approx_slit_edges.txt",skip_header=2)
+    approx_edges = np.genfromtxt(slit_txt,skip_header=2)
     data,header = fits.getdata(input,header=True)
     sz = data.shape
     N_pixel_x = sz[1] #number of x pixels

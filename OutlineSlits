@@ -9,7 +9,7 @@ from Slit_id import *
 db = sys.argv[1]
 IsItHere(db)
 mask = db[:-1]
-
+print(mask)
 f = open(db,"r")
 lines = [l.strip() for l in f]
 f.close()
@@ -20,6 +20,8 @@ masterFlat = masterFlat[0]
 masterFlat = lines[masterFlat+1:][0]
 print("Master flat %s located" %masterFlat)
 
+mask_name = os.path.split(masterFlat)[0]
+print(mask_name)
 #I will want to import a file with approximate slit top edges to read into get_edges().
 
-get_edges(masterFlat)
+get_edges(masterFlat,mask_name)
