@@ -12,6 +12,34 @@ def ParseSec(r):
     (x0,x1),(y0,y1) = map(lambda x: map(int,x.split(":")), r[1:-1].split(","))
     return (x0,x1),(y0,y1)
 
+def FieldTrim(input,output):
+    """
+    This function trims the mask field image to the proper size.  I have to use this to 
+    create the slit_edges text file for now, since the slit positions aren't in the FITS headers.
+    """
+    f = fits.open(input)
+    h = f[0].header
+    d = f[0].data.astype("f")
+    print("Working on %s" %(input))
+    (xb0,xb1),(yb0,yb1) = np.subtract(ParseSec(h["biassec"]),1)
+    (xd0,xd1),(yd0,yd1) = np.subtract(ParseSec(h["datasec"]),1)
+    
+    data = d[1300:2800]
+
+    print("Writing %s" % (output))
+    hdu = fits.PrimaryHDU(data.astype("f"))
+    hdu.header = h.copy()
+    hdu.header["bitpix"] = -32
+    [hdu.header.remove(key) for key in ["bscale","bzero"]]
+    hdu.header.add_history("trimmed")
+    hdu.writeto(output,overwrite=True)
+    print("%s written." % (output))
+
+    p = os.path.dirname(output)
+    pj = "%s/jpeg" % (p)
+    if not os.path.exists(pj): os.mkdir(pj)
+    MakeThumbnail(output,pj)
+    
 def Overscan(input,output):
     f = fits.open(input)
     h = f[0].header
