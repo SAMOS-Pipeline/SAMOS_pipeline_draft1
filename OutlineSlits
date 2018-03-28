@@ -24,4 +24,4 @@ mask_name = os.path.split(masterFlat)[0]
 print(mask_name)
 #I will want to import a file with approximate slit top edges to read into get_edges().
 
-get_edges(masterFlat,"LDSS3/TConnor/%s_ycoords_c1.txt"%mask_name)
+get_edges(masterFlat,"%s_ycoords_c1.txt"%mask_name)
