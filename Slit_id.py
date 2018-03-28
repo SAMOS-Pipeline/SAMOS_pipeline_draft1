@@ -19,20 +19,24 @@ This still needs work for identifying slits that are close to each other.
 
 
 
-def get_edges(input,slit_edges,cutout_size=30,binsize=20):
+def get_edges(input,slit_txt,cutout_size=30,binsize=20):
     """
     approx_edge is approximate y-pixel for top of the slit.
     cutout size is number of y rows of pixels to check for variation.
     binsize is number of x columns to include each step.
     algorithms adapted for python based on Flame data reduction pipeline written in IDL (Belli, Contursi, and Davies (2017))
     """
+    print(slit_txt)
     
-    slit_txt = slit_edges+"_approx_slit_edges.txt"
+    
     # read in file of approximate slit edges
-    approx_edges = np.genfromtxt(slit_txt,skip_header=2)
+    approx_edges = np.genfromtxt(slit_txt)
+    #print(approx_edges)
     data,header = fits.getdata(input,header=True)
     sz = data.shape
     N_pixel_x = sz[1] #number of x pixels
+   #print(sz)
+    #print(data[2249-15:2249+15,0:19])
     x_edges_main = []
     y_edges_main = []
 
@@ -42,13 +46,16 @@ def get_edges(input,slit_edges,cutout_size=30,binsize=20):
         x_edge = []
         y_edge = []
         previous_ycoord = approx_edge
+        #print(previous_ycoord)
 
 
         while starting_pixel < N_pixel_x:
+            
 
             end_pixel = np.asarray([starting_pixel + binsize-1,N_pixel_x-1]).min()
             cutout_bin = data[np.int(previous_ycoord) - np.int(cutout_size/2): np.int(previous_ycoord) + np.int(cutout_size/2),\
                         np.int(starting_pixel) : np.int(end_pixel)]
+            #print(cutout_bin)
                                           
             profile = np.median(cutout_bin, axis=1)
     
@@ -99,17 +106,18 @@ def get_edges(input,slit_edges,cutout_size=30,binsize=20):
         xtf,ytf = int(xt[-1]),int(yt[-1])
         xbi,ybi = xti,yti-21
         xbf,ybf = xtf,ytf-21
-        str_top ='''physical; line '''+" "+str(xti)+" "+str(yti)+" "+str(xtf)+" "+str(ytf)+''' # color=cyan background\n'''
-        str_bottom = '''physical; line '''+" "+str(xbi)+" "+str(ybi)+" "+str(xbf)+" "+str(ybf)+''' # color=yellow background\n'''
+        str_top ='''line('''+str(xti)+","+str(yti)+","+str(xtf)+","+str(ytf)+''') # line=0 0 color=cyan\n'''
+        str_bottom = '''line('''+str(xbi)+","+str(ybi)+","+str(xbf)+","+str(ybf)+''') # line=0 0 color=yellow\n'''
         
         str_tops.append(str_top)
         str_bottoms.append(str_bottom)
            
         
         
-    region_txt = open('LMask1/reg_txt.txt','w')
-    region_txt.write( """# Region file format: DS9 version 4.1"""+"\n"+"""# File name: LMask1/LMask1master_flat.fits"""+"\n"+\
-    """global color=green width=1 font=helvetica 10 normal select=1 highlite=1 fixed=0 edit=1 move=1 delete=1 include=1 source=1\n""")
+    region_txt = open('LMask2/reg_txt.reg','w')
+    region_txt.write( """# Region file format: DS9 version 4.1"""+"\n"+"""# File name: LMask2/LMask2master_flat.fits"""+"\n"+\
+    """global color=green dashlist=8 3 width=1 font="helvetica 10 normal roman" select=1 highlite=1 dash=0 """+\
+    """fixed=0 edit=1 move=1 delete=1 include=1 source=1\n physical \n""")
     
     for i in range(len(str_tops)):
         region_txt.write(str(str_tops[i])+str(str_bottoms[i]))
@@ -117,7 +125,7 @@ def get_edges(input,slit_edges,cutout_size=30,binsize=20):
     
     region_txt.close()
     
-    reg_string = open("LMask1/reg_txt.txt","r").read()
+    reg_string = open("LMask2/reg_txt.reg","r").read()
 
     #r = regions.write_ds9(reg_string,region_filename)
 
@@ -172,6 +180,5 @@ slit_bottom = 1500 - space_top - bar_height*(index_last_bar) + 0.5*space_between
 
 target_position = 0.5*(slit_bottom+slit_top)
 """
-
 
 
