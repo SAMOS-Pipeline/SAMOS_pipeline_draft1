@@ -18,7 +18,11 @@ images.sort()
 
 fitslist = [fits.open(image) for image in images]
 fitslist, images = zip(*[(f,i) for f,i in zip(fitslist,images) if f[0].header["aperture"]==mask]) # IS THE MASK IN?
+fieldlist,fieldimages = zip(*[(f,i) for f,i in zip(fitslist,images) if "field" in f[0].header["object"].lower()])
+print("Found field image:")
+print(list(map(os.path.basename,fieldimages)))
 fitslist, images = zip(*[(f,i) for f,i in zip(fitslist,images) if f[0].header["grism"]!="Open"])  # IS A DISPERSER IN?
+
 
 flatlist, flats = zip(*[(f,i) for f,i in zip(fitslist,images) if "flat" in f[0].header["object"].lower()])
 print("Found flats:")
@@ -47,6 +51,8 @@ db.write("# flat\n")
 [db.write("%s\n"%(flat)) for flat in flats]
 db.write("# targ\n")
 [db.write("%s\n"%(targ)) for targ in targs]
+db.write("# field\n")
+[db.write("%s\n"%(field)) for field in fieldimages]
 db.close()
 
 if not os.path.exists(mask): os.mkdir(mask)
