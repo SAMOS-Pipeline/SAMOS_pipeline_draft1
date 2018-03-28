@@ -5,6 +5,10 @@
 ## Getting started
 The working directory should begin having the following files and directory:
 
+* `Slit_id.py`
+
+* `OutlineSlits`
+
 * `NormDivFlats`
 
 * `FlatNorm.py`
@@ -35,13 +39,13 @@ To run this code, it takes two arguments, the name of the directory with the tes
 
 > ` ./WhichFITSFiles 2017-11-30 LMask1`
 
-After running and reading over the terminal output, you should have a new directory named `LMask1` and a new file named `LMask1.db`.
+After running and reading over the terminal output, you should have a new directory named `LMask1` and a new file named `LMask1.db`.  This step also now keeps track of the field image.  The FITS headers for the test LDSS3 data do not contain the slit positions, so having the image of the actual slit mask is necessary at this time.
 
 ## `OverscanAndTrim`
 
 Next, we have to determine the overscan and trim the edges of the fits data. This code reads the database file and creates arrays which separate the data into flats, comparison lamps, and science data.  
 
-The main part of `OverscanAndTrim` is the calling of the module `Overscan.py`.  This module parses the fits data array into regions of bias and target data by reading the fits headers ` ''BIASSEC'' ` and ` ''DATASEC'' ` respectively.
+The main part of `OverscanAndTrim` is the calling of the module `Overscan.py`.  This module parses the fits data array into regions of bias and target data by reading the fits headers ` ''BIASSEC'' ` and ` ''DATASEC'' ` respectively.  There is a function in `Overscan.py` called `FieldTrim(input,output)` that trims the field mask to the correct size.  Then I looked in DS9 for the top edges of each of the slits and made a text file of the positions.  The text file is used in the step `OutlineSlits`.  So far, this is only implemented for LMask2.  The function responsible for trimming and bias subtraction of the other FITS files is `Overscan(input,output)`.
 
 The bias is due to a combination of the camera noise from the readout process and electric ''pre-charge'' on a CCD chip by the electronics.  The ` ''BIASSEC'' ` header gives the region of overscan, which contains information for this bias.  An array of this overscan region is made by grabbing the rows and columns from the data array (`d = f[0].data.astype("f")` &rarr; `overscan = d[biassec rows, biassec columns]`). The function then takes the median (or mean) of the overscan regions along the rows (axis=1), and subtracts these median values from each data value in their respective data rows.  The main procedure is shown in the figure below.
 
@@ -49,14 +53,14 @@ $$
  \begin{pmatrix}
   cropped & and\\\
   bias & subtraced\\\
-  data & matrix 
- \end{pmatrix} = 
+  data & matrix
+ \end{pmatrix} =
  \begin{pmatrix}
  d11 & d12 & d13 & ... & d1m\\\
  d21 & d22 & ... & ... & d2m\\\
  ... & ... & ... & ... & ...\\\
- dn1 & ... & ... & ... & dnm 
- \end{pmatrix} - 
+ dn1 & ... & ... & ... & dnm
+ \end{pmatrix} -
  \begin{pmatrix}
   [b1]\\\
   [b2]\\\
@@ -65,6 +69,9 @@ $$
   [bn]
  \end{pmatrix}
 $$
+
+
+
 
 With the new data matrix, the function makes a new fits file for the files originally entered as input.  The output fits are placed in their respective LMask directories and 'ccd' part of their original file names are replaced with LMask(1,2).
 
@@ -85,3 +92,6 @@ To call this routine, use
 
 The function also creates thumbnail images of the output data frames.
 
+## `OutlineSlits`
+
+Since the headers for the test data do not contain slit information, I typed up a text file of slit positions called `LMask2_ycoords_c1.txt`.  This file contains the top edge pixel for each of the slits in the field image.  (`LMask1_ycoords_c1.txt` is not ready yet.)
