@@ -37,7 +37,7 @@ This program retrieves the headers from the sample data in `LDSS3/2017-11-30/` a
 
 To run this code, it takes two arguments, the name of the directory with the test data (date on which data was retrieved) and the mask for which the user wants to use.  Running this code for LMask1 data would look like:
 
-> ` ./WhichFITSFiles 2017-11-30` LMask1
+> ` ./WhichFITSFiles` 2017-11-30 LMask1
 
 After running and reading over the terminal output, you should have a new directory named `LMask1` and a new file named `LMask1.db`.  This step also now keeps track of the field image.  The FITS headers for the test LDSS3 data do not contain the slit positions, so having the image of the actual slit mask is necessary at this time.
 
@@ -103,6 +103,8 @@ Since the headers for the test data do not contain slit information, I typed up 
   </p>
 <figure>
 
-To run this step, used
+
+
+To run this step, use
 
 > `./OutlineSlits` LMask(1,2).db
