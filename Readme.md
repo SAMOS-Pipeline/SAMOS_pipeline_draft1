@@ -3,7 +3,7 @@
 **This is the master branch, which does not presently include cosmic ray cleaning.  Please see the branch Cosmic\_ray_dev.**
 
 ## Getting started
-The working directory should begin having the following files and directory:
+The main content the user should have in his or her working directory is shown below:
 
 * `Slit_id.py`
 
@@ -23,13 +23,15 @@ The working directory should begin having the following files and directory:
 
 * `cleaner.sh`
 
-* pdf of Python Data Reduction Procedures
+* `LMask(1,2)_y_coords_c1.txt`
 
 * LDSS3-directory containing test data
 
-Right now, there are 3 main programs that the user runs to reduce data.  `WhichFITSFiles`, `OverscanAndTrim`, and `NormDivFlats`.
+You will need these to run the pipeline.
 
-This document reviews the purpose and describes how to use these programs to reduce the test data from LDSS3.
+Right now, there are 4 main programs that the user runs to reduce data.  `WhichFITSFiles`, `OverscanAndTrim`, `NormDivFlats`, and `OutlineSlits`.
+
+This document reviews the purpose and describes how to use these programs to reduce the test data from LDSS3.  Eventually, it will be used to reduce multi-object spectroscopy data taken with the SOAR Adaptive-Module Optical Spectrograph (SAMOS).  For information on the instrument, see [(Robberto et al. 2016)](https://www.spiedigitallibrary.org/conference-proceedings-of-spie/9908/1/SAMOS--a-versatile-multi-object-spectrograph-for-the-GLAO/10.1117/12.2233094.full).  In order to avoid reinventing the wheel, this pipeline is heavily based on the [Flame DRP](https://github.com/siriobelli/flame) written by [Belli, Contursi, and Davies (2017)](https://arxiv.org/pdf/1710.05924.pdf).  Flame is written in IDL, while the SAMOS pipeline will be written in Python3.
 
 ## `WhichFITSFiles`
 
@@ -94,7 +96,7 @@ The function also creates thumbnail images of the output data frames.
 
 ## `OutlineSlits`
 
-Since the headers for the test data do not contain slit information, I typed up a text file of slit positions called `LMask2_ycoords_c1.txt`.  This file contains the top edge pixel for each of the slits in the field image.  (`LMask1_ycoords_c1.txt` is not ready yet.)  The module `Slit_id.py` contains the function `get_edges()`, which is responsible for tracing the slits, using the master flat output from `NormDivFlats` as a template.  `get_edges` takes the master flat and the slit positions text file as input.  The function steps along cutouts of the FITS data frame based on the y-axis positions given in the text.  For each step, the median of the cutout along the x-axis is taken, and then the derivative along the y-axis is computed to locate the transition from the chip to the slid edge.  This steps along the slit until it reaches the end, storing the x and y positions.  The arrays of slit positions are written to a region file called `reg_txt.reg` within the corresponding mask directory (`LMask2` only, for now), and can be loaded into DS9.  An example of this is shown in figure 1.  The slits outlined here are representative of the slits found in the image of the mask field, so not all of the slits in a science image will be included in this step.
+Since the headers for the test data do not contain slit information, I typed up a text file of slit positions called `LMask(1,2)_ycoords_c1.txt`.  This file contains the top edge pixel for each of the slits in the field image.  The module `Slit_id.py` contains the function `get_edges()`, which is responsible for tracing the slits, using the master flat output from `NormDivFlats` as a template.  `get_edges` takes the master flat and the slit positions text file as input.  The function steps along cutouts of the FITS data frame based on the y-axis positions given in the text.  For each step, the median of the cutout along the x-axis is taken, and then the derivative along the y-axis is computed to locate the transition from the chip to the slid edge.  This steps along the slit until it reaches the end, storing the x and y positions.  The arrays of slit positions are written to a region file called `reg_txt.reg` within the corresponding mask directory, and can be loaded into DS9.  An example of this is shown in figure 1.  The slits outlined here are representative of the slits found in the image of the mask field, so not all of the slits in a science image will be included in this step.
 
 <figure>
   <p align="center">
