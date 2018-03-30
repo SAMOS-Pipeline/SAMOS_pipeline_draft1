@@ -18,8 +18,6 @@ if [ $answer =  "yes" ] || [ $answer = "y" ]
   fi
  echo "Deleting $DIR"/LMask*.db
  find . -type f -name "*.db" -exec rm -f {} \; 
- echo "Deleting $DIR"/LMask*.SMF
- find . -type f -name "*.SMF" -exec rm -f {} \;
  echo "Deleted associated LMask files"
  find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf 
 else

@@ -18,7 +18,8 @@ images.sort()
 
 fitslist = [fits.open(image) for image in images]
 fitslist, images = zip(*[(f,i) for f,i in zip(fitslist,images) if f[0].header["aperture"]==mask]) # IS THE MASK IN?
-fieldlist,fieldimages = zip(*[(f,i) for f,i in zip(fitslist,images) if "field" in f[0].header["object"].lower()])
+
+fieldlist,fieldimages = zip(*[(f,i) for f,i in zip(fitslist,images) if f[0].header["grism"]=="Open"])
 print("Found field image:")
 print(list(map(os.path.basename,fieldimages)))
 fitslist, images = zip(*[(f,i) for f,i in zip(fitslist,images) if f[0].header["grism"]!="Open"])  # IS A DISPERSER IN?

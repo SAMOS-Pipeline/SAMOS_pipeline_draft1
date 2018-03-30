@@ -58,4 +58,6 @@ def NormFlatDiv(input,mflat,output):
 
     print("Flat fielded data has been created and stored in %s" %(output))
     
+    print("Shape of each data frame is: ", (out_data.shape) )
+    
     

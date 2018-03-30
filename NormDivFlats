@@ -61,6 +61,7 @@ db.write("# FFLamps\n")
 [db.write("%s\n"%(olamp)) for olamp in lampflat_fielded_path]
 db.write("# FFTargs\n")
 [db.write("%s\n"%(otarg)) for otarg in targflat_fielded_path]
-
+db.write("# MasterFlat\n")
+db.write("%s/%s%s" %(mask,mask,'master_flat.fits'))
 
 db.close()
