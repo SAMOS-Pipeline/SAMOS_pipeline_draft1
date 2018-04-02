@@ -1,4 +1,4 @@
-# SAMOS Data Recution pipeline
+# SAMOS Data Reduction pipeline
 Written by Dana Koeppe, Michigan State University 2016-present
 
 This code requires Python3.
