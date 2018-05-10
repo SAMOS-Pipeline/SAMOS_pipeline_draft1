@@ -1,0 +1,13 @@
+# Region file format: DS9 version 4.1
+# File name: LMask2/LMask2master_flat.fits
+global color=green dashlist=8 3 width=2 font="helvetica 10 normal roman" select=1 highlite=1 dash=0 fixed=0 edit=1 move=1 delete=1 include=1 source=1
+ physical 
+polygon(0,936,1024,929,1024,908,0,915)         # line=0 0 color=blue
+polygon(0,911,1024,904,1024,883,0,890)         # line=0 0 color=blue
+polygon(0,851,1024,845,1024,824,0,830)         # line=0 0 color=blue
+polygon(0,811,1024,805,1024,784,0,790)         # line=0 0 color=blue
+polygon(0,773,1024,767,1024,746,0,752)         # line=0 0 color=blue
+polygon(0,734,1024,727,1024,706,0,713)         # line=0 0 color=blue
+polygon(0,678,1024,671,1024,650,0,657)         # line=0 0 color=blue
+polygon(0,141,1024,136,1024,115,0,120)         # line=0 0 color=blue
+polygon(0,107,1024,102,1024,81,0,86)         # line=0 0 color=blue

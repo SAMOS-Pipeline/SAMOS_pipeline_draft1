@@ -1,0 +1,39 @@
+#!/usr/bin/env python
+
+import glob
+from astropy.io import fits
+from FlatNorm import *
+from SAMOSHelpers import *
+from Slit_id import *
+from slit_cutout import *
+
+db = sys.argv[1]
+IsItHere(db)
+mask = db[:-3]
+print(mask)
+f = open(db,"r")
+lines = [l.strip() for l in f]
+f.close()
+
+
+FF_targs = [j for j,l in enumerate(lines) if "# FFTargs" in l]
+FF_targs = FF_targs[0]
+masterFlat = [j for j,l in enumerate(lines) if "# MasterFlat" in l]
+masterFlat = masterFlat[0]
+FF_targs = lines[FF_targs+1:masterFlat]
+masterFlat = lines[masterFlat+1:][0]
+print("Master flat %s located" %masterFlat)
+print("Flat fielded target fits are \n %s " %FF_targs)
+
+
+
+mask_name = os.path.split(masterFlat)[0]
+print(mask_name)
+#I will want to import a file with approximate slit top edges to read into get_edges().
+
+x_edges_main,y_edges_main = get_edges(masterFlat,"%s_ycoords_red_c1.txt"%mask_name,mask_name)
+
+print("Working on cutting out slits....")
+
+cutout_slit_arrs = cutout_slit(FF_targs[0],x_edges_main,y_edges_main)
+
