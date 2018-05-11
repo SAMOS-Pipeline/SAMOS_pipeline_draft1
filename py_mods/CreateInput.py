@@ -67,7 +67,7 @@ class CreateInput:
         self.field_filelist = fieldimages
         self.slit_position_file = '../helper_files/%s_ycoords_c1.txt'%(mask)
 
-        db = open("%s.db"%(mask),"w")
+        db = open("%s/%s.db"%(working_dir,mask),"w")
         db.write("# lamp\n")
         [db.write("%s\n"%(lamp)) for lamp in self.arc_filelist]
         db.write("# flat\n")
