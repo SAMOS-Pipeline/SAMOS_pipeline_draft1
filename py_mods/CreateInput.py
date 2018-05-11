@@ -10,18 +10,20 @@ import glob
 class CreateInput:
 
     def __init__(self):
-        self.science_filelist = None
-        self.arc_filelist = None
-        self.flat_filelist = None
-        self.field_filelist = None
-        self.slit_position_file = None
+        self.working_dir = os.path.split(os.getcwd())[0]
+        self.science_filelist = ''
+        self.arc_filelist = ''
+        self.flat_filelist = ''
+        self.field_filelist = ''
+        self.slit_position_file = ''
+        self.slit_mask = ''
 
 
     def create_input(self,datedir,mask):
 
-        working_dir = os.path.split(os.getcwd())[0]
+        #working_dir = os.path.split(os.getcwd())[0]
 
-        instdir  = "%s/LDSS3"%(working_dir)
+        instdir  = "%s/LDSS3"%(self.working_dir)
 
         datadir = "%s/%s" % (instdir,datedir)
 
@@ -66,18 +68,20 @@ class CreateInput:
         self.flat_filelist = flats
         self.field_filelist = fieldimages
         self.slit_position_file = '../helper_files/%s_ycoords_c1.txt'%(mask)
+        self.slit_mask = mask
 
-        db = open("%s/%s.db"%(working_dir,mask),"w")
+        db = open("%s/%s.db"%(self.working_dir,mask),"w")
         db.write("# lamp\n")
         [db.write("%s\n"%(lamp)) for lamp in self.arc_filelist]
         db.write("# flat\n")
-        [db.write("%s\n"%(flat)) for flat in flats]
+        [db.write("%s\n"%(flat)) for flat in self.flat_filelist]
         db.write("# targ\n")
-        [db.write("%s\n"%(targ)) for targ in targs]
+        [db.write("%s\n"%(targ)) for targ in self.science_filelist]
         db.write("# field\n")
-        [db.write("%s\n"%(field)) for field in fieldimages]
+        [db.write("%s\n"%(field)) for field in self.field_filelist]
         db.close()
 
-        if not os.path.exists('%s/%s'%(working_dir,mask)): os.mkdir('%s/%s'%(working_dir,mask))
+        if not os.path.exists('%s/%s'%(self.working_dir,self.slit_mask)): os.mkdir('%s/%s'%(self.working_dir,self.slit_mask))
 
+        self.slit_mask = '%s/%s'%(self.working_dir,self.slit_mask)
         return self
