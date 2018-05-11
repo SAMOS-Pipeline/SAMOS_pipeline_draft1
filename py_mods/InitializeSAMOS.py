@@ -4,9 +4,14 @@ import json
 from SAMOSHelpers import *
 from astropy.io import fits
 import glob
-from CreateFuelStructure import create_fuel_structure
+from CreateFuelStructure import CreateFuelStructure
+from CreateInput import CreateInput
 
 
-def initialize_SAMOS(input):
+def initialize_SAMOS(datedir,mask):
 
-    fuel = create_fuel_structure(input)
+    input_structure = CreateInput().create_input(datedir,mask)
+
+    fuel = CreateFuelStructure().create_fuel_structure(input_structure)
+
+    return fuel

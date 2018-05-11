@@ -7,16 +7,8 @@ import glob
 import struct
 
 
-class CreateFuelStructure:
 
-    def __init__(self):
-        self.input = None
-        self.setings = None
-        self.util = None
-        self.instrument = None
-        self.slits = None
 
-    
 
 class CreateFuelLoadfiles:
 
@@ -73,5 +65,24 @@ class CreateUtilStructure:
         self.arc = calib_arc
         self.slitflat = calib_slitflat
         self.intermediate_dir = input.slit_mask
+
+        return self
+
+
+
+class CreateFuelStructure:
+
+    def __init__(self):
+        self.input = None
+        self.settings = None
+        self.util = None
+        self.instrument = None
+        self.slits = None
+
+
+    def create_fuel_structure(self,input):
+
+        self.input = input
+        self.util = CreateUtilStructure().create_util_structure(input)
 
         return self
