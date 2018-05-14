@@ -29,7 +29,7 @@ class CreateFuelLoadfiles:
 
 
         self.n_frames = len(filelist)
-        self.corr_files = ['%s_corr'%(os.path.basename(fname)) for fname in filelist]
+        #self.corr_files =
         self.raw_files = filelist
 
         return self
@@ -42,10 +42,12 @@ class CreateUtilStructure:
         self.science = ''
         self.arc = ''
         self.slitflat = ''
+        self.field = ''
         self.intermediate_dir = ''
 
 
     def create_util_structure(self,input):
+
 
         #Make the directory withing LMask*/ to put the newly corrected frames after each step
         if not os.path.exists('%s/%s'%(input.slit_mask,'corr_frames')): os.mkdir('%s/%s'%(input.slit_mask,'corr_frames'))
@@ -57,19 +59,23 @@ class CreateUtilStructure:
         calib_arc.master_file = '%s/%s'%(input.slit_mask,'master_arc.fits')
         calib_slitflat = CreateFuelLoadfiles().create_fuel_loadfiles(input.flat_filelist)
         calib_slitflat.master_file = '%s/%s'%(input.slit_mask,'master_slitflat.fits')
+        field = CreateFuelLoadfiles().create_fuel_loadfiles(input.field_filelist)
 
         self.science = science
         self.arc = calib_arc
         self.slitflat = calib_slitflat
-        self.intermediate_dir = input.slit_mask
+        self.field = field
+        self.intermediate_dir = '%s/%s'%(input.slit_mask,'corr_frames')
 
         return self
-'''
+
 class CreateSettingStructure:
 
         def __init__(self):
+            self.linelist_arcs_filename = ''
 
 
+'''
 
             settings = { $
     sky_emission_filename: data_dir + 'sky_emission_model_nir.dat', $

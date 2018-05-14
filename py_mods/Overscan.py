@@ -14,7 +14,7 @@ def ParseSec(r):
 
 def FieldTrim(input,output):
     """
-    This function trims the mask field image to the proper size.  I have to use this to 
+    This function trims the mask field image to the proper size.  I have to use this to
     create the slit_edges text file for now, since the slit positions aren't in the FITS headers.
     """
     f = fits.open(input)
@@ -23,7 +23,7 @@ def FieldTrim(input,output):
     print("Working on %s" %(input))
     (xb0,xb1),(yb0,yb1) = np.subtract(ParseSec(h["biassec"]),1)
     (xd0,xd1),(yd0,yd1) = np.subtract(ParseSec(h["datasec"]),1)
-    
+
     data = d[1300:2800]
 
     print("Writing %s" % (output))
@@ -39,7 +39,7 @@ def FieldTrim(input,output):
     pj = "%s/jpeg" % (p)
     if not os.path.exists(pj): os.mkdir(pj)
     MakeThumbnail(output,pj)
-    
+
 def Overscan(input,output):
     f = fits.open(input)
     h = f[0].header
@@ -76,4 +76,3 @@ def Overscan(input,output):
 if __name__ == "__main__":
    input,output = sys.argv[1:3]
    Overscan(input,output)
-

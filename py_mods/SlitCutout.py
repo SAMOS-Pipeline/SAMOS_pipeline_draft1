@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import regions
 import matplotlib.cm as cm
 from PIL import Image as P
-from Slit_id import get_edges
+from SlitID import get_edges
 from numpy.polynomial.polynomial import polyval
 
 

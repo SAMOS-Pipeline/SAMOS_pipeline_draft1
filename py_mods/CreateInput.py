@@ -11,6 +11,7 @@ class CreateInput:
 
     def __init__(self):
         self.working_dir = os.path.split(os.getcwd())[0]
+        self.db_file = ''
         self.science_filelist = ''
         self.arc_filelist = ''
         self.flat_filelist = ''
@@ -67,7 +68,7 @@ class CreateInput:
         self.arc_filelist = lamps
         self.flat_filelist = flats
         self.field_filelist = fieldimages
-        self.slit_position_file = '../helper_files/%s_ycoords_c1.txt'%(mask)
+        self.slit_position_file = '%s/helper_files/%s_ycoords_c1.txt'%(self.working_dir,mask)
         self.slit_mask = mask
 
         db = open("%s/%s.db"%(self.working_dir,mask),"w")
@@ -84,4 +85,5 @@ class CreateInput:
         if not os.path.exists('%s/%s'%(self.working_dir,self.slit_mask)): os.mkdir('%s/%s'%(self.working_dir,self.slit_mask))
 
         self.slit_mask = '%s/%s'%(self.working_dir,self.slit_mask)
+        self.db_file = "%s/%s.db"%(self.working_dir,mask)
         return self
