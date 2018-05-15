@@ -10,9 +10,18 @@ from CreateInput import CreateInput
 class InitializeSAMOSInstrument:
 
     def __init__(self):
-        self.instrument_name = ''
-        self.grating = ''
-        self.grating_order = ''
+        self.date = ''
+        self.instrument = ''
+        self.mask = ''
+        self.dewoff = ''
+        self.camera = ''
+        self.mode = ''
+        self.ns = ''
+        self.dewar = ''
+        self.grism = ''
+        self.gr_order = ''
+        self.gr_angle = ''
+        self.d_alignrot = ''
         self.central_wavelength: ''
         self.pixel_scale: ''
         self.filter: ''
@@ -31,20 +40,30 @@ class InitializeSAMOSInstrument:
 
         fname = fits.open(science_frame)
         hdr = fname[0].header
-        date = hdr['DATE-OBS']
-        self.instrument_name = hdr['INSTRUME']
-        self.grating = hdr['GRISM']
+        self.date = hdr['DATE-OBS']
+        self.instrument = hdr['INSTRUME']
+        self.grism = hdr['GRISM']
         data_dir = os.path.split(science_frame)[0]
         obsdef = open('%s/L3VPH_all.obsdef'%(data_dir),'r')
         for line in obsdef.readline():
-            if 'GR_ORDER' in line:
-                self.grating_order = line.split(' ')[1]
+            if 'MODE' in line:
+                self.mode = line.split(' ')[1]
+            elif 'DEWAR' in line:
+                self.dewar = line.split(' ')[1]
+            elif 'DEWOFF' in line:
+                self.dewoff = line.split(' ')[1]
+            elif 'GR_ORDER' in line:
+                self.gr_order = line.split(' ')[1]
+            elif 'GR_ANGLE' in line:
+                self.gr_angle = line.split(' ')[1]
+            elif 'D_ALIGNROT' in line:
+                self.d_alignrot = line.split(' ')[1]
 
-        if self.grating == 'VPH-Red':
+        if self.grism == 'VPH-Red':
             self.central_wavelength = 8000 #angstroms
-        elif self.grating == 'VPH-Blue':
+        elif self.grism == 'VPH-Blue':
             self.central_wavelength = 5000
-        elif self.grating == 'VPH-All':
+        elif self.grism == 'VPH-All':
             self.central_wavelength = 7100
 
         self.pixel_scale = hdr['SCALE'] #arcsec/pixel
