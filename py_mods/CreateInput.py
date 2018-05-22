@@ -71,7 +71,7 @@ class CreateInput:
         self.field_filelist = fieldimages
         self.slit_position_file = '%s/helper_files/%s_ycoords_c1.txt'%(self.working_dir,mask)
         self.slit_mask = mask
-        self.mask_SMF = '%s/%s.SMF'%(datadir,mask)
+        self.mask_SMF = '%s/helper_files/%s.SMF'%(self.working_dir,mask)
 
         db = open("%s/%s.db"%(self.working_dir,mask),"w")
         db.write("# lamp\n")

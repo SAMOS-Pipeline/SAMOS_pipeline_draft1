@@ -22,21 +22,24 @@ class InitializeSAMOSInstrument:
         self.gr_order = ''
         self.gr_angle = ''
         self.d_alignrot = ''
-        self.central_wavelength: ''
-        self.pixel_scale: ''
-        self.filter: ''
-        self.readnoise: ''
-        self.gain: ''
-        self.resolution_slit1arcsec: 0.0
-        self.linearity_correction: ''
-        self.trim_edges: 4.0
-        self.default_badpixel_mask: ''
-        self.default_dark: ''
-        self.default_pixelflat: ''
-        self.default_illumflat: ''
-        self.default_arc: ''
+        self.central_wavelength= ''
+        self.pixel_scale= ''
+        self.filter= ''
+        self.readnoise= ''
+        self.gain= ''
+        self.celestial_ra = ''
+        self.celestial_dec = ''
+        self.resolution_slit1arcsec= 0.0
+        self.linearity_correction= ''
+        self.trim_edges= 4.0
+        self.default_badpixel_mask= ''
+        self.default_dark= ''
+        self.default_pixelflat= ''
+        self.default_illumflat= ''
+        self.default_arc= ''
 
-    def initialize_SAMOS_instrument(self,science_frame):
+
+    def initialize_SAMOS_instrument(self,science_frame,mask):
 
         fname = fits.open(science_frame)
         hdr = fname[0].header
@@ -85,12 +88,42 @@ class InitializeSAMOSInstrument:
                 self.gain = 3.04
             elif fname[-2:]=='c2':
                 self.gain = 2.63
-        if int(date[:4])>=2005:
+        if int(self.date[:4])>=2005:
             self.default_badpixel_mask = '%s/SITE2'%(data_dir)
         else:
             self.default_badpixel_mask = '%s/SITE'%(data_dir)
 
+        for line in open(mask,'r'):
+            if "POSITION" in line:
+                print('found celestial coords')
+                print(line)
+                print(line.split(' ')[2])
+                self.celestial_ra = line.split(' ')[2].strip()
+                self.celestial_dec = line.split(' ')[3].strip()
+
+
         return self
+
+
+def initialize_SAMOS_slits(input,instrument):
+
+    mask_file = open(input.mask_SMF, 'r')
+    for line in mask_file:
+        pass
+
+    slit_obj = np.genfromtxt(input.mask_SMF,skip_header=13,skip_footer=9,
+                    usecols=1,unpack=True,dtype=str)
+    x_mm,y_mm = np.genfromtxt(input.mask_SMF,skip_header=13,skip_footer=9,
+                    usecols=(4,5),unpack=True,dtype=float)
+    width_mm = np.genfromtxt(input.mask_SMF,skip_header=13,skip_footer=9,
+                    usecols=6,unpack=True,dtype=float)
+    len_mm_neg,len_mm_pos = np.genfromtxt(input.mask_SMF,skip_header=13,skip_footer=9,
+                    usecols=(7,8),unpack=True,dtype=float)
+
+    width_arcsec = width_mm
+
+
+
 
 
 def initialize_SAMOS(datedir,mask):
@@ -99,8 +132,11 @@ def initialize_SAMOS(datedir,mask):
 
     fuel = CreateFuelStructure().create_fuel_structure(input_structure)
 
-    instrument = InitializeSAMOSInstrument().initialize_SAMOS_instrument(input_structure.science_filelist[0])
+    instrument = InitializeSAMOSInstrument().initialize_SAMOS_instrument(input_structure.science_filelist[0],input_structure.mask_SMF)
 
     fuel.instrument = instrument
     #instrument = InitializeSAMOSInstrument().initialize_SAMOS_instrument(fuel.input.science_filelist)
+
+
+
     return fuel

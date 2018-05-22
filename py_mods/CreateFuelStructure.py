@@ -5,6 +5,7 @@ from SAMOSHelpers import *
 from astropy.io import fits
 import glob
 import struct
+from CreateSlitStructure import CreateSlitStructure
 
 
 class CreateFuelLoadfiles:
@@ -142,5 +143,7 @@ class CreateFuelStructure:
 
         self.input = input
         self.util = CreateUtilStructure().create_util_structure(input)
+        self.slits = CreateSlitStructure().create_slit_structure(input)
 
+        
         return self
