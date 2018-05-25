@@ -6,6 +6,8 @@ from astropy.io import fits
 import glob
 from CreateFuelStructure import CreateFuelStructure
 from CreateInput import CreateInput
+from CreateSlitStructure import CreateSlitStructure
+
 
 class InitializeSAMOSInstrument:
 
@@ -13,6 +15,10 @@ class InitializeSAMOSInstrument:
         self.date = ''
         self.instrument = ''
         self.mask = ''
+        self.epoch = 0.0
+        self.temp = 0.0
+        self.dref = 0.0
+        self.hangle = 0.0
         self.dewoff = ''
         self.camera = ''
         self.mode = ''
@@ -29,8 +35,11 @@ class InitializeSAMOSInstrument:
         self.gain= ''
         self.celestial_ra = ''
         self.celestial_dec = ''
+        self.resolution = 0.0
         self.resolution_slit1arcsec= 0.0
-        self.linearity_correction= ''
+        self.linearity_correction= [0.0,1.0,4e-6] #copied from FLAME, no LDSS3 linearity info
+        self.linear_disp = 0.0
+        self.scale_arc_per_mm = 0.0
         self.trim_edges= 4.0
         self.default_badpixel_mask= ''
         self.default_dark= ''
@@ -62,14 +71,23 @@ class InitializeSAMOSInstrument:
             elif 'D_ALIGNROT' in line:
                 self.d_alignrot = line.split(' ')[1]
 
+
         if self.grism == 'VPH-Red':
             self.central_wavelength = 8000 #angstroms
+            self.linear_disp = 1.175 #ang/pix
+            self.resolution = 1810 #0.75" slit
         elif self.grism == 'VPH-Blue':
             self.central_wavelength = 5000
+            self.linear_disp = 0.682
+            self.resolution = 1900
         elif self.grism == 'VPH-All':
             self.central_wavelength = 7100
+            self.linear_disp = 1.890
+            self.resolution = 860
+
 
         self.pixel_scale = hdr['SCALE'] #arcsec/pixel
+        self.scale_arc_per_mm = 12.6
         self.filter = hdr['FILTER']
         self.readnoise = hdr['ENOISE']
         speed = hdr['SPEED']
@@ -95,35 +113,42 @@ class InitializeSAMOSInstrument:
 
         for line in open(mask,'r'):
             if "POSITION" in line:
-                print('found celestial coords')
-                print(line)
-                print(line.split(' ')[2])
                 self.celestial_ra = line.split(' ')[2].strip()
                 self.celestial_dec = line.split(' ')[3].strip()
+            elif "TEMPERATURE" in line:
+                self.temp = float(line.split()[1])
+            elif "EPOCH" in line:
+                self.epoch = float(line.split()[1])
+            elif "DREF" in line:
+                self.dref = float(line.split()[1])
+            elif "HANGLE" in line:
+                self.hangle = float(line.split()[1])
 
-
+        obsdef.close()
         return self
 
 
-def initialize_SAMOS_slits(input,instrument):
+def initialize_SAMOS_slits(fuel):
 
-    mask_file = open(input.mask_SMF, 'r')
+    slits = []
+    this_slit = CreateSlitStructure().create_slit_structure(fuel.input)
+    mask_file = open(fuel.input.mask_SMF, 'r')
+    slit_num = 1
     for line in mask_file:
-        pass
+        line = line.split()
+        if "SLIT" in line:
+            this_slit.number = slit_num
+            this_slit.obj = line[1]
+            this_slit.obj_ra,this_slit.obj_dec = line[2],line[3]
+            this_slit.x_mm,this_slit.y_mm = float(line[4]),float(line[5])
+            this_slit.alen_mm,this_slit.blen_mm = float(line[7]),float(line[8])
+            this_slit.width_mm = float(line[6])
+            this_slit.angle = float(line[9])
 
-    slit_obj = np.genfromtxt(input.mask_SMF,skip_header=13,skip_footer=9,
-                    usecols=1,unpack=True,dtype=str)
-    x_mm,y_mm = np.genfromtxt(input.mask_SMF,skip_header=13,skip_footer=9,
-                    usecols=(4,5),unpack=True,dtype=float)
-    width_mm = np.genfromtxt(input.mask_SMF,skip_header=13,skip_footer=9,
-                    usecols=6,unpack=True,dtype=float)
-    len_mm_neg,len_mm_pos = np.genfromtxt(input.mask_SMF,skip_header=13,skip_footer=9,
-                    usecols=(7,8),unpack=True,dtype=float)
+            slit_num+=1
 
-    width_arcsec = width_mm
-
-
-
+            slits.append(this_slit)
+    return slits
 
 
 def initialize_SAMOS(datedir,mask):
@@ -136,7 +161,7 @@ def initialize_SAMOS(datedir,mask):
 
     fuel.instrument = instrument
     #instrument = InitializeSAMOSInstrument().initialize_SAMOS_instrument(fuel.input.science_filelist)
-
+    fuel.slits = initialize_SAMOS_slits(fuel)
 
 
     return fuel

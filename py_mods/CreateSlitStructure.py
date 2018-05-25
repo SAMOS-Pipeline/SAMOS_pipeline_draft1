@@ -12,17 +12,23 @@ class CreateSlitStructure:
 
     def __init__(self):
         self.number = 0
-        self.slit_name = None
+        self.obj = None
         self.skip = 0 #skip some number of slits
         self.position_angle = np.nan
+        self.obj_ra  = ''
+        self.obj_dec = ''
         self.approx_bottom = 0.0
         self.approx_top = 0.0
         self.approx_target = 0.0
-        self.width_arcsec = np.nan
+        self.width_arcsec = 0.0
+        self.width_mm = np.nan
+        self.alen_mm = 0.0
+        self.blen_mm = 0.0
+        self.angle = np.nan
         self.approx_R = 0.0
         self.cent_lambda = 0.0
         self.range_lambda0 = [0.0,0.0]
-        self.range_delta_lambda = [0.0,0.0]
+        #self.range_delta_lambda = [0.0,0.0]
 
 
     def create_slit_structure(self,input):

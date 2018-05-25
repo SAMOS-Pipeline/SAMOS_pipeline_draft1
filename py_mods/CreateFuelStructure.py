@@ -143,7 +143,7 @@ class CreateFuelStructure:
 
         self.input = input
         self.util = CreateUtilStructure().create_util_structure(input)
-        self.slits = CreateSlitStructure().create_slit_structure(input)
+        #self.slits = CreateSlitStructure().create_slit_structure(input)
 
-        
+
         return self
