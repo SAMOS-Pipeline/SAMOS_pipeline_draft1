@@ -28,22 +28,52 @@
 %\textbf{This is the master branch, which does not presently include cosmic ray cleaning.  Please see the branch Cosmic_ray_dev.}
 
 
-The main content the user should have in his or her working directory is shown below:
+The main content of the directories the user should have in his or her working directory for the current version of the pipeline is shown below:
 
 
 \begin{itemize}
-  \item \code{Slit$\_$id.py}
-  \item \code{OutlineSlits}
-  \item \code{NormDivFlats}
-  \item \code{FlatNorm.py}
-  \item \code{Overscan.py}
-  \item \code{OverscanAndTrim}
-  \item \code{SAMOSHelpers.py}
-  \item \code{WhichFITSFiles}
-  \item \code{cleaner.sh}
-  \item \code{LMask(1,2)$\_$y$\_$coords$\_$c1.txt}
-  \item LDSS3-directory containing test data
+  \setlength{\itemsep}{0.3\baselineskip}
+  \item \code{SAMOS-working-dir/}:
+        \begin{itemize}
+          \setlength{\itemsep}{0.1\baselineskip}
+          \item[$\ast$] \code{cleaner.sh}
+          \item[$\ast$] \code{Docs/}
+          \item[$\ast$] Readme.md
+          \item[$\ast$] \code{LDSS3/}
+          \item[$\ast$] \code{helper$\_$files/}
+          \item[$\ast$] \code{linelists/}
+          \item[$\ast$] \code{py$\_$mods/}
+        \end{itemize}
+  \item \code{SAMOS-working-dir/py$\_$mods/}:
+        \begin{itemize}
+          \setlength{\itemsep}{0.1\baselineskip}
+          \item[$\ast$] \code{CreateFuelStructure.py}
+          \item[$\ast$] \code{CreateInput.py}
+          \item[$\ast$] \code{CreateSlitStructure.py}
+          \item[$\ast$] \code{FlatNorm.py}
+          \item[$\ast$] \code{InitializeSAMOS.py}
+          \item[$\ast$] \code{NormDivFlats.py}
+          \item[$\ast$] \code{OutlineSlits.py}
+          \item[$\ast$] \code{Overscan.py}
+          \item[$\ast$] \code{OverscanAndTrim.py}
+          \item[$\ast$] \code{SAMOSHelpers.py}
+          \item[$\ast$] \code{SlitCutout.py}
+          \item[$\ast$] \code{SlitID.py}
+          \item[$\ast$] \code{$\_\_$init$\_\_$.py}
+        \end{itemize}
+  \item \code{SAMOS-working-dir/helper$\_$files}:
+        \begin{itemize}
+          \setlength{\itemsep}{0.1\baselineskip}
+          \item[$\ast$] LMask1.SMF
+          \item[$\ast$] LMask2.SMF
+          \item[$\ast$] LMask1$\_$ycoords$\_$c1.txt
+          \item[$\ast$] LMask2$\_$ycoords$\_$c1.txt
+          \item[$\ast$] LMask2$\_$ycoords$\_$red$\_$c1.txt
+        \end{itemize}
 \end{itemize}
+
+
+
 
 Right now, there are 4 main programs that the user runs to reduce data.  WhichFITSFiles, OverscanAndTrim, NormDivFlats, and `OutlineSlits.
 
