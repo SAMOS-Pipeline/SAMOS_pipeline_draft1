@@ -27,11 +27,11 @@ def get_edges(input,slit_txt,mask,cutout_size=30,binsize=20):
     binsize is number of x columns to include each step.
     algorithms adapted for python based on Flame data reduction pipeline written in IDL (Belli, Contursi, and Davies (2017))
     """
-    print(slit_txt)
+    #print(slit_txt)
 
 
     # read in file of approximate slit edges
-    approx_edges = np.genfromtxt(slit_txt)
+    approx_edges,obj_id = np.genfromtxt(slit_txt,delimiter=' ',unpack=True,usecols=(0,1))
     #print(approx_edges)
     data,header = fits.getdata(input,header=True)
     sz = data.shape
@@ -70,6 +70,7 @@ def get_edges(input,slit_txt,mask,cutout_size=30,binsize=20):
             derivative[0] = 0
             derivative[-1] = 0
             peak,peak_location = derivative.max(),np.argmax(derivative)
+
             print("previous ycoord - cutout/2:previous ycoord + cutout/2=[%s:%s]"\
             %(np.int(previous_ycoord) - np.int(cutout_size/2),np.int(previous_ycoord) + np.int(cutout_size/2)) )
             print("starting pixel %s"%(starting_pixel))
@@ -169,11 +170,16 @@ def get_edges(input,slit_txt,mask,cutout_size=30,binsize=20):
 
 
 
-
     region_txt = open('%s/reg_txt.reg'%mask,'w')
-    region_txt.write( """# Region file format: DS9 version 4.1"""+"\n"+"""# File name: LMask2/LMask2master_flat.fits"""+"\n"+\
-    """global color=green dashlist=8 3 width=2 font="helvetica 10 normal roman" select=1 highlite=1 dash=0 """+\
-    """fixed=0 edit=1 move=1 delete=1 include=1 source=1\n physical \n""")
+    if 'LMask1' in mask:
+        region_txt.write( """# Region file format: DS9 version 4.1"""+"\n"+"""# File name: LMask1/LMask1master_flat.fits"""+"\n"+\
+        """global color=green dashlist=8 3 width=2 font="helvetica 10 normal roman" select=1 highlite=1 dash=0 """+\
+        """fixed=0 edit=1 move=1 delete=1 include=1 source=1\n physical \n""")
+        print(mask)
+    elif 'LMask2' in mask:
+        region_txt.write( """# Region file format: DS9 version 4.1"""+"\n"+"""# File name: LMask2/LMask2master_flat.fits"""+"\n"+\
+        """global color=green dashlist=8 3 width=2 font="helvetica 10 normal roman" select=1 highlite=1 dash=0 """+\
+        """fixed=0 edit=1 move=1 delete=1 include=1 source=1\n physical \n""")
 
     for i in range(len(polygons)):
         #region_txt.write(str(str_tops[i])+str(str_bottoms[i]))
@@ -187,7 +193,7 @@ def get_edges(input,slit_txt,mask,cutout_size=30,binsize=20):
 
     #r = regions.write_ds9(reg_string,region_filename)
 
-    return x_edges_main,y_edges_main
+    return obj_id,x_edges_main,y_edges_main
 
 
 

@@ -25,6 +25,7 @@ def cutout_slit(input,x_edges,y_edges):
     margin = 5 #extra space to include in cutout_bin
     slit_height = 22
     input_fpath = os.path.split(input)
+    print(input_fpath)
     data,header = fits.getdata(input,header=True)
     sz = data.shape
     N_pixel_x = sz[1]
@@ -109,6 +110,7 @@ def cutout_slit(input,x_edges,y_edges):
     xf = slit1.shape[1]-1
 
     slit_rects = []
+    slit_cutout_paths = []
     slit_num = 1
     for slit in cutout_slit_arrays_full:
 
@@ -125,14 +127,22 @@ def cutout_slit(input,x_edges,y_edges):
         slit_rects.append(slit[yi:yf,xi:xf])
         hdu = fits.PrimaryHDU(slit[yi:yf,xi:xf].astype("f"))
         hdu.header = header.copy()
-        outname = "slit_%s.fits"%(str(slit_num))
+        outname = "slit%s_%s"%(str(slit_num),str(input_fpath[-1]))
+        print(outname)
 
-        slit_fits_path = "%s/slit_cutouts/"%input_fpath[:-1]
+        slit_fits_path = "%s/slit_cutouts"%input_fpath[:-1]
         #print(slit_fits_path)
         if not os.path.exists(slit_fits_path): os.mkdir(slit_fits_path)
-        hdu.writeto(slit_fits_path+outname,overwrite=True)
 
+        this_slit_dir = "%s/slit_%s/"%(slit_fits_path,str(slit_num))
+        if not os.path.exists(this_slit_dir): os.mkdir(this_slit_dir)
+
+        this_slit = this_slit_dir+outname
+        hdu.writeto(this_slit,overwrite=True)
+
+
+        slit_cutout_paths.append(this_slit)
         slit_num += 1
 
 
-    return cutout_slit_arrays_full,np.asarray(slit_rects)
+    return np.asarray(slit_cutout_paths)

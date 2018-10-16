@@ -128,11 +128,11 @@ class InitializeSAMOSInstrument:
         return self
 
 
-def initialize_SAMOS_slits(fuel):
+def initialize_SAMOS_slits(input_mask):
 
     slits = []
-    this_slit = CreateSlitStructure().create_slit_structure(fuel.input)
-    mask_file = open(fuel.input.mask_SMF, 'r')
+    this_slit = CreateSlitStructure().create_slit_structure(input_mask)
+    mask_file = open(input_mask, 'r')
     slit_num = 1
     for line in mask_file:
         line = line.split()
@@ -148,7 +148,7 @@ def initialize_SAMOS_slits(fuel):
             slit_num+=1
 
             slits.append(this_slit)
-    return slits
+    return np.asarray(slits)
 
 
 def initialize_SAMOS(datedir,mask):
@@ -157,11 +157,13 @@ def initialize_SAMOS(datedir,mask):
 
     fuel = CreateFuelStructure().create_fuel_structure(input_structure)
 
+    slit_init = initialize_SAMOS_slits(input_structure.mask_SMF)
+
     instrument = InitializeSAMOSInstrument().initialize_SAMOS_instrument(input_structure.science_filelist[0],input_structure.mask_SMF)
 
     fuel.instrument = instrument
     #instrument = InitializeSAMOSInstrument().initialize_SAMOS_instrument(fuel.input.science_filelist)
-    fuel.slits = initialize_SAMOS_slits(fuel)
+    fuel.slits = slit_init
 
 
     return fuel

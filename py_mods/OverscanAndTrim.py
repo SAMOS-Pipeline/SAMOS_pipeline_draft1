@@ -8,7 +8,7 @@ def overscan_and_trim(fuel):
     inlamps = fuel.util.arc.raw_files
     inflats = fuel.util.slitflat.raw_files
     intargs = fuel.util.science.raw_files
-    infield = fuel.input.field_filelist
+    infield = fuel.util.field.raw_files
 
     if not inlamps or not inflats or not intargs:
         MuyMalo("Problem with what files are available!")
@@ -16,13 +16,15 @@ def overscan_and_trim(fuel):
     db = fuel.input.db_file #sys.argv[1]
     IsItHere(db)
     mask = os.path.split(fuel.input.slit_mask)[1] #db[:-3]
+
     corr_dir = fuel.util.intermediate_dir
 
 
-    outlamps = ["%s/%s%s_corr.fits" % (corr_dir,mask,os.path.basename(i)[3:-5]) for i in inlamps]
-    outflats = ["%s/%s%s_corr.fits" % (corr_dir,mask,os.path.basename(i)[3:-5]) for i in inflats]
-    outtargs = ["%s/%s%s_corr.fits" % (corr_dir,mask,os.path.basename(i)[3:-5]) for i in intargs]
-    outfield = ["%s/%sfield%s_corr.fits" % (corr_dir,mask,os.path.basename(i)[7:-5]) for i in infield]
+
+    outlamps = ["%s/b%s%s.fits" % (corr_dir,mask,os.path.basename(i)[3:-5]) for i in inlamps]
+    outflats = ["%s/b%s%s.fits" % (corr_dir,mask,os.path.basename(i)[3:-5]) for i in inflats]
+    outtargs = ["%s/b%s%s.fits" % (corr_dir,mask,os.path.basename(i)[3:-5]) for i in intargs]
+    outfield = ["%s/b%sfield%s.fits" % (corr_dir,mask,os.path.basename(i)[7:-5]) for i in infield]
 
     # IF YOU THINK YOU MIGHT SPAWN JOBS IN THE BACKGROUND OR WHATEVER
     #infiles = inlamps+inflats+intargs

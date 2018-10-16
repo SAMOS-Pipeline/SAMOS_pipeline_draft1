@@ -32,7 +32,7 @@ class CreateInput:
         IsItHere(datadir)
 
         print("Scanning %s\n" %(datadir))
-        images = glob.glob("%s/ccd????c1.fits"%(datadir))
+        images = glob.glob("%s/ccd????c2.fits"%(datadir))
         images.sort()
 
         fitslist = [fits.open(image) for image in images]

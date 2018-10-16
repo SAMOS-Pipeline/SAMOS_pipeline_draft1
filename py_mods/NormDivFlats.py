@@ -25,15 +25,15 @@ def norm_div_flats(fuel):
 
     print("Created list of flats in %s\n" %(mask))
 
-    master_flat = "%s/%s%s" %(corr_dir,mask,'master_flat_corr.fits')
+    master_flat = "%s/fb%s%s" %(corr_dir,mask,'master_flat.fits')
 
     fuel.util.slitflat.master_file = master_flat
 
     [MkFlatNorm(inflats,master_flat)]
 
 
-    targflat_fielded_path = ["%s/%s" % (corr_dir,'fn'+os.path.basename(i)) for i in intargs]
-    lampflat_fielded_path = ["%s/%s" % (corr_dir,'fn'+os.path.basename(i)) for i in inlamps]
+    targflat_fielded_path = ["%s/%s" % (corr_dir,'f'+os.path.basename(i)) for i in intargs]
+    lampflat_fielded_path = ["%s/%s" % (corr_dir,'f'+os.path.basename(i)) for i in inlamps]
 
     if not os.path.exists(os.path.split(targflat_fielded_path[0])[0]):  os.mkdir(os.path.split(targflat_fielded_path[0])[0])
 

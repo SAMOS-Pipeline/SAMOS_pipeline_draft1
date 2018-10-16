@@ -13,6 +13,9 @@ class CreateSlitStructure:
     def __init__(self):
         self.number = 0
         self.obj = None
+        self.science = None
+        self.arc = None
+        self.flats = None
         self.skip = 0 #skip some number of slits
         self.position_angle = np.nan
         self.obj_ra  = ''
@@ -31,9 +34,9 @@ class CreateSlitStructure:
         #self.range_delta_lambda = [0.0,0.0]
 
 
-    def create_slit_structure(self,input):
+    def create_slit_structure(self,maskSMF):
 
-        smf = open(input.mask_SMF,'r')
+        smf = open(maskSMF,'r')
         for line in smf.readlines():
             if 'WLIMIT' in line:
                 self.range_lambda0 = [float(line.split(' ')[1].strip()),

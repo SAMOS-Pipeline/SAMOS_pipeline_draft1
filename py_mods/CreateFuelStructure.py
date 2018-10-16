@@ -51,7 +51,7 @@ class CreateUtilStructure:
 
 
         #Make the directory withing LMask*/ to put the newly corrected frames after each step
-        if not os.path.exists('%s/%s'%(input.slit_mask,'corr_frames')): os.mkdir('%s/%s'%(input.slit_mask,'corr_frames'))
+        #if not os.path.exists('%s/%s'%(input.slit_mask,'corr_frames')): os.mkdir('%s/%s'%(input.slit_mask,'corr_frames'))
 
         science = CreateFuelLoadfiles().create_fuel_loadfiles(input.science_filelist)
         print('%s science frames read'%(science.n_frames))
@@ -66,7 +66,10 @@ class CreateUtilStructure:
         self.arc = calib_arc
         self.slitflat = calib_slitflat
         self.field = field
-        self.intermediate_dir = '%s/%s'%(input.slit_mask,'corr_frames')
+        self.intermediate_dir = '%s/%s'%(input.slit_mask,'intermediates')
+        if not os.path.exists(self.intermediate_dir): os.mkdir(self.intermediate_dir)
+        #intermediate_dir is the main directory where
+        #fuel.util.(science,arc,slitflat).core_files live
 
         return self
 
