@@ -69,7 +69,7 @@ class CreateInput:
         self.arc_filelist = lamps
         self.flat_filelist = flats
         self.field_filelist = fieldimages
-        self.slit_position_file = '%s/helper_files/%s_ycoords_c1.txt'%(self.working_dir,mask)
+        self.slit_position_file = '%s/helper_files/%s_ycoords_c2.txt'%(self.working_dir,mask)
         self.slit_mask = mask
         self.mask_SMF = '%s/helper_files/%s.SMF'%(self.working_dir,mask)
 

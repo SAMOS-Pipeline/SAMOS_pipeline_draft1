@@ -10,19 +10,16 @@ from SlitCutout import cutout_slit
 
 def outline_slits(fuel):
     inlamps = fuel.util.arc.corr_files
-    #inflats = fuel.util.slitflat.corr_files
-    inflats = fuel.util.slitflat.master_file
+    masterFlat = fuel.util.slitflat.master_file
     intargs = fuel.util.science.corr_files
 
-    if not inlamps or not inflats or not intargs:
+    if not inlamps or not masterFlat or not intargs:
         MuyMalo("Problem with what files are available!")
 
     db = fuel.input.db_file #sys.argv[1]
     IsItHere(db)
     mask = os.path.split(fuel.input.slit_mask)[1] #db[:-3]
     corr_dir = fuel.util.intermediate_dir
-
-    masterFlat = fuel.util.slitflat.master_file
     slit_positions = fuel.input.slit_position_file
 
     #I will want to import a file with approximate slit top edges to read into get_edges().
