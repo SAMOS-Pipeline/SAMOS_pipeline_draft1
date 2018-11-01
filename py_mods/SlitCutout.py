@@ -1,3 +1,4 @@
+from __future__ import print_function
 import sys
 import os
 import numpy as np
@@ -49,11 +50,11 @@ def cutout_slit(input,x_edges,y_edges):
     #print(pixel_y)
     #pixel_x and pixel_y are both (1500,1024) size arrays. pixel_x has 1500 rows, with each row
     #goes from 0 to 1023.  pixel_y has 1500 rows where the columns go from 0 to 1499.
-
+    """
     poly_coeffs = []
     print("size of x_edges = %s" %(x_edges.shape,))
     print("size of y_edges = %s" %(y_edges.shape,))
-    print(y_edges)
+    #print(y_edges)
     #fit the slit edges to a polynomial for each slit and save in list.
     for slit in range(len(x_edges)):
         poly_coeffs.append(np.polyfit(x_edges[slit],y_edges[slit],1))
@@ -72,7 +73,7 @@ def cutout_slit(input,x_edges,y_edges):
 
     #for i in range(len(top_ys)):
     #    print(top_ys[i][0])
-    print(top_ys)
+    #print(top_ys)
 
     bottom_ys = []
     for slit in range(len(poly_coeffs)):
@@ -84,18 +85,24 @@ def cutout_slit(input,x_edges,y_edges):
         bottom_ys.append(bottom_y)
 
     #print(top_y)
-
+    """
     cutout_slit_arrays_full = []
 
-    for slit in range(len(poly_coeffs)):
-        im = np.copy(data)
-        for row in range(N_pixel_y):
-            if (row > (bottom_ys[slit][row].min()-margin)) and (row < (top_ys[slit][row].max()+margin)):
-                #print("keeping row %s of slit %s "%(str(row),str(slit)))
-                pass
 
-            else:
-                im[row]=np.full_like(im[row],np.nan)
+    for slit in range(len(y_edges)):
+        im = np.copy(data)
+        im[:,:] = np.nan
+        top_y = y_edges[slit]
+        bottom_y = top_y-slit_height
+
+        for col in range(im.shape[1]):
+            im[bottom_y[col]:top_y[col],col] = data[bottom_y[col]:top_y[col],col]
+            #if (row > (bottom_y[col]-margin)) and (row < (top_y[col]+margin)):
+                #print("keeping row %s of slit %s "%(str(row),str(slit)))
+            #    pass
+
+           # else:
+           #     im[row]=np.full_like(im[row],np.nan)
 
         cutout_slit_arrays_full.append(im)
 

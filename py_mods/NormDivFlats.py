@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-
+from __future__ import print_function
 import glob
 from astropy.io import fits
 from FlatNorm import *

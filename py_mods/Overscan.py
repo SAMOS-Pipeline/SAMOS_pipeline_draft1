@@ -1,9 +1,15 @@
-
+from __future__ import print_function
 import glob
 from SAMOSHelpers import *
+import sys
+import os
+import numpy as np
+from astropy.io import fits
+from PIL import Image as P
+import astroscrappy
 
-# Must read the data array •
-# Must convert to float32 •
+# Must read the data array
+# Must convert to float32
 # Must analyze bias level (as a function of row and/or column) and subtract
 # Trim the array
 # Write to output
@@ -20,16 +26,26 @@ def FieldTrim(input,output):
     f = fits.open(input)
     h = f[0].header
     d = f[0].data.astype("f")
+    theta = 180.
+    rot_matrix = np.matrix([[int(np.cos(theta)),int(-np.sin(theta))],
+                [int(np.sin(theta)),int(np.cos(theta))]])
+
     print("Working on %s" %(input))
     (xb0,xb1),(yb0,yb1) = np.subtract(ParseSec(h["biassec"]),1)
     (xd0,xd1),(yd0,yd1) = np.subtract(ParseSec(h["datasec"]),1)
 
     data = d[1300:2800]
+    if 'c1' in input:
+        data = np.rot90(data,2)
+    elif 'c2' in input:
+        data = np.fliplr(np.rot90(data,2))
 
     print("Writing %s" % (output))
     hdu = fits.PrimaryHDU(data.astype("f"))
     hdu.header = h.copy()
     hdu.header["bitpix"] = -32
+    hdu.header["NAXIS1"] = data.shape[1]
+    hdu.header["NAXIS2"] = data.shape[0]
     [hdu.header.remove(key) for key in ["bscale","bzero"]]
     hdu.header.add_history("trimmed")
     hdu.writeto(output,overwrite=True)
@@ -44,10 +60,18 @@ def Overscan(input,output):
     f = fits.open(input)
     h = f[0].header
     d = f[0].data.astype("f")
+    theta = 180.
+    rot_matrix = np.matrix([[int(np.cos(theta)),int(-np.sin(theta))],
+                [int(np.sin(theta)),int(np.cos(theta))]])
+
     print("Working on %s" %(input))
+
+
     (xb0,xb1),(yb0,yb1) = np.subtract(ParseSec(h["biassec"]),1)
     (xd0,xd1),(yd0,yd1) = np.subtract(ParseSec(h["datasec"]),1)
     print(input)
+
+
     overscan = d[yb0:yb1+1,xb0:xb1+1]
 
 #    o = np.add.reduce(np.transpose(overscan),0)/overscan.shape[1] # MEAN
@@ -57,11 +81,21 @@ def Overscan(input,output):
 # KLUGE FOR PRACTICING WITH THE LDSS3 NOD-SHUFFLE DATA FROM TOM
 
     data = data[1300:2800]
+    if 'c1' in input:
+        data = np.rot90(data,2)
+    elif 'c2' in input:
+        data = np.fliplr(np.rot90(data,2))
+#clean cosmic rays here bc I need to get rid of them somehow
+    mask = np.ma.make_mask(data, copy=True,shrink=True,dtype=np.bool)
+    mask[:,:] = False
+    crmask, dataCR = astroscrappy.detect_cosmics(data,inmask=mask,cleantype='medmask')
 
     print("Writing %s" % (output))
-    hdu = fits.PrimaryHDU(data.astype("f"))
+    hdu = fits.PrimaryHDU(dataCR.astype("f"))
     hdu.header = h.copy()
     hdu.header["bitpix"] = -32
+    hdu.header["NAXIS1"] = dataCR.shape[1]
+    hdu.header["NAXIS2"] = dataCR.shape[0]
     [hdu.header.remove(key) for key in ["bscale","bzero"]]
     hdu.header.add_history("overscan subtracted")
     hdu.writeto(output,overwrite=True)
@@ -72,6 +106,58 @@ def Overscan(input,output):
     if not os.path.exists(pj): os.mkdir(pj)
     MakeThumbnail(output,pj)
 
+
+def stitch(input):
+    #take the bias corrected chip images and combine them.
+
+    basename = os.path.basename(input)[:-7]
+    outfile = input[:-7]+'.fits'
+    if "c2" in input:
+        fc2 = fits.open(input)
+        hc2 = fc2[0].header
+        dc2 = fc2[0].data.astype("f")
+
+        fc1 = fits.open(input[:-7]+'c1.fits')
+        hc1 = fc1[0].header
+        dc1 = fc1[0].data.astype("f")
+        dfull = np.concatenate((dc2,dc1),axis=1)
+        #dfull = np.ones((1500,2048))
+        #for row in range(dc2.shape[0]):
+        #    dfull[row] = dfull[row]*dc2[row].extend(dc1[row])
+        #dfull = dfull*dc2
+        hdu = fits.PrimaryHDU(dfull.astype("f"))
+        hdu.header = hc2.copy()
+        hdu.header["NAXIS1"] = dfull.shape[1]
+        hdu.header["NAXIS2"] = dfull.shape[0]
+        hdu.header.add_history("stitched")
+        hdu.writeto(outfile,overwrite=True)
+    else:
+        pass
+
+
+    return outfile
+
+
+def fixbad(input,output):
+
+    data,header = fits.getdata(input,header=True)
+
+    mask = np.ma.make_mask(data, copy=True,shrink=True,dtype=np.bool)
+
+    mask[:,:] = False
+
+    crmask, dataCR = astroscrappy.detect_cosmics(data,inmask=mask,cleantype='medmask')
+
+    hdu = fits.PrimaryHDU(dataCR.astype("f"))
+    hdu.header = header.copy()
+    hdu.header.add_history('Cosmic Ray corrected.')
+    hdu.writeto(output,overwrite=True)
+
+    #print(os.path.split(output)[0])
+
+    pj = "%s/jpeg" % (os.path.split(output)[0])
+    if not os.path.exists(pj): os.mkdir(pj)
+    MakeThumbnail(output,pj)
 
 if __name__ == "__main__":
    input,output = sys.argv[1:3]

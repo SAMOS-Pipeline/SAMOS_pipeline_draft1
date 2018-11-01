@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-
+from __future__ import print_function
 import glob
 from astropy.io import fits
 from FlatNorm import *
@@ -24,7 +24,8 @@ def outline_slits(fuel):
 
     #I will want to import a file with approximate slit top edges to read into get_edges().
 
-    obj_id,x_edges_main,y_edges_main = get_edges(masterFlat,slit_positions,fuel.input.slit_mask)
+    #obj_id,x_edges_main,y_edges_main = get_edges(masterFlat,slit_positions,fuel.input.slit_mask)
+    x_edges_main,y_edges_main = get_edges(masterFlat,slit_positions,fuel.input.slit_mask)
 
     print("Working on cutting out slits....")
 

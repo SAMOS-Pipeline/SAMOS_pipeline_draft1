@@ -1,3 +1,4 @@
+from __future__ import print_function
 import sys
 import os
 import json
@@ -32,13 +33,14 @@ class CreateInput:
         IsItHere(datadir)
 
         print("Scanning %s\n" %(datadir))
-        images = glob.glob("%s/ccd????c2.fits"%(datadir))
+        images = glob.glob("%s/ccd????c?.fits"%(datadir))
         images.sort()
 
         fitslist = [fits.open(image) for image in images]
         fitslist, images = zip(*[(f,i) for f,i in zip(fitslist,images) if f[0].header["aperture"]==mask]) # IS THE MASK IN?
 
         fieldlist,fieldimages = zip(*[(f,i) for f,i in zip(fitslist,images) if f[0].header["grism"]=="Open"])
+        fieldlist,fieldimages = fieldlist[-2:],fieldimages[-2:]
         print("Found field image:")
         print(list(map(os.path.basename,fieldimages)))
         fitslist, images = zip(*[(f,i) for f,i in zip(fitslist,images) if f[0].header["grism"]!="Open"])  # IS A DISPERSER IN?
@@ -69,7 +71,7 @@ class CreateInput:
         self.arc_filelist = lamps
         self.flat_filelist = flats
         self.field_filelist = fieldimages
-        self.slit_position_file = '%s/helper_files/%s_ycoords_c2.txt'%(self.working_dir,mask)
+        self.slit_position_file = '%s/helper_files/%s_ycoords.txt'%(self.working_dir,mask)
         self.slit_mask = mask
         self.mask_SMF = '%s/helper_files/%s.SMF'%(self.working_dir,mask)
 

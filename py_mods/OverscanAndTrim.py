@@ -1,3 +1,4 @@
+from __future__ import print_function
 import glob
 from SAMOSHelpers import *
 from Overscan import *
@@ -38,10 +39,18 @@ def overscan_and_trim(fuel):
     [Overscan(i,o) for i,o in zip(intargs,outtargs)]
     [FieldTrim(i,o) for i,o in zip(infield,outfield)]
 
-    fuel.util.arc.corr_files = outlamps
-    fuel.util.science.corr_files = outtargs
-    fuel.util.slitflat.corr_files = outflats
-    fuel.util.field.corr_files = outfield
+
+    stitchlamps = [stitch(o) for o in outlamps]
+    stitchflats = [stitch(o) for o in outflats]
+    stitchtargs = [stitch(o) for o in outtargs]
+    stitchfield = [stitch(o) for o in outfield]
+
+    print(stitchlamps)
+
+    fuel.util.arc.corr_files = stitchlamps
+    fuel.util.science.corr_files = stitchtargs
+    fuel.util.slitflat.corr_files = stitchflats
+    fuel.util.field.corr_files = stitchfield
 
 
 
