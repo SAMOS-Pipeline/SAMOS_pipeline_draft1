@@ -4,6 +4,8 @@ import os
 import json
 sys.path.insert(0,os.path.split(os.getcwd())[0])
 print('Main working directory is: %s'%(sys.path[0]))
+#sys.path.insert(0,'/Users/DanaKoeppe/PhD_Thesis/SAMOS_Project/SAMOS_pipeline')
+#print('Main working directory is: %s'%(sys.path[0]))
 from SAMOSHelpers import *
 from astropy.io import fits
 import glob
@@ -37,10 +39,14 @@ class CreateInput:
         images.sort()
 
         fitslist = [fits.open(image) for image in images]
+        fieldlist,fieldimages = zip(*[(f,i) for f,i in zip(fitslist,images) if "ccd8152" in i])
+
         fitslist, images = zip(*[(f,i) for f,i in zip(fitslist,images) if f[0].header["aperture"]==mask]) # IS THE MASK IN?
 
-        fieldlist,fieldimages = zip(*[(f,i) for f,i in zip(fitslist,images) if f[0].header["grism"]=="Open"])
-        fieldlist,fieldimages = fieldlist[-2:],fieldimages[-2:]
+        #fieldimages = [image for image in images if '8152' in image]#["%s/ccd8152c1.fits"%(datadir),"%s/ccd8152c2.fits"%(datadir)]
+        #fieldlist = [fits.open(field) for field in fieldimages]
+        #fieldlist,fieldimages = zip(*[(f,i) for f,i in zip(fitslist,images) if "ccd8152" in i])
+        #fieldlist,fieldimages = fieldlist[:2],fieldimages[:2]
         print("Found field image:")
         print(list(map(os.path.basename,fieldimages)))
         fitslist, images = zip(*[(f,i) for f,i in zip(fitslist,images) if f[0].header["grism"]!="Open"])  # IS A DISPERSER IN?

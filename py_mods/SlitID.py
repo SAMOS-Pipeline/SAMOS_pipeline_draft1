@@ -69,11 +69,11 @@ def get_edges(input,slit_txt,mask,cutout_size=10,binsize=20):
             derivative[-1] = 0
             peak,peak_location = derivative.max(),np.argmax(derivative)
 
-            print("previous ycoord - cutout:previous ycoord =[%s:%s]"\
-            %(np.int(previous_ycoord) - np.int(cutout_size),np.int(previous_ycoord)))
-            print("starting pixel %s"%(starting_pixel))
-            print("end pixel %s"%(end_pixel))
-            print("peak location: %s"%(peak_location))
+            #print("previous ycoord - cutout:previous ycoord =[%s:%s]"\
+            #%(np.int(previous_ycoord) - np.int(cutout_size),np.int(previous_ycoord)))
+            #print("starting pixel %s"%(starting_pixel))
+            #print("end pixel %s"%(end_pixel))
+            #print("peak location: %s"%(peak_location))
 
 
             peak_location += (previous_ycoord - (cutout_size/2.))
@@ -82,7 +82,7 @@ def get_edges(input,slit_txt,mask,cutout_size=10,binsize=20):
             if peak_location > N_pixel_y-1:
                 peak_location = N_pixel_y-1
 
-            print("peak location updated: %s"%(peak_location))
+            #print("peak location updated: %s"%(peak_location))
 
             x_edge.append(int(np.round(0.5*(starting_pixel + end_pixel),0)))
             y_edge.append(int(peak_location))
@@ -140,33 +140,6 @@ def get_edges(input,slit_txt,mask,cutout_size=10,binsize=20):
         x_edges_main.append(x_edge_full)
         y_edges_main.append(y_edge_full)
 
-    #print(x_edges_main)
-    """
-    #fill in all other values with nans.  Not sure why yet but leaving it here for now.
-    nan_arr = np.empty(N_pixel_x)
-    nan_arr[:] = np.nan
-    y_edge_full = nan_arr.copy()
-    for i in range(len(y_edge_full)):
-        for j in range(len(x_edge)):
-            if i==x_edge[j]:
-                y_edge_full[x_edge[j]]=y_edge[j]
-            else:
-                pass
-
-    print(y_edge_full)
-
-    nan_arr = np.empty(data)
-    nan_arr[:] = np.nan
-    y_edge_full = nan_arr.copy()
-    for xs,ys in range(zip(x_edges_main.shape[0],y_edges_main.shape[0])):
-        for row in range(y_edge_full.shape[0]):
-            if row==y_edges_main[ys][0]:
-                for val in range(x_edges_main.shape[1]):
-                    xval = x_edges_main[xs][val]
-                    yval = y_edges_main[ys][val]
-                    y_edge_full[row][xval] = yval
-    """
-
 
 
     #hdu = fits.open('LMask1/flat_fielded/fnLMask18150c1.fits')
@@ -176,8 +149,9 @@ def get_edges(input,slit_txt,mask,cutout_size=10,binsize=20):
     x_edges_main, y_edges_main = np.asarray(x_edges_main),np.asarray(y_edges_main)
     #print(x_edges_main.shape,y_edges_main.shape)
     #print(y_edges_main)
+    return x_edges_main,y_edges_main
 
-    """
+"""
     slope,yint = np.polyfit(x_edges_main[0],y_edges_main[0],1)
     print(slope,yint)
 
@@ -202,9 +176,12 @@ def get_edges(input,slit_txt,mask,cutout_size=10,binsize=20):
 
 
     plt.show()
-    """
-    print(x_edges_main.shape)
-    print(y_edges_main.shape)
+
+    #print(x_edges_main.shape)
+    #print(y_edges_main.shape)
+
+
+
     polygons = []
     for i in range(x_edges_main.shape[0]):
 
@@ -226,14 +203,14 @@ def get_edges(input,slit_txt,mask,cutout_size=10,binsize=20):
 
     region_txt = open('%s/reg_txt.reg'%mask,'w')
     if 'LMask1' in mask:
-        region_txt.write( """# Region file format: DS9 version 4.1"""+"\n"+"""# File name: LMask1/LMask1master_flat.fits"""+"\n"+\
-        """global color=green dashlist=8 3 width=2 font="helvetica 10 normal roman" select=1 highlite=1 dash=0 """+\
-        """fixed=0 edit=1 move=1 delete=1 include=1 source=1\n physical \n""")
+        region_txt.write( '''# Region file format: DS9 version 4.1'''+"\n"+'''# File name: LMask1/LMask1master_flat.fits'''+"\n"+\
+        '''global color=green dashlist=8 3 width=2 font="helvetica 10 normal roman" select=1 highlite=1 dash=0 '''+\
+        '''fixed=0 edit=1 move=1 delete=1 include=1 source=1\n physical \n''')
         print(mask)
     elif 'LMask2' in mask:
-        region_txt.write( """# Region file format: DS9 version 4.1"""+"\n"+"""# File name: LMask2/LMask2master_flat.fits"""+"\n"+\
-        """global color=green dashlist=8 3 width=2 font="helvetica 10 normal roman" select=1 highlite=1 dash=0 """+\
-        """fixed=0 edit=1 move=1 delete=1 include=1 source=1\n physical \n""")
+        region_txt.write( '''# Region file format: DS9 version 4.1'''+"\n"+'''# File name: LMask2/LMask2master_flat.fits'''+"\n"+\
+        '''global color=green dashlist=8 3 width=2 font="helvetica 10 normal roman" select=1 highlite=1 dash=0 '''+\
+        '''fixed=0 edit=1 move=1 delete=1 include=1 source=1\n physical \n''')
 
     for i in range(len(polygons)):
         #region_txt.write(str(str_tops[i])+str(str_bottoms[i]))
@@ -245,24 +222,5 @@ def get_edges(input,slit_txt,mask,cutout_size=10,binsize=20):
     reg_string = open("%s/reg_txt.reg"%mask,"r").read()
 
 
-    #r = regions.write_ds9(reg_string,region_filename)
-
-    return x_edges_main,y_edges_main
-
-
-
-def trace_em_lines():
-    #this function will try to trace the edges of slites based on arclamp emission lines.
-    #arclamp used for this will be LMask2/flat_fielded/fnLMask28160c1.fits
-    input = "LMask2/flat_fielded/fnLMask28160c1.fits"
-    image,header = fits.getdata(input,header=True)
-    ymargin = 2
-    lower_edge = (504-ymargin)
-    cutout = image[lower_edge: 527+ymargin,:]
-    Nx = cutout.shape[1]
-    Ny = cutout.shape[0]
-
-    dist_to_center  = np.abs(np.arange(Ny) - Ny/2)
-    profile = np.median(cutout,axis=0)
-
-    return
+    r = regions.write_ds9(reg_string,region_filename)
+"""

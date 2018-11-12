@@ -47,10 +47,10 @@ def overscan_and_trim(fuel):
 
     print(stitchlamps)
 
-    fuel.util.arc.corr_files = stitchlamps
-    fuel.util.science.corr_files = stitchtargs
-    fuel.util.slitflat.corr_files = stitchflats
-    fuel.util.field.corr_files = stitchfield
+    fuel.util.arc.corr_files = list(set(stitchlamps))
+    fuel.util.science.corr_files = list(set(stitchtargs))
+    fuel.util.slitflat.corr_files = list(set(stitchflats))
+    fuel.util.field.corr_files = list(set(stitchfield))
 
 
 

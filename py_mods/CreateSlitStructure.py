@@ -19,6 +19,8 @@ class CreateSlitStructure:
         self.flats = None
         self.skip = 0 #skip some number of slits
         self.position_angle = np.nan
+        self.x_mm = 0.0
+        self.y_mm = 0.0
         self.obj_ra  = ''
         self.obj_dec = ''
         self.approx_bottom = 0.0

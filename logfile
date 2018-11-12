@@ -1,0 +1,530 @@
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Fri 12:18:42 02-Nov-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  LMask2/intermediates/slit_cutouts/slit_15/slit15_fbLMask28160[*,18]  No solution found
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Fri 12:21:40 02-Nov-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  LMask2/intermediates/slit_cutouts/slit_15/slit15_fbLMask28160[*,18]         15    8051.15       1.19      0.708
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Fri 12:48:31 02-Nov-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  LMask2/intermediates/slit_cutouts/slit_15/slit15_fbLMask28159[*,18]  No solution found
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Fri 12:48:56 02-Nov-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  LMask2/intermediates/slit_cutouts/slit_15/slit15_fbLMask28159[*,18]         12    7882.71       1.09      0.713
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Fri 13:06:01 02-Nov-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  LMask2/intermediates/slit_cutouts/slit_15/slit15_fbLMask28159[*,18]         12    7882.71       1.09      0.713
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Fri 13:22:46 02-Nov-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  fliptest[*,18]                13    7844.48       1.18       0.14
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Fri 13:37:28 02-Nov-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  LMask2/intermediates/slit_cutouts/slit_15/slit15_fbLMask28159[*,18]         12    7882.71       1.09      0.713
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Fri 13:42:34 02-Nov-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  LMask2/intermediates/slit_cutouts/slit_15/slit15_fbLMask28159[*,20]         27      7842.       1.18       1.04
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Mon 12:00:56 05-Nov-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  LMask2/intermediates/slit_cutouts/slit_1/slit1_fbLMask28159[*,21]         18    7914.05       1.27       2.07
+  LMask2/intermediates/slit_cutouts/slit_1/slit1_fbLMask28160[*,21]         16    7781.04       1.09       1.44
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Mon 12:05:40 05-Nov-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  LMask2/intermediates/slit_cutouts/slit_1/slit1_fbLMask28159[*,21]         11    7955.88       1.16       1.28
+  LMask2/intermediates/slit_cutouts/slit_1/slit1_fbLMask28160[*,21]         12    7807.12       1.27       1.54
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Mon 12:15:42 05-Nov-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  LMask2/intermediates/slit_cutouts/slit_1/slit1_fbLMask28159[*,21]         10    8207.38       1.26       1.72
+  LMask2/intermediates/slit_cutouts/slit_1/slit1_fbLMask28160[*,21]         10    7938.24       1.08       1.67
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Mon 12:46:54 05-Nov-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  LMask2/intermediates/slit_cutouts/slit_1/slit1_fbLMask28159[*,21]         10    8207.38       1.26       1.72
+  LMask2/intermediates/slit_cutouts/slit_1/slit1_fbLMask28160[*,21]         10    7938.24       1.08       1.67
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Mon 12:56:25 05-Nov-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  LMask2/intermediates/slit_cutouts/slit_1/slit1_fbLMask28159[*,21]         10    8207.38       1.26       1.72
+  LMask2/intermediates/slit_cutouts/slit_1/slit1_fbLMask28160[*,21]         10    7938.24       1.08       1.67
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Mon 12:56:50 05-Nov-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  LMask2/intermediates/slit_cutouts/slit_1/slit1_fbLMask28159[*,21]         14     7860.3       1.19       1.75
+  LMask2/intermediates/slit_cutouts/slit_1/slit1_fbLMask28160[*,21]         10    7989.57       1.23       1.49
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Mon 13:13:28 05-Nov-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  LMask2/intermediates/slit_cutouts/slit_1/slit1_fbLMask28159[*,21]          6    8224.34       1.22   9.44E-12
+  LMask2/intermediates/slit_cutouts/slit_1/slit1_fbLMask28160[*,21]          7     7829.7       1.11      0.981
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Mon 13:28:13 05-Nov-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  LMask2/intermediates/slit_cutouts/slit_1/slit1_fbLMask28159[*,21]          9    8136.82       1.08       1.11
+  LMask2/intermediates/slit_cutouts/slit_1/slit1_fbLMask28160[*,21]          8    7936.75       1.08       1.27
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Mon 13:41:07 05-Nov-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  LMask2/intermediates/slit_cutouts/slit_1/ds9[*,750]         10    8065.81       1.07        1.3
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Mon 13:43:48 05-Nov-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  LMask2/intermediates/slit_cutouts/slit_1/ds9[*,750]          6    7799.63       1.08   1.48E-11
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Mon 14:47:18 05-Nov-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  LMask2/intermediates/slit_cutouts/slit_1/ds9[*,750]         10    8065.81       1.07        1.3
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Mon 15:20:28 05-Nov-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  LMask2/intermediates/slit_cutouts/slit_1/ds9[*,750]         10    8065.81       1.07        1.3
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Mon 15:45:43 05-Nov-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  LMask2/intermediates/slit_cutouts/slit_1/ds9[*,750]         10    8065.81       1.07        1.3
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Mon 15:56:13 05-Nov-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  ds9[*,750]                     8    8106.87       1.17      0.313
+
+REIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Mon 16:07:06 05-Nov-2018
+
+REIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Mon 16:07:26 05-Nov-2018
+
+REIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Mon 16:07:46 05-Nov-2018
+  Reference image = ds9.fits, New image = ds9, Refit = yes
+          Image Data    Found     Fit Pix Shift  User Shift  Z Shift      RMS
+ds9[*,700]              4/12    4/4       -1.57       -1.88  -2.1E-4  2.9E-10
+ds9[*,650]              2/4     2/2       -1.16       -1.46  -1.5E-4       0.
+ds9[*,600]              0/2     0/0          0.          0.       0.    INDEF
+    ** Too many features lost **
+ds9[*,800]              8/12    8/8       -1.73       -1.99  -2.7E-4     1.63
+ds9[*,850]              2/8     2/2        3.24        3.78  4.60E-4  6.4E-13
+ds9[*,900]              1/2     1/1      -0.946       -1.11  -1.5E-4       0.
+    ** Too many features lost **
+
+NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Mon 16:10:55 05-Nov-2018
+  Longslit coordinate fit name is fcds9.fits.
+  Longslit database is database.
+  Features from images:
+    ds9.fits
+
+NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Mon 16:11:11 05-Nov-2018
+  Longslit coordinate fit name is fcds9.fits.
+  Longslit database is database.
+  Features from images:
+    ds9
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 28
+  Mapping function = chebyshev
+    X order = 3
+    Y order = 3
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 7241.701  (2048, 1) = 10752.74
+    (1, 1500) = 7336.683  (2048, 1500) = 10600.6
+
+NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Mon 16:22:03 05-Nov-2018
+  Transform slit1_fbLMask28157.fits to tslit1_fbLMask28157.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7100., x2 =      9300., dx =      1.075, nx = 2048, xlog = no
+    y1 =         1., y2 =      1500., dy =         1., ny = 1500, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Mon 16:22:04 05-Nov-2018
+  Transform slit1_fbLMask28158.fits to tslit1_fbLMask28158.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7100., x2 =      9300., dx =      1.075, nx = 2048, xlog = no
+    y1 =         1., y2 =      1500., dy =         1., ny = 1500, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Mon 16:25:43 05-Nov-2018
+  Longslit coordinate fit name is ds9.fits.
+  Longslit database is database.
+  Features from images:
+    ds9
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 28
+  Mapping function = chebyshev
+    X order = 3
+    Y order = 3
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 7241.701  (2048, 1) = 10752.74
+    (1, 1500) = 7336.683  (2048, 1500) = 10600.6
+
+NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Mon 16:28:47 05-Nov-2018
+  Transform slit1_fbLMask28157.fits to tslit1_fbLMask28157.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7200., x2 =     10600., dx =      1.661, nx = 2048, xlog = no
+    y1 =         1., y2 =      1500., dy =         1., ny = 1500, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Mon 16:28:48 05-Nov-2018
+  Transform slit1_fbLMask28158.fits to tslit1_fbLMask28158.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7200., x2 =     10600., dx =      1.661, nx = 2048, xlog = no
+    y1 =         1., y2 =      1500., dy =         1., ny = 1500, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Mon 16:38:35 05-Nov-2018
+  Transform slit1_fbLMask28157.fits to tslit1_fbLMask28157.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7200., x2 =     10600., dx =      1.661, nx = 2048, xlog = no
+    y1 =         1., y2 =      1500., dy =         1., ny = 1500, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Mon 16:38:36 05-Nov-2018
+  Transform slit1_fbLMask28158.fits to tslit1_fbLMask28158.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7200., x2 =     10600., dx =      1.661, nx = 2048, xlog = no
+    y1 =         1., y2 =      1500., dy =         1., ny = 1500, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Mon 16:42:16 05-Nov-2018
+  Transform slit1_fbLMask28157.fits to tslit1_fbLMask28157.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7200., x2 =     10600., dx =      1.661, nx = 2048, xlog = no
+    y1 =         1., y2 =      1500., dy =         1., ny = 1500, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Mon 16:42:16 05-Nov-2018
+  Transform slit1_fbLMask28158.fits to tslit1_fbLMask28158.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7200., x2 =     10600., dx =      1.661, nx = 2048, xlog = no
+    y1 =         1., y2 =      1500., dy =         1., ny = 1500, ylog = no
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Tue 11:10:03 06-Nov-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  slit1.fb.LMask2.arc[*,11]          7    8232.97       1.15     0.0353
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Tue 11:22:04 06-Nov-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  slit1.fb.LMask2.arc[*,11]         12     7883.1       1.26       1.27
+
+REIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Tue 11:49:33 06-Nov-2018
+
+NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Tue 11:53:11 06-Nov-2018
+  Longslit coordinate fit name is slit1.fb.LMask2.arc.fitsslit1.fb.LMask2.arc.
+  Longslit database is database.
+  Features from images:
+    slit1.fb.LMask2.arc
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 13
+  Mapping function = chebyshev
+    X order = 3
+    Y order = 3
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 7148.456  (2047, 1) = 9561.315
+    (1, 21) = 7148.456  (2047, 21) = 9561.315
+
+NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Tue 11:58:10 06-Nov-2018
+  Longslit coordinate fit name is slit1.fb.LMask2.arc.fitsslit1.fb.LMask2.arc.
+  Longslit database is database.
+  Features from images:
+    slit1.fb.LMask2.arc
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 13
+  Mapping function = chebyshev
+    X order = 3
+    Y order = 3
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 7148.456  (2047, 1) = 9561.315
+    (1, 21) = 7148.456  (2047, 21) = 9561.315
+
+NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Tue 12:03:16 06-Nov-2018
+  Longslit coordinate fit name is arc.fitsslit1.fb.LMask2.arc.
+  Longslit database is database.
+  Features from images:
+    slit1.fb.LMask2.arc
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 13
+  Mapping function = chebyshev
+    X order = 3
+    Y order = 3
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 7148.456  (2047, 1) = 9561.315
+    (1, 21) = 7148.456  (2047, 21) = 9561.315
+
+NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Tue 12:04:25 06-Nov-2018
+  Longslit coordinate fit name is arc.fitsslit1.fb.LMask2.arc.fits.
+  Longslit database is database.
+  Features from images:
+    slit1.fb.LMask2.arc.fits
+
+NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Tue 12:06:02 06-Nov-2018
+  Longslit coordinate fit name is slit1.fb.LMask2.arc.
+  Longslit database is database.
+  Features from images:
+    slit1.fb.LMask2.arc
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 13
+  Mapping function = chebyshev
+    X order = 3
+    Y order = 3
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 7148.456  (2047, 1) = 9561.315
+    (1, 21) = 7148.456  (2047, 21) = 9561.315
+
+NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Tue 12:07:05 06-Nov-2018
+  Transform slit1.fb.LMask2.8157.fits to slit1.tfb.LMask2.8157.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7148., x2 =      9561., dx =      1.179, nx = 2047, xlog = no
+    y1 =         1., y2 =        21., dy =         1., ny =   21, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Tue 12:07:05 06-Nov-2018
+  Transform slit1.fb.LMask2.8158.fits to slit1.tfb.LMask2.8158.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7148., x2 =      9561., dx =      1.179, nx = 2047, xlog = no
+    y1 =         1., y2 =        21., dy =         1., ny =   21, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Tue 12:10:21 06-Nov-2018
+  Transform slit1.fb.LMask2.8157.fits to slit1.tfb.LMask2.8157.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is linear.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7148., x2 =      9561., dx =      1.179, nx = 2047, xlog = no
+    y1 =         1., y2 =        21., dy =         1., ny =   21, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Tue 12:10:21 06-Nov-2018
+  Transform slit1.fb.LMask2.8158.fits to slit1.tfb.LMask2.8158.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is linear.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7148., x2 =      9561., dx =      1.179, nx = 2047, xlog = no
+    y1 =         1., y2 =        21., dy =         1., ny =   21, ylog = no
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Tue 12:39:35 06-Nov-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  slit1.fb.LMask2.arc[*,11]         12    8229.61       1.17        3.1
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Tue 13:06:16 06-Nov-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  slit1.fb.LMask2.arc[*,11]         14    8119.76       1.18       2.23
+
+REIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Tue 13:33:21 06-Nov-2018
+
+NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Tue 13:34:10 06-Nov-2018
+  Longslit coordinate fit name is slit1.fb.LMask2.arc.
+  Longslit database is database.
+  Features from images:
+    slit1.fb.LMask2.arc
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 16
+  Mapping function = chebyshev
+    X order = 3
+    Y order = 3
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 7193.585  (2027, 1) = 9584.994
+    (1, 21) = 7193.585  (2027, 21) = 9584.994
+
+NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Tue 13:34:39 06-Nov-2018
+  Transform slit1.fb.LMask2.8157.fits to slit1.tfb.LMask2.8157.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is linear.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7194., x2 =      9585., dx =       1.18, nx = 2027, xlog = no
+    y1 =         1., y2 =        21., dy =         1., ny =   21, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Tue 13:34:39 06-Nov-2018
+  Transform slit1.fb.LMask2.8158.fits to slit1.tfb.LMask2.8158.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is linear.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7194., x2 =      9585., dx =       1.18, nx = 2027, xlog = no
+    y1 =         1., y2 =        21., dy =         1., ny =   21, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Tue 13:38:46 06-Nov-2018
+  Transform slit1.fb.LMask2.8157.fits to slit1.tfb.LMask2.8157.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7194., x2 =      9585., dx =       1.18, nx = 2027, xlog = no
+    y1 =         1., y2 =        21., dy =         1., ny =   21, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Tue 13:38:46 06-Nov-2018
+  Transform slit1.fb.LMask2.8158.fits to slit1.tfb.LMask2.8158.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7194., x2 =      9585., dx =       1.18, nx = 2027, xlog = no
+    y1 =         1., y2 =        21., dy =         1., ny =   21, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Tue 13:41:20 06-Nov-2018
+  Transform slit1.fb.LMask2.8157.fits to slit1.tfb.LMask2.8157.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7194., x2 =      9585., dx =       1.18, nx = 2027, xlog = no
+    y1 =         1., y2 =        21., dy =         1., ny =   21, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Tue 13:41:20 06-Nov-2018
+  Transform slit1.fb.LMask2.8158.fits to slit1.tfb.LMask2.8158.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7194., x2 =      9585., dx =       1.18, nx = 2027, xlog = no
+    y1 =         1., y2 =        21., dy =         1., ny =   21, ylog = no
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Tue 14:13:19 06-Nov-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  slit1.fb.LMask2.arc[*,10]         16    7976.79       1.24       2.34
+
+REIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Tue 14:38:18 06-Nov-2018
+
+NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Tue 14:38:36 06-Nov-2018
+  Longslit coordinate fit name is slit1.fb.LMask2.arc.
+  Longslit database is database.
+  Features from images:
+    slit1.fb.LMask2.arc
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 38
+  Mapping function = chebyshev
+    X order = 3
+    Y order = 3
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 7192.875  (2027, 1) = 9564.354
+    (1, 19) = 7199.067  (2027, 19) = 9596.592
+
+NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Tue 14:39:40 06-Nov-2018
+  Transform slit1.fb.LMask2.8157.fits to slit1.tfb.LMask2.8157.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7193., x2 =      9597., dx =      1.186, nx = 2027, xlog = no
+    y1 =         1., y2 =        19., dy =         1., ny =   19, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Tue 14:39:40 06-Nov-2018
+  Transform slit1.fb.LMask2.8158.fits to slit1.tfb.LMask2.8158.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7193., x2 =      9597., dx =      1.186, nx = 2027, xlog = no
+    y1 =         1., y2 =        19., dy =         1., ny =   19, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Wed 10:35:00 07-Nov-2018
+  Transform slit1.fb.LMask2.arc.fits to slit1.tfb.LMask2.arc.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7193., x2 =      9597., dx =      1.186, nx = 2027, xlog = no
+    y1 =         1., y2 =        19., dy =         1., ny =   19, ylog = no
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Thu 11:08:34 08-Nov-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  slit1.fb.LMask2.arc[*,9]  No solution found
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Thu 11:14:27 08-Nov-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  slit1.fb.LMask2.arc[*,9]  No solution found
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Thu 11:15:31 08-Nov-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  slit1.fb.LMask2.arc[*,9]  No solution found
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Fri 12:49:06 09-Nov-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  slit2.fb.LMask2.arc[*,9]  No solution found
+
+REIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Fri 12:57:02 09-Nov-2018
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Fri 12:57:36 09-Nov-2018
+  Longslit coordinate fit name is slit2.fb.LMask2.arc.
+  Longslit database is database.
+  Features from images:
+    slit2.fb.LMask2.arc
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 20
+  Mapping function = chebyshev
+    X order = 3
+    Y order = 3
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 7224.425  (2027, 1) = 9615.426
+    (1, 17) = 7224.425  (2027, 17) = 9615.426
+
+NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Fri 12:59:13 09-Nov-2018
+  Transform slit2.fb.LMask2.arc.fits to slit2.tfb.LMask2.arc.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7224., x2 =      9615., dx =       1.18, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Fri 13:01:10 09-Nov-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  slit2.fb.LMask2.arc[*,9]  No solution found
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Fri 13:04:51 09-Nov-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  slit2.fb.LMask2.arc[*,9]  No solution found
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Fri 14:29:52 09-Nov-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  slit1.fb.LMask2.arc[*,9]         35    8374.11       1.18      0.272
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@user-4038dc.user.msu.edu Fri 14:30:50 09-Nov-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  slit1.fb.LMask2.arc[*,9]         35    8374.11       1.18      0.272

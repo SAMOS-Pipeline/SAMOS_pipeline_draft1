@@ -24,7 +24,7 @@ def cutout_slit(input,x_edges,y_edges):
     #x_edges, y_edges = get_edges(input,'LMask2_ycoords_c1.txt','LMask2')
 
     margin = 5 #extra space to include in cutout_bin
-    slit_height = 22
+    slit_height = 18
     input_fpath = os.path.split(input)
     print(input_fpath)
     data,header = fits.getdata(input,header=True)
@@ -46,63 +46,36 @@ def cutout_slit(input,x_edges,y_edges):
             pixel_y[row,col] = row
 
 
-    #print(pixel_x)
-    #print(pixel_y)
-    #pixel_x and pixel_y are both (1500,1024) size arrays. pixel_x has 1500 rows, with each row
-    #goes from 0 to 1023.  pixel_y has 1500 rows where the columns go from 0 to 1499.
-    """
-    poly_coeffs = []
-    print("size of x_edges = %s" %(x_edges.shape,))
-    print("size of y_edges = %s" %(y_edges.shape,))
-    #print(y_edges)
-    #fit the slit edges to a polynomial for each slit and save in list.
-    for slit in range(len(x_edges)):
-        poly_coeffs.append(np.polyfit(x_edges[slit],y_edges[slit],1))
-
-    #print(poly_coeffs)
-    #print(x_edges[0]*poly_coeffs[0][0]+poly_coeffs[0][1])
-    top_ys = []
-    for slit in range(len(poly_coeffs)):
-        top_y = np.zeros((N_pixel_y,N_pixel_x),dtype=int)
-        #print("top_y shape: %s"%(top_y.shape,))
-        for row in range(N_pixel_y):
-            top_y[row] = polyval(x_axis,poly_coeffs[slit][::-1])
-            #(x_axis*poly_coeffs[slit][0]+poly_coeffs[slit][1])+margin
-
-        top_ys.append(top_y)
-
-    #for i in range(len(top_ys)):
-    #    print(top_ys[i][0])
-    #print(top_ys)
-
-    bottom_ys = []
-    for slit in range(len(poly_coeffs)):
-        bottom_y = np.zeros((N_pixel_y,N_pixel_x),dtype=int)
-        for row in range(N_pixel_y):
-            bottom_y[row] = (polyval(x_axis,poly_coeffs[slit][::-1]))-slit_height
-            #(x_axis*poly_coeffs[slit][0]+poly_coeffs[slit][1])-slit_height-margin
-
-        bottom_ys.append(bottom_y)
-
-    #print(top_y)
-    """
     cutout_slit_arrays_full = []
+    new_y_edges = np.empty_like(y_edges)
 
+    new_top_ys = np.linspace(50,data.shape[0],num=y_edges.shape[0],dtype=int)
+    for row in range(y_edges.shape[0]):
+        new_y_edges[row].fill(new_top_ys[row])
+    #print(new_y_edges)
 
+    data = data[:,20:]
     for slit in range(len(y_edges)):
         im = np.copy(data)
         im[:,:] = np.nan
         top_y = y_edges[slit]
         bottom_y = top_y-slit_height
 
-        for col in range(im.shape[1]):
-            im[bottom_y[col]:top_y[col],col] = data[bottom_y[col]:top_y[col],col]
-            #if (row > (bottom_y[col]-margin)) and (row < (top_y[col]+margin)):
-                #print("keeping row %s of slit %s "%(str(row),str(slit)))
-            #    pass
 
-           # else:
-           #     im[row]=np.full_like(im[row],np.nan)
+        #in the new image array, I want to shift the columns of included data
+        #so they all align in the same range of rows. That way the slit cutouts
+        #won't be all slanted.
+
+        new_top_y = new_y_edges[slit]
+        new_bot_y = new_top_y-slit_height
+
+
+
+
+        for col in range(im.shape[1]-20):
+            col = int(col)
+            im[int(new_bot_y[col]):int(new_top_y[col]),col] = \
+                   data[int(bottom_y[col+20]):int(top_y[col+20]),col+20]
 
         cutout_slit_arrays_full.append(im)
 
@@ -135,7 +108,7 @@ def cutout_slit(input,x_edges,y_edges):
         hdu = fits.PrimaryHDU(slit[yi:yf,xi:xf].astype("f"))
         hdu.header = header.copy()
         outname = "slit%s_%s"%(str(slit_num),str(input_fpath[-1]))
-        print(outname)
+        #print(outname)
 
         slit_fits_path = "%s/slit_cutouts"%input_fpath[:-1]
         #print(slit_fits_path)

@@ -40,6 +40,7 @@ def FieldTrim(input,output):
     elif 'c2' in input:
         data = np.fliplr(np.rot90(data,2))
 
+
     print("Writing %s" % (output))
     hdu = fits.PrimaryHDU(data.astype("f"))
     hdu.header = h.copy()
@@ -90,6 +91,7 @@ def Overscan(input,output):
     mask[:,:] = False
     crmask, dataCR = astroscrappy.detect_cosmics(data,inmask=mask,cleantype='medmask')
 
+
     print("Writing %s" % (output))
     hdu = fits.PrimaryHDU(dataCR.astype("f"))
     hdu.header = h.copy()
@@ -121,10 +123,31 @@ def stitch(input):
         hc1 = fc1[0].header
         dc1 = fc1[0].data.astype("f")
         dfull = np.concatenate((dc2,dc1),axis=1)
-        #dfull = np.ones((1500,2048))
-        #for row in range(dc2.shape[0]):
-        #    dfull[row] = dfull[row]*dc2[row].extend(dc1[row])
-        #dfull = dfull*dc2
+        dfull = np.fliplr(dfull)
+#now clean some bad columns from the stitched data
+        mask = np.ma.make_mask(dfull, copy=True,shrink=True,dtype=np.bool)
+        mask[:,:] = False
+        mask[:,1602:1607] = True
+        mask[564:613,1548:1553] = True
+        mdfull = np.ma.masked_array(dfull,mask=mask,fill_value=np.nan)
+        s = 2
+        for row in range(mdfull.shape[0]):
+            for col in range(mdfull.shape[1]):
+                if np.isnan(mdfull[row,col]):
+                    y1 = row-s
+                    y2 = row+s+1
+                    x1 = col-s
+                    x2 = col+s+1
+                    if y1<0.0:
+                        y1 = 0.0
+                    if y2>mdfull.shape[0]:
+                        y2 = mdfull.shape[0]
+                    if x1<0.0:
+                        x1 = 0.0
+                    if x2>mdfull.shape[1]:
+                        x2 = mdfull.shape[1]
+                    dfull[row,col] = np.med(mdfull[y1:y2,x1:x2],axis=0)
+        
         hdu = fits.PrimaryHDU(dfull.astype("f"))
         hdu.header = hc2.copy()
         hdu.header["NAXIS1"] = dfull.shape[1]
