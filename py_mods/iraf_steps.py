@@ -31,7 +31,8 @@ def auto_identify_arcs(input_arc,fcname,logfile='logfile'):
     irf_par.set_fitcoords_calibration(iraf.fitcoords)
     """
 
-    iraf.autoidentify(images=input_arc)
+    iraf.autoidentify(images=input_arc,crval=8000,cdelt=1.175)
+
     check_fit = os.popen("tail -n 3 logfile").read().strip().split('\n')
     #print(check_fit)
     #print(check_fit[-1])
@@ -42,6 +43,7 @@ def auto_identify_arcs(input_arc,fcname,logfile='logfile'):
         #iraf.autoidentify(images=input_arc)
         return False
     else:
+
         return True
 
 

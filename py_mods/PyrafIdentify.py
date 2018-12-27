@@ -54,6 +54,7 @@ def pyraf_identify(fuel):
 
         iraf.autoidentify.interactive = 'NO'
         auto_solution = irf_stp.auto_identify_arcs('current_arc.fits',fcnames[arc])
+
         if auto_solution == True:
             irf_stp.reident('current_arc.fits',fcnames[arc])
         elif auto_solution == False:

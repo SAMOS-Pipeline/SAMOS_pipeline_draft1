@@ -102,8 +102,8 @@ def update_slits(fuel,cutout_targs,maskf,slit_pos):
             decs.append(obj_dec)
     xs,ys,objs,ras,decs = zip(*sorted(zip(xs,ys,objs,ras,decs),reverse=True))
     fuel_updated_slits = []
-    for slit in range(len(cutout_targs)):
-        this_slit = CreateSlitStructure().create_slit_structure(mask)
+    for slit in range(int(len(cutout_targs)/2.)):
+        this_slit = CreateSlitStructure().create_slit_structure(maskf)
         #this_slit = fuel.slits[slit]
         this_slit.number = slit_num
         this_slit.obj = objs[slit]
