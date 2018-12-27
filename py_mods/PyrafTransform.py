@@ -18,7 +18,7 @@ from numina.array import subarray_match
 
 def plot_transf_imgs(targs):
 
-        targs = [i for i in targs if '28158' in os.path.basename(i).split('.')[1]]
+        #targs = [i for i in targs if '28158' in os.path.basename(i).split('.')[1]]
         filepaths = []
         names = []
         root_dir = os.path.split(targs[0])[0]
@@ -31,11 +31,12 @@ def plot_transf_imgs(targs):
         for slit in sorted(names):
             filepaths.append(root_dir+'/'+slit)
         #print(filepaths)
-        slit_data = []
+
         lambdas = []
         cdelts = []
         first_col_positions = []
         cdata = []
+        slit_data = []
         for targ in targs:
             hdulist = fits.open(targ)
             cdata.append(hdulist)
@@ -48,12 +49,18 @@ def plot_transf_imgs(targs):
                     pix = data[row][col]
                     if pix<0.1:
                         #print(np.where(data[row]>0))
-                        data[row][col] = np.median(data[row][np.where(data[row]>0.1)])
-                    #data[row][col] = pix
+                        pix_replace = np.median(data[row][np.where(data[row]>=0.1)])
+                        #data[row][col] = pix_replace
+                        pix = pix_replace
 
-            logscale_data = np.log(1000*data + 1)/np.log(1000)
-            slit_data.append(logscale_data)
-            #slit_data.append(data)
+                    data[row][col] = pix
+
+            #logscale_data = np.log(1000*data + 1)/np.log(1000)
+            #slit_data.append(logscale_data)
+            slit_data.append(data)
+
+
+            """
             lambda1 = header['CRVAL1']
             cdelt = np.round(header['CDELT1'],2)
             cdelts.append(cdelt)
@@ -66,11 +73,18 @@ def plot_transf_imgs(targs):
             #plt.show(fig)
 
             #ax.imshow(logscale_data, cmap=cm.gray,origin="lower")
-
-        basedata = fits.getdata(targs[0],header=False)
-        baseshape = basedata.shape
-        subpixshape = basedata.shape
-        refpix = np.divide(np.array([baseshape], dtype='int'), 2).astype('float')
+            """
+        cdata = np.asarray(cdata)
+        slit_data = np.asarray(slit_data)
+        baseheader = header
+        basedata = cdata[0][0].data #fits.getdata(targs[0],header=False)
+        print(slit_data.shape)
+        baseshape = cdata[0][0].data.shape
+        subpixshape = cdata[0][0].data.shape
+        basearr = np.asarray([baseshape],dtype='int')
+        print(basearr,basearr.shape)
+        refpix = np.divide(basearr, 2).astype('float')
+        print(refpix.shape)
         offsets_xy = np.zeros((len(targs),refpix.shape[1]))
         with fits.open(targs[0]) as hdulist:
              wcsh = wcs.WCS(hdulist[0].header)
@@ -83,14 +97,47 @@ def plot_transf_imgs(targs):
                 offsets_xy[idx+1] = -(pixval[0]-refpix[0])
 
         offsets_fc = offsets_xy[:,::-1]
+        print('offsets_fc=',offsets_fc)
         offsets_fc_t = np.round(offsets_fc).astype('int')
         offsets_fc = offsets_xy[:, ::-1]
+        print('offsets_fc_t= %s'%(str(offsets_fc_t)))
         finalshape, offsetsp = combine_shape(subpixshape, offsets_fc_t)
+        print('final shape = %s, \n offset shape = %s'%(str(finalshape),str(offsetsp)))
         rhduls, regions = resize_hdulists(cdata, subpixshape, offsetsp, finalshape)
+        regions = np.asarray(regions)
+        print(regions.shape)
         method = combine.mean
+        rect_arr = []
+        for d in rhduls:
+            rect_arr.append(d[0].data)
+        rect_arr = np.asarray(rect_arr)
+        #rect_arr = np.asarray([d[0].data for d in rhduls], dtype='float32') #method([d[0].data for d in rhduls], dtype='float32')
 
-        rect_arr = method([d[0].data for d in rhduls], dtype='float32')
 
+        arrmap = np.zeros(finalshape, dtype='int')
+
+        result = []
+        #masks = np.asarray([(arrmap[region] > 0) for region in regions])
+        #print(masks)
+
+        #data2 = method([d[0].data for d in cdata], masks=masks, dtype='float32')
+        for spec in range(slit_data.shape[0]):
+            arrmap = np.zeros(finalshape, dtype='int')
+            mask = regions[spec][1]
+            start = mask.start
+            end = mask.stop
+            print(start)
+            print(mask)
+            #for row in range(slit_data.shape[1]):
+
+            arrmap[:,start:end] = slit_data[spec,:,:]
+            result.extend(arrmap)
+            #mask_start = regions[spec][1][0]
+            #mask_end = regions[spec][1][1]
+            #print(mask_start,mask_end)
+
+        result = np.asarray(result)
+        print(result.shape)
         """
         slit_data = np.asarray(slit_data)
         lambdas = np.asarray(lambdas)
@@ -140,7 +187,8 @@ def plot_transf_imgs(targs):
         """
         #ax.imshow(rect_arr,cmap=cm.gray,origin="lower")
         #plt.show()
-        hdu = fits.PrimaryHDU(rect_arr.astype("f"))
+        hdu = fits.PrimaryHDU(result.astype("f"), header=baseheader)
+        #hdu = fits.PrimaryHDU(rect_arr.astype("f"))
         hdu.header = header.copy()
         hdu.writeto('combine_test.fits',overwrite=True)
 
