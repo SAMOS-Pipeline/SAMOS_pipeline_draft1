@@ -1,0 +1,1360 @@
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:02 29-Dec-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  current_arc[*,9]              35    8374.11       1.18      0.272
+
+REIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:03 29-Dec-2018
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:03 29-Dec-2018
+  Longslit coordinate fit name is slit1.fbLMask2.NeHeAr.
+  Longslit database is database.
+  Features from images:
+    current_arc
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 35
+  Mapping function = chebyshev
+    X order = 3
+    Y order = 3
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 7193.841  (2027, 1) = 9583.764
+    (1, 17) = 7193.841  (2027, 17) = 9583.764
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:03 29-Dec-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  current_arc[*,9]              34    8374.22       1.18       0.24
+
+REIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:03 29-Dec-2018
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:03 29-Dec-2018
+  Longslit coordinate fit name is slit1.fbLMask2.NeHeAr.short.
+  Longslit database is database.
+  Features from images:
+    current_arc
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 34
+  Mapping function = chebyshev
+    X order = 3
+    Y order = 3
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 7194.002  (2027, 1) = 9583.62
+    (1, 17) = 7194.002  (2027, 17) = 9583.62
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:03 29-Dec-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  current_arc[*,9]              33    8404.65       1.18      0.261
+
+REIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:03 29-Dec-2018
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:03 29-Dec-2018
+  Longslit coordinate fit name is slit2.fbLMask2.NeHeAr.
+  Longslit database is database.
+  Features from images:
+    current_arc
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 33
+  Mapping function = chebyshev
+    X order = 3
+    Y order = 3
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 7223.856  (2027, 1) = 9614.781
+    (1, 17) = 7223.856  (2027, 17) = 9614.781
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:03 29-Dec-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  current_arc[*,9]       No solution found
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:04 29-Dec-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  current_arc[*,9]              34    8317.28       1.18      0.239
+
+REIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:04 29-Dec-2018
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:04 29-Dec-2018
+  Longslit coordinate fit name is slit3.fbLMask2.NeHeAr.
+  Longslit database is database.
+  Features from images:
+    current_arc
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 34
+  Mapping function = chebyshev
+    X order = 3
+    Y order = 3
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 7136.921  (2027, 1) = 9526.468
+    (1, 17) = 7136.921  (2027, 17) = 9526.468
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:04 29-Dec-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  current_arc[*,9]              34    8317.47       1.18      0.259
+
+REIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:04 29-Dec-2018
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:04 29-Dec-2018
+  Longslit coordinate fit name is slit3.fbLMask2.NeHeAr.short.
+  Longslit database is database.
+  Features from images:
+    current_arc
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 34
+  Mapping function = chebyshev
+    X order = 3
+    Y order = 3
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 7136.94  (2027, 1) = 9526.231
+    (1, 17) = 7136.94  (2027, 17) = 9526.231
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:04 29-Dec-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  current_arc[*,9]              34    8338.47       1.18      0.316
+
+REIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:04 29-Dec-2018
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:04 29-Dec-2018
+  Longslit coordinate fit name is slit4.fbLMask2.NeHeAr.
+  Longslit database is database.
+  Features from images:
+    current_arc
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 34
+  Mapping function = chebyshev
+    X order = 3
+    Y order = 3
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 7157.826  (2027, 1) = 9548.333
+    (1, 17) = 7157.826  (2027, 17) = 9548.333
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:04 29-Dec-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  current_arc[*,9]              34    8338.61       1.18      0.313
+
+REIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:04 29-Dec-2018
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:04 29-Dec-2018
+  Longslit coordinate fit name is slit4.fbLMask2.NeHeAr.short.
+  Longslit database is database.
+  Features from images:
+    current_arc
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 34
+  Mapping function = chebyshev
+    X order = 3
+    Y order = 3
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 7141.792  (2027, 1) = 9531.992
+    (1, 17) = 7141.792  (2027, 17) = 9531.992
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:04 29-Dec-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  current_arc[*,9]              34    8216.06       1.18      0.271
+
+REIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:04 29-Dec-2018
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:04 29-Dec-2018
+  Longslit coordinate fit name is slit5.fbLMask2.NeHeAr.
+  Longslit database is database.
+  Features from images:
+    current_arc
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 34
+  Mapping function = chebyshev
+    X order = 3
+    Y order = 3
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 7035.01  (2027, 1) = 9424.597
+    (1, 17) = 7035.01  (2027, 17) = 9424.597
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:05 29-Dec-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  current_arc[*,9]       No solution found
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:05 29-Dec-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  current_arc[*,9]              36     8176.6       1.18      0.367
+
+REIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:05 29-Dec-2018
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:05 29-Dec-2018
+  Longslit coordinate fit name is slit6.fbLMask2.NeHeAr.
+  Longslit database is database.
+  Features from images:
+    current_arc
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 36
+  Mapping function = chebyshev
+    X order = 3
+    Y order = 3
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 6996.161  (2027, 1) = 9385.704
+    (1, 17) = 6996.161  (2027, 17) = 9385.704
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:05 29-Dec-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  current_arc[*,9]              36    8176.74       1.18      0.327
+
+REIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:05 29-Dec-2018
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:05 29-Dec-2018
+  Longslit coordinate fit name is slit6.fbLMask2.NeHeAr.short.
+  Longslit database is database.
+  Features from images:
+    current_arc
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 36
+  Mapping function = chebyshev
+    X order = 3
+    Y order = 3
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 6996.051  (2027, 1) = 9385.346
+    (1, 17) = 6996.051  (2027, 17) = 9385.346
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:05 29-Dec-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  current_arc[*,9]              34    8256.54       1.18      0.402
+
+REIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:05 29-Dec-2018
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:05 29-Dec-2018
+  Longslit coordinate fit name is slit7.fbLMask2.NeHeAr.
+  Longslit database is database.
+  Features from images:
+    current_arc
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 34
+  Mapping function = chebyshev
+    X order = 3
+    Y order = 3
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 7074.885  (2027, 1) = 9465.998
+    (1, 17) = 7074.885  (2027, 17) = 9465.998
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:05 29-Dec-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  current_arc[*,9]       No solution found
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:05 29-Dec-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  current_arc[*,9]       No solution found
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:05 29-Dec-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  current_arc[*,9]              34    8243.88       1.18      0.338
+
+REIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:05 29-Dec-2018
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:05 29-Dec-2018
+  Longslit coordinate fit name is slit8.fbLMask2.NeHeAr.short.
+  Longslit database is database.
+  Features from images:
+    current_arc
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 34
+  Mapping function = chebyshev
+    X order = 3
+    Y order = 3
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 7062.285  (2027, 1) = 9453.6
+    (1, 17) = 7062.285  (2027, 17) = 9453.6
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:05 29-Dec-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  current_arc[*,9]              33     8404.3       1.19      0.543
+
+REIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:05 29-Dec-2018
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:05 29-Dec-2018
+  Longslit coordinate fit name is slit9.fbLMask2.NeHeAr.
+  Longslit database is database.
+  Features from images:
+    current_arc
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 33
+  Mapping function = chebyshev
+    X order = 3
+    Y order = 3
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 7222.109  (2027, 1) = 9617.243
+    (1, 17) = 7222.109  (2027, 17) = 9617.243
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:06 29-Dec-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  current_arc[*,9]              33    8404.42       1.19      0.655
+
+REIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:06 29-Dec-2018
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:06 29-Dec-2018
+  Longslit coordinate fit name is slit9.fbLMask2.NeHeAr.short.
+  Longslit database is database.
+  Features from images:
+    current_arc
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 33
+  Mapping function = chebyshev
+    X order = 3
+    Y order = 3
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 7222.152  (2027, 1) = 9616.582
+    (1, 17) = 7222.152  (2027, 17) = 9616.582
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:06 29-Dec-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  current_arc[*,9]              33    8415.54       1.18      0.398
+
+REIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:06 29-Dec-2018
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:06 29-Dec-2018
+  Longslit coordinate fit name is slit10.fbLMask2.NeHeAr.
+  Longslit database is database.
+  Features from images:
+    current_arc
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 33
+  Mapping function = chebyshev
+    X order = 3
+    Y order = 3
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 7233.422  (2027, 1) = 9627.911
+    (1, 17) = 7233.422  (2027, 17) = 9627.911
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:06 29-Dec-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  current_arc[*,9]              33    8415.55       1.18      0.427
+
+REIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:06 29-Dec-2018
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:06 29-Dec-2018
+  Longslit coordinate fit name is slit10.fbLMask2.NeHeAr.short.
+  Longslit database is database.
+  Features from images:
+    current_arc
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 33
+  Mapping function = chebyshev
+    X order = 3
+    Y order = 3
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 7233.448  (2027, 1) = 9628.04
+    (1, 17) = 7233.448  (2027, 17) = 9628.04
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:06 29-Dec-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  current_arc[*,9]       No solution found
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:06 29-Dec-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  current_arc[*,9]       No solution found
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:06 29-Dec-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  current_arc[*,9]              34    8377.03       1.18      0.397
+
+REIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:06 29-Dec-2018
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:07 29-Dec-2018
+  Longslit coordinate fit name is slit12.fbLMask2.NeHeAr.
+  Longslit database is database.
+  Features from images:
+    current_arc
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 34
+  Mapping function = chebyshev
+    X order = 3
+    Y order = 3
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 7178.56  (2027, 1) = 9572.719
+    (1, 17) = 7178.56  (2027, 17) = 9572.719
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:07 29-Dec-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  current_arc[*,9]              34    8377.12       1.18      0.293
+
+REIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:07 29-Dec-2018
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:07 29-Dec-2018
+  Longslit coordinate fit name is slit12.fbLMask2.NeHeAr.short.
+  Longslit database is database.
+  Features from images:
+    current_arc
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 34
+  Mapping function = chebyshev
+    X order = 3
+    Y order = 3
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 7194.629  (2027, 1) = 9588.514
+    (1, 17) = 7194.629  (2027, 17) = 9588.514
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:07 29-Dec-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  current_arc[*,9]              33    8401.17       1.18      0.294
+
+REIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:07 29-Dec-2018
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:07 29-Dec-2018
+  Longslit coordinate fit name is slit13.fbLMask2.NeHeAr.
+  Longslit database is database.
+  Features from images:
+    current_arc
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 33
+  Mapping function = chebyshev
+    X order = 3
+    Y order = 3
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 7218.721  (2027, 1) = 9613.455
+    (1, 17) = 7218.721  (2027, 17) = 9613.455
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:07 29-Dec-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  current_arc[*,9]              33    8401.34       1.18      0.487
+
+REIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:07 29-Dec-2018
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:07 29-Dec-2018
+  Longslit coordinate fit name is slit13.fbLMask2.NeHeAr.short.
+  Longslit database is database.
+  Features from images:
+    current_arc
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 33
+  Mapping function = chebyshev
+    X order = 3
+    Y order = 3
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 7218.733  (2027, 1) = 9613.328
+    (1, 17) = 7218.733  (2027, 17) = 9613.328
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:07 29-Dec-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  current_arc[*,9]              33    8336.41       1.18      0.612
+
+REIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:07 29-Dec-2018
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:07 29-Dec-2018
+  Longslit coordinate fit name is slit14.fbLMask2.NeHeAr.
+  Longslit database is database.
+  Features from images:
+    current_arc
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 33
+  Mapping function = chebyshev
+    X order = 3
+    Y order = 3
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 7154.722  (2027, 1) = 9547.792
+    (1, 17) = 7154.722  (2027, 17) = 9547.792
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:08 29-Dec-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  current_arc[*,9]              34    8336.45       1.19      0.578
+
+REIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:08 29-Dec-2018
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:08 29-Dec-2018
+  Longslit coordinate fit name is slit14.fbLMask2.NeHeAr.short.
+  Longslit database is database.
+  Features from images:
+    current_arc
+  Map User coordinates for axis 1 using image features:
+  Number of feature coordnates = 34
+  Mapping function = chebyshev
+    X order = 3
+    Y order = 3
+  Fitted coordinates at the corners of the images:
+    (1, 1) = 7154.758  (2027, 1) = 9547.901
+    (1, 17) = 7154.758  (2027, 17) = 9547.901
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:08 29-Dec-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  current_arc[*,9]       No solution found
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:08 29-Dec-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  current_arc[*,9]       No solution found
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:08 29-Dec-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  current_arc[*,9]       No solution found
+
+AUTOIDENTIFY: NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:08 29-Dec-2018
+  Spectrum                 # Found   Midpoint Dispersion        RMS
+  current_arc[*,9]       No solution found
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:08 29-Dec-2018
+  Transform current_targ.fits to slit1.tfbLMask28158.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7194., x2 =      9584., dx =       1.18, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:08 29-Dec-2018
+  Transform current_targ.fits to slit1.tfbLMask28157.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7194., x2 =      9584., dx =       1.18, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:08 29-Dec-2018
+  Transform current_targ.fits to slit1.tfbLMask28158.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7194., x2 =      9584., dx =      1.179, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:08 29-Dec-2018
+  Transform current_targ.fits to slit1.tfbLMask28157.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7194., x2 =      9584., dx =      1.179, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:08 29-Dec-2018
+  Transform current_targ.fits to slit10.tfbLMask28158.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7233., x2 =      9628., dx =      1.182, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:08 29-Dec-2018
+  Transform current_targ.fits to slit10.tfbLMask28157.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7233., x2 =      9628., dx =      1.182, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:09 29-Dec-2018
+  Transform current_targ.fits to slit10.tfbLMask28158.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7233., x2 =      9628., dx =      1.182, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:09 29-Dec-2018
+  Transform current_targ.fits to slit10.tfbLMask28157.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7233., x2 =      9628., dx =      1.182, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:09 29-Dec-2018
+  Transform current_targ.fits to slit12.tfbLMask28158.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7179., x2 =      9573., dx =      1.182, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:09 29-Dec-2018
+  Transform current_targ.fits to slit12.tfbLMask28157.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7179., x2 =      9573., dx =      1.182, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:09 29-Dec-2018
+  Transform current_targ.fits to slit12.tfbLMask28158.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7195., x2 =      9589., dx =      1.182, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:09 29-Dec-2018
+  Transform current_targ.fits to slit12.tfbLMask28157.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7195., x2 =      9589., dx =      1.182, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:09 29-Dec-2018
+  Transform current_targ.fits to slit13.tfbLMask28158.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7219., x2 =      9613., dx =      1.182, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:09 29-Dec-2018
+  Transform current_targ.fits to slit13.tfbLMask28157.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7219., x2 =      9613., dx =      1.182, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:09 29-Dec-2018
+  Transform current_targ.fits to slit13.tfbLMask28158.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7219., x2 =      9613., dx =      1.182, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:09 29-Dec-2018
+  Transform current_targ.fits to slit13.tfbLMask28157.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7219., x2 =      9613., dx =      1.182, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:09 29-Dec-2018
+  Transform current_targ.fits to slit14.tfbLMask28158.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7155., x2 =      9548., dx =      1.181, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:09 29-Dec-2018
+  Transform current_targ.fits to slit14.tfbLMask28157.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7155., x2 =      9548., dx =      1.181, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:09 29-Dec-2018
+  Transform current_targ.fits to slit14.tfbLMask28158.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7155., x2 =      9548., dx =      1.181, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:09 29-Dec-2018
+  Transform current_targ.fits to slit14.tfbLMask28157.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7155., x2 =      9548., dx =      1.181, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:10 29-Dec-2018
+  Transform current_targ.fits to slit2.tfbLMask28158.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7224., x2 =      9615., dx =       1.18, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:10 29-Dec-2018
+  Transform current_targ.fits to slit2.tfbLMask28157.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7224., x2 =      9615., dx =       1.18, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:10 29-Dec-2018
+  Transform current_targ.fits to slit3.tfbLMask28158.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7137., x2 =      9526., dx =      1.179, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:10 29-Dec-2018
+  Transform current_targ.fits to slit3.tfbLMask28157.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7137., x2 =      9526., dx =      1.179, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:10 29-Dec-2018
+  Transform current_targ.fits to slit3.tfbLMask28158.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7137., x2 =      9526., dx =      1.179, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:10 29-Dec-2018
+  Transform current_targ.fits to slit3.tfbLMask28157.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7137., x2 =      9526., dx =      1.179, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:10 29-Dec-2018
+  Transform current_targ.fits to slit4.tfbLMask28158.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7158., x2 =      9548., dx =       1.18, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:10 29-Dec-2018
+  Transform current_targ.fits to slit4.tfbLMask28157.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7158., x2 =      9548., dx =       1.18, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:10 29-Dec-2018
+  Transform current_targ.fits to slit4.tfbLMask28158.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7142., x2 =      9532., dx =       1.18, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:10 29-Dec-2018
+  Transform current_targ.fits to slit4.tfbLMask28157.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7142., x2 =      9532., dx =       1.18, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:11 29-Dec-2018
+  Transform current_targ.fits to slit5.tfbLMask28158.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7035., x2 =      9425., dx =      1.179, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:11 29-Dec-2018
+  Transform current_targ.fits to slit5.tfbLMask28157.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7035., x2 =      9425., dx =      1.179, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:11 29-Dec-2018
+  Transform current_targ.fits to slit6.tfbLMask28158.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      6996., x2 =      9386., dx =      1.179, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:11 29-Dec-2018
+  Transform current_targ.fits to slit6.tfbLMask28157.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      6996., x2 =      9386., dx =      1.179, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:11 29-Dec-2018
+  Transform current_targ.fits to slit6.tfbLMask28158.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      6996., x2 =      9385., dx =      1.179, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:11 29-Dec-2018
+  Transform current_targ.fits to slit6.tfbLMask28157.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      6996., x2 =      9385., dx =      1.179, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:11 29-Dec-2018
+  Transform current_targ.fits to slit7.tfbLMask28158.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7075., x2 =      9466., dx =       1.18, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:11 29-Dec-2018
+  Transform current_targ.fits to slit7.tfbLMask28157.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7075., x2 =      9466., dx =       1.18, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:11 29-Dec-2018
+  Transform current_targ.fits to slit8.tfbLMask28158.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7062., x2 =      9454., dx =       1.18, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:11 29-Dec-2018
+  Transform current_targ.fits to slit8.tfbLMask28157.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7062., x2 =      9454., dx =       1.18, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:11 29-Dec-2018
+  Transform current_targ.fits to slit9.tfbLMask28158.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7222., x2 =      9617., dx =      1.182, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:12 29-Dec-2018
+  Transform current_targ.fits to slit9.tfbLMask28157.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7222., x2 =      9617., dx =      1.182, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:12 29-Dec-2018
+  Transform current_targ.fits to slit9.tfbLMask28158.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7222., x2 =      9617., dx =      1.182, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 16:46:12 29-Dec-2018
+  Transform current_targ.fits to slit9.tfbLMask28157.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7222., x2 =      9617., dx =      1.182, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:51 29-Dec-2018
+  Transform current_targ.fits to slit1.tfbLMask28159.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7194., x2 =      9584., dx =       1.18, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:52 29-Dec-2018
+  Transform current_targ.fits to slit1.tfbLMask28160.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7194., x2 =      9584., dx =       1.18, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:52 29-Dec-2018
+  Transform current_targ.fits to slit1.tfbLMask28159.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7194., x2 =      9584., dx =      1.179, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:52 29-Dec-2018
+  Transform current_targ.fits to slit1.tfbLMask28160.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7194., x2 =      9584., dx =      1.179, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:52 29-Dec-2018
+  Transform current_targ.fits to slit10.tfbLMask28159.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7233., x2 =      9628., dx =      1.182, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:52 29-Dec-2018
+  Transform current_targ.fits to slit10.tfbLMask28160.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7233., x2 =      9628., dx =      1.182, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:52 29-Dec-2018
+  Transform current_targ.fits to slit10.tfbLMask28159.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7233., x2 =      9628., dx =      1.182, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:52 29-Dec-2018
+  Transform current_targ.fits to slit10.tfbLMask28160.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7233., x2 =      9628., dx =      1.182, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:52 29-Dec-2018
+  Transform current_targ.fits to slit12.tfbLMask28159.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7179., x2 =      9573., dx =      1.182, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:52 29-Dec-2018
+  Transform current_targ.fits to slit12.tfbLMask28160.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7179., x2 =      9573., dx =      1.182, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:52 29-Dec-2018
+  Transform current_targ.fits to slit12.tfbLMask28159.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7195., x2 =      9589., dx =      1.182, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:52 29-Dec-2018
+  Transform current_targ.fits to slit12.tfbLMask28160.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7195., x2 =      9589., dx =      1.182, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:52 29-Dec-2018
+  Transform current_targ.fits to slit13.tfbLMask28159.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7219., x2 =      9613., dx =      1.182, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:53 29-Dec-2018
+  Transform current_targ.fits to slit13.tfbLMask28160.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7219., x2 =      9613., dx =      1.182, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:53 29-Dec-2018
+  Transform current_targ.fits to slit13.tfbLMask28159.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7219., x2 =      9613., dx =      1.182, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:53 29-Dec-2018
+  Transform current_targ.fits to slit13.tfbLMask28160.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7219., x2 =      9613., dx =      1.182, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:53 29-Dec-2018
+  Transform current_targ.fits to slit14.tfbLMask28159.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7155., x2 =      9548., dx =      1.181, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:53 29-Dec-2018
+  Transform current_targ.fits to slit14.tfbLMask28160.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7155., x2 =      9548., dx =      1.181, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:53 29-Dec-2018
+  Transform current_targ.fits to slit14.tfbLMask28159.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7155., x2 =      9548., dx =      1.181, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:53 29-Dec-2018
+  Transform current_targ.fits to slit14.tfbLMask28160.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7155., x2 =      9548., dx =      1.181, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:53 29-Dec-2018
+  Transform current_targ.fits to slit2.tfbLMask28159.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7224., x2 =      9615., dx =       1.18, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:53 29-Dec-2018
+  Transform current_targ.fits to slit2.tfbLMask28160.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7224., x2 =      9615., dx =       1.18, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:53 29-Dec-2018
+  Transform current_targ.fits to slit3.tfbLMask28159.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7137., x2 =      9526., dx =      1.179, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:53 29-Dec-2018
+  Transform current_targ.fits to slit3.tfbLMask28160.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7137., x2 =      9526., dx =      1.179, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:53 29-Dec-2018
+  Transform current_targ.fits to slit3.tfbLMask28159.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7137., x2 =      9526., dx =      1.179, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:54 29-Dec-2018
+  Transform current_targ.fits to slit3.tfbLMask28160.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7137., x2 =      9526., dx =      1.179, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:54 29-Dec-2018
+  Transform current_targ.fits to slit4.tfbLMask28159.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7158., x2 =      9548., dx =       1.18, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:54 29-Dec-2018
+  Transform current_targ.fits to slit4.tfbLMask28160.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7158., x2 =      9548., dx =       1.18, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:54 29-Dec-2018
+  Transform current_targ.fits to slit4.tfbLMask28159.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7142., x2 =      9532., dx =       1.18, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:54 29-Dec-2018
+  Transform current_targ.fits to slit4.tfbLMask28160.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7142., x2 =      9532., dx =       1.18, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:54 29-Dec-2018
+  Transform current_targ.fits to slit5.tfbLMask28159.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7035., x2 =      9425., dx =      1.179, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:54 29-Dec-2018
+  Transform current_targ.fits to slit5.tfbLMask28160.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7035., x2 =      9425., dx =      1.179, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:54 29-Dec-2018
+  Transform current_targ.fits to slit6.tfbLMask28159.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      6996., x2 =      9386., dx =      1.179, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:54 29-Dec-2018
+  Transform current_targ.fits to slit6.tfbLMask28160.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      6996., x2 =      9386., dx =      1.179, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:54 29-Dec-2018
+  Transform current_targ.fits to slit6.tfbLMask28159.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      6996., x2 =      9385., dx =      1.179, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:54 29-Dec-2018
+  Transform current_targ.fits to slit6.tfbLMask28160.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      6996., x2 =      9385., dx =      1.179, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:54 29-Dec-2018
+  Transform current_targ.fits to slit7.tfbLMask28159.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7075., x2 =      9466., dx =       1.18, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:55 29-Dec-2018
+  Transform current_targ.fits to slit7.tfbLMask28160.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7075., x2 =      9466., dx =       1.18, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:55 29-Dec-2018
+  Transform current_targ.fits to slit8.tfbLMask28159.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7062., x2 =      9454., dx =       1.18, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:55 29-Dec-2018
+  Transform current_targ.fits to slit8.tfbLMask28160.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7062., x2 =      9454., dx =       1.18, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:55 29-Dec-2018
+  Transform current_targ.fits to slit9.tfbLMask28159.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7222., x2 =      9617., dx =      1.182, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:55 29-Dec-2018
+  Transform current_targ.fits to slit9.tfbLMask28160.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7222., x2 =      9617., dx =      1.182, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:55 29-Dec-2018
+  Transform current_targ.fits to slit9.tfbLMask28159.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7222., x2 =      9617., dx =      1.182, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no
+
+NOAO/IRAF V2.16 DanaKoeppe@Danas-MacBook-Pro.local Sat 17:32:55 29-Dec-2018
+  Transform current_targ.fits to slit9.tfbLMask28160.fits.
+  Conserve flux per pixel.
+  User coordinate transformations:
+  Interpolation is spline3.
+  Using edge extension for out of bounds pixel values.
+  Output coordinate parameters are:
+    x1 =      7222., x2 =      9617., dx =      1.182, nx = 2027, xlog = no
+    y1 =         1., y2 =        17., dy =         1., ny =   17, ylog = no

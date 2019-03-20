@@ -1,4 +1,4 @@
-images,s,a,"slit2.fb.LMask2.arc.fits",,,"List of images to plot"
+images,s,a,"fcslit2.fbLMask2.NeHeAr",,,"List of images to plot"
 line,i,q,9,0,,"Image line/aperture to plot"
 band,i,q,1,1,,"Image band to plot"
 units,s,h,"",,,"Plotting units"

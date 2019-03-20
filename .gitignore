@@ -10,3 +10,6 @@ Docs/SAMOS_Manual.log
 Docs/SAMOS_Manual.out
 Docs/SAMOS_Manual.synctex.gz
 Docs/SAMOS_Manual.tex
+py_mods/database
+py_mods/arcID_tests
+py_mods/clcache.v2
