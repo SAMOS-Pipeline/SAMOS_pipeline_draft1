@@ -4,6 +4,7 @@ from InitializeSAMOS import initialize_SAMOS
 from OverscanAndTrim import overscan_and_trim
 from NormDivFlats import norm_div_flats
 from OutlineSlits import outline_slits
+from PyrafIdentify import pyraf_identify
 
 #initialize the data reduction by calling initialize_SAMOS
 
@@ -19,4 +20,7 @@ fuel = outline_slits(fuel)
 
 #next step is to identify emission lines in the calibration spectra to get a 
 #dispersion solution.  Currently needs to be run manually in an ipython environment.
+
+fuel = pyraf_identify(fuel)
+
 

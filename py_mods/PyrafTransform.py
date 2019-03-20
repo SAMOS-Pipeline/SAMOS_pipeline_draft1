@@ -225,12 +225,13 @@ def pyraf_trnsf(fuel):
 
     dbdir = fuel.identify.db
     intargs = fuel.util.science.corr_files
+    inarcs = fuel.util.arc.corr_files
     transf_dir = '%s/%s'%(fuel.input.slit_mask,'transformed_targs')
     if not os.path.exists(transf_dir): os.mkdir(transf_dir)
     wvcal_targs = []
     for fc in glob.glob('%s/fcslit*'%(dbdir)):
         slitn = os.path.basename(fc).split('.')[0][2:]
-        for targ in intargs:
+        for targ in inarcs:
             targslitn,targnm = os.path.basename(targ).split('_')
             if targslitn==slitn:
                 print(targslitn,slitn)
