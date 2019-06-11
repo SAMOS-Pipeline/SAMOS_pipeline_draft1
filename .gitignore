@@ -13,3 +13,12 @@ Docs/SAMOS_Manual.tex
 py_mods/database
 py_mods/arcID_tests
 py_mods/clcache.v2
+jupyterNB_tutorial/jupyter_docs/step_by_step.aux
+jupyterNB_tutorial/jupyter_docs/step_by_step.fdb_latexmk
+jupyterNB_tutorial/jupyter_docs/step_by_step.fls
+jupyterNB_tutorial/jupyter_docs/step_by_step.log
+jupyterNB_tutorial/jupyter_docs/step_by_step.synctex.gz
+jupyterNB_tutorial/jupyter_docs/step_by_step.tex
+logfile
+plotfile
+ignore_my_test_files/*
