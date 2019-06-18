@@ -82,6 +82,7 @@ class CreateInput:
         self.mask_SMF = '%s/helper_files/%s.SMF'%(self.working_dir,mask)
 
         db = open("%s/%s.db"%(self.working_dir,mask),"w")
+        db.write("## Initialization\n")
         db.write("# lamp\n")
         [db.write("%s\n"%(lamp)) for lamp in self.arc_filelist]
         db.write("# flat\n")

@@ -27,3 +27,4 @@ jupyterNB_tutorial/jupyter_docs/pipeline_images/*
 jupyterNB_tutorial/jupyter_docs/*dia*
 jupyterNB_tutorial/logfile
 jupyterNB_tutorial/*tex
+jupyterNB_tutorial/*checkpoint.ipynb
