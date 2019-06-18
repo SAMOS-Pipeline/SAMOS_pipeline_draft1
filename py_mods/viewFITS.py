@@ -25,7 +25,6 @@ class viewFITS:
 
         self.fig, ax = plt.subplots(figsize=(10,10))
         img = ax.pcolormesh(self.data,cmap='gray',norm=colors.LogNorm());
-        #self.fig = ax.imshow(self.data,cmap='gray',norm=colors.LogNorm());
         ax.set_xlabel('dispersion direction',fontsize=20)
         ax.set_ylabel('spatial direction',fontsize=20)
         ax.set_title(title,fontsize=20)
