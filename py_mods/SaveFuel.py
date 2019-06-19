@@ -14,7 +14,7 @@ def save_fuel_step(this_fuel,fuel_fname):
     the pipeline and pick back up instead of restarting the reduction process from scratch.
     """
     dump_dir = this_fuel.fuelsave_dir
-    filename = '%s/%s_dump.txt'%(dump_dir,fuel_fname)
+    filename = '%s/%s.txt'%(dump_dir,fuel_fname)
     outfile = open(filename, 'w')
     try:
         pickle.dump(this_fuel,outfile)
@@ -26,5 +26,3 @@ def save_fuel_step(this_fuel,fuel_fname):
     outfile.close()
 
     return
-
-#def refuel_data(dbfile):

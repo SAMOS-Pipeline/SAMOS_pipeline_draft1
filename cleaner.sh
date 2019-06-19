@@ -12,9 +12,15 @@ if [ $answer =  "yes" ] || [ $answer = "y" ]
    echo "Deleting LMask1"
    rm -r "LMask1"
   fi
+  if [ -d "stored_LMask1" ]; then
+   rm -r "stored_LMask1"
+  fi
   if [ -d "LMask2" ]; then
    echo "Deleting LMask2"
    rm -r "LMask2"
+  fi
+  if [ -d "stored_LMask2" ]; then
+   rm -r "stored_LMask2"
   fi
  echo "Deleting $DIR"/LMask*.db
  find . -type f -name "*.db" -exec rm -f {} \; 

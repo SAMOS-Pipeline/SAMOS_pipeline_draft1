@@ -7,7 +7,7 @@ from SAMOSHelpers import *
 from SlitID import get_edges
 from SlitCutout import cutout_slit
 from CreateSlitStructure import CreateSlitStructure
-
+from SaveFuel import save_fuel_step
 
 def outline_slits(fuel):
     inlamps = fuel.util.arc.corr_files
@@ -72,6 +72,7 @@ def outline_slits(fuel):
     update_slits(fuel,fuel.util.science.corr_files,fuel.input.mask_SMF,slit_positions)
     print('slits have been identified and excised. Ready for PyRAF identify.')
 
+    save_fuel_step(fuel,'OutlineSlits')
 
     return fuel
 

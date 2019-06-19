@@ -8,7 +8,7 @@ import glob
 from CreateFuelStructure import CreateFuelStructure
 from CreateInput import CreateInput
 from CreateSlitStructure import CreateSlitStructure
-from StartFrom import save_fuel_step
+from SaveFuel import save_fuel_step
 
 
 class InitializeSAMOSInstrument:

@@ -1,4 +1,5 @@
 from __future__ import print_function
+from __future__ import division
 import sys
 import os
 import numpy as np
@@ -62,33 +63,35 @@ def get_edges(input,slit_txt,mask,cutout_size=10,binsize=20):
                         np.int(previous_ycoord+cutout_size/2.),
                             starting_pixel:end_pixel]
 
-            profile = np.median(cutout_bin, axis=1)
+            if cutout_bin.shape[1]>0:
 
-            derivative = np.roll(profile,1)-profile
-            derivative[0] = 0
-            derivative[-1] = 0
-            peak,peak_location = derivative.max(),np.argmax(derivative)
+                profile = np.median(cutout_bin, axis=1)
 
-            #print("previous ycoord - cutout:previous ycoord =[%s:%s]"\
-            #%(np.int(previous_ycoord) - np.int(cutout_size),np.int(previous_ycoord)))
-            #print("starting pixel %s"%(starting_pixel))
-            #print("end pixel %s"%(end_pixel))
-            #print("peak location: %s"%(peak_location))
+                derivative = np.roll(profile,1)-profile
+                derivative[0] = 0
+                derivative[-1] = 0
+                peak,peak_location = derivative.max(),np.argmax(derivative)
+
+                #print("previous ycoord - cutout:previous ycoord =[%s:%s]"\
+                #%(np.int(previous_ycoord) - np.int(cutout_size),np.int(previous_ycoord)))
+                #print("starting pixel %s"%(starting_pixel))
+                #print("end pixel %s"%(end_pixel))
+                #print("peak location: %s"%(peak_location))
 
 
-            peak_location += (previous_ycoord - (cutout_size/2.))
-            if peak_location < 0:
-                peak_location = 0
-            if peak_location > N_pixel_y-1:
-                peak_location = N_pixel_y-1
+                peak_location += (previous_ycoord - (cutout_size/2.))
+                if peak_location < 0:
+                    peak_location = 0
+                if peak_location > N_pixel_y-1:
+                    peak_location = N_pixel_y-1
 
-            #print("peak location updated: %s"%(peak_location))
+                #print("peak location updated: %s"%(peak_location))
 
-            x_edge.append(int(np.round(0.5*(starting_pixel + end_pixel),0)))
-            y_edge.append(int(peak_location))
-            #print(previous_ycoord)
+                x_edge.append(int(np.round(0.5*(starting_pixel + end_pixel),0)))
+                y_edge.append(int(peak_location))
+                #print(previous_ycoord)
 
-            previous_ycoord = peak_location
+                previous_ycoord = peak_location
 
             starting_pixel += binsize
 
@@ -102,24 +105,26 @@ def get_edges(input,slit_txt,mask,cutout_size=10,binsize=20):
             cutout_bin = data[int(previous_ycoord-cutout_size/2.):
                             int(previous_ycoord+cutout_size/2.),
                             end_pixel:starting_pixel]
+            if cutout_bin.shape[1]>0:
 
-            profile = np.median(cutout_bin, axis=1)
-            derivative = np.roll(profile,1)-profile
-            derivative[0] = 0
-            derivative[-1] = 0
-            peak,peak_location = derivative.max(),np.argmax(derivative)
+                profile = np.median(cutout_bin, axis=1)
+                derivative = np.roll(profile,1)-profile
+                derivative[0] = 0
+                derivative[-1] = 0
+                peak,peak_location = derivative.max(),np.argmax(derivative)
 
-            peak_location += (previous_ycoord - (cutout_size/2.))
-            if peak_location < 0:
-                peak_location = 0
-            if peak_location > N_pixel_y-1:
-                peak_location = N_pixel_y-1
+                peak_location += (previous_ycoord - (cutout_size/2.))
+                if peak_location < 0:
+                    peak_location = 0
+                if peak_location > N_pixel_y-1:
+                    peak_location = N_pixel_y-1
 
 
-            x_edge.insert(0,int(0.5*(starting_pixel+end_pixel)))
-            y_edge.insert(0,int(peak_location))
+                x_edge.insert(0,int(0.5*(starting_pixel+end_pixel)))
+                y_edge.insert(0,int(peak_location))
 
-            previous_ycoord = peak_location
+                previous_ycoord = peak_location
+
             starting_pixel -= binsize
 
 

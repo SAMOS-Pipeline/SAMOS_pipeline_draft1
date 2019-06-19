@@ -4,8 +4,7 @@ import glob
 from astropy.io import fits
 from FlatNorm import *
 from SAMOSHelpers import *
-from StartFrom import save_fuel_step
-
+from SaveFuel import save_fuel_step
 
 def norm_div_flats(fuel):
 
