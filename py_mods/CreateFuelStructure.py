@@ -105,10 +105,13 @@ class CreateFuelStructure:
         self.instrument = None
         self.slits = []
         self.identify = None
+        self.fuelsave_dir = None
 
 
-    def create_fuel_structure(self,input):
-
+    def create_fuel_structure(self,input,dump_dir):
+        if not os.path.exists(dump_dir):os.mkdir(dump_dir)
+        
+        self.fuelsave_dir = dump_dir
         self.input = input
         self.util = CreateUtilStructure().create_util_structure(input)
         self.identify = CreateIdentifyStructure().create_id()

@@ -8,6 +8,7 @@ import glob
 from CreateFuelStructure import CreateFuelStructure
 from CreateInput import CreateInput
 from CreateSlitStructure import CreateSlitStructure
+from StartFrom import save_fuel_step
 
 
 class InitializeSAMOSInstrument:
@@ -159,7 +160,9 @@ def initialize_SAMOS(datedir,mask):
 
     input_structure = CreateInput().create_input(datedir,mask)
 
-    fuel = CreateFuelStructure().create_fuel_structure(input_structure)
+    data_dump_dir = '%s/stored_%s'%(input_structure.working_dir,mask)
+
+    fuel = CreateFuelStructure().create_fuel_structure(input_structure,data_dump_dir)
 
     slit_init = initialize_SAMOS_slits(input_structure.mask_SMF)
 
@@ -169,6 +172,6 @@ def initialize_SAMOS(datedir,mask):
     #instrument = InitializeSAMOSInstrument().initialize_SAMOS_instrument(fuel.input.science_filelist)
     #fuel.slits = slit_init
 
-
+    save_fuel_step(fuel,'Initialize')
 
     return fuel

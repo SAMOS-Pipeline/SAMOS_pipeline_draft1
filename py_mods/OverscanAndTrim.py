@@ -2,6 +2,7 @@ from __future__ import print_function
 import glob
 from SAMOSHelpers import *
 from Overscan import *
+from StartFrom import save_fuel_step
 
 
 def overscan_and_trim(fuel):
@@ -63,5 +64,9 @@ def overscan_and_trim(fuel):
     db.write("# OSTargs\n")
     [db.write("%s\n"%(otarg)) for otarg in outtargs]
     db.close()
+
+
+
+    save_fuel_step(fuel,'OverscanTrim')
 
     return fuel
