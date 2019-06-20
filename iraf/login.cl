@@ -4,7 +4,7 @@
 if (defpar ("logver"))
     logver = "IRAF V2.16 March 2012"
 
-set	home		= "/Users/DanaKoeppe/PhD_Thesis/SAMOS_Project/SAMOS_pipeline/"
+set	home		= "/Users/DanaKoeppe/PhD_Thesis/SAMOS_Project/SAMOS_pipeline/iraf/"
 set	imdir		= "/tmp/DanaKoeppe/"
 set	cache		= "U_CACHEDIR"
 set	uparm		= "home$uparm/"
@@ -124,9 +124,5 @@ if (deftask ("mtclean"))
 else
     delete uparm$mt?.lok,uparm$*.wcs verify-
 
-keep
-
-reset ldss3 = /Users/DanaKoeppe/anaconda2/envs/iraf27/iraf_extern/ldss3/
-task ldss3.pkg = ldss3$ldss3.cl
 keep
 

@@ -107,12 +107,16 @@ def cutout_slit(input,x_edges,y_edges):
         slit_rects.append(slit[yi:yf,xi:xf])
         hdu = fits.PrimaryHDU(slit[yi:yf,xi:xf].astype("f"))
         hdu.header = header.copy()
-        outname = "slit%s_%s"%(str(slit_num),str(input_fpath[-1]))
+        if slit_num>9:
+            outname = "slit%s_%s"%(str(slit_num),str(input_fpath[-1]))
+        else:
+            outname = "slit0%s_%s"%(str(slit_num),str(input_fpath[-1]))
         #print(outname)
 
         slit_fits_path = "%s/slit_cutouts"%input_fpath[:-1]
         #print(slit_fits_path)
         if not os.path.exists(slit_fits_path): os.mkdir(slit_fits_path)
+
 
         this_slit_dir = "%s/slit_%s/"%(slit_fits_path,str(slit_num))
         if not os.path.exists(this_slit_dir): os.mkdir(this_slit_dir)

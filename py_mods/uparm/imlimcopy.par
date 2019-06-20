@@ -1,4 +1,0 @@
-input,s,a,"slit1.tfb.LMask2.8157.fits[0][1:2000,11:18]",,,"Input images"
-output,s,a,"slit1.tfb.LMask2.8157trim.fits",,,"Output images or directory"
-verbose,b,h,yes,,,"Print operations performed?"
-mode,s,h,"ql",,,

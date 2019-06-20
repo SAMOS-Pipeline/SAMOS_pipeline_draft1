@@ -103,8 +103,13 @@ def update_slits(fuel,cutout_targs,maskf,slit_pos):
             decs.append(obj_dec)
     xs,ys,objs,ras,decs = zip(*sorted(zip(xs,ys,objs,ras,decs),reverse=True))
     fuel_updated_slits = []
+    arcslits = np.asarray([os.path.basename(i) for i in fuel.util.arc.corr_files])
+    scienceslits = np.asarray([os.path.basename(i) for i in fuel.util.science.corr_files])
+    flatslits = np.asarray([os.path.basename(i) for i in fuel.util.slitflat.corr_files])
+
     for slit in range(int(len(cutout_targs)/2.)):
         this_slit = CreateSlitStructure().create_slit_structure(maskf)
+
         #this_slit = fuel.slits[slit]
         this_slit.number = slit_num
         this_slit.obj = objs[slit]
@@ -112,6 +117,18 @@ def update_slits(fuel,cutout_targs,maskf,slit_pos):
         this_slit.obj_dec = decs[slit]
         this_slit.x_mm = xs[slit]
         this_slit.y_mm = ys[slit]
+
+        if slit_num<9:
+            slit_num_str = '0%s'%(str(slit_num))
+        else:
+            slit_num_str = str(slit_num)
+
+        this_slit.arc = np.asarray([i for i in arcslits if i.split('_')[0][-2:]==slit_num_str])
+        this_slit.science = np.asarray([i for i in scienceslits if i.split('_')[0][-2:]==slit_num_str])
+        this_slit.flats = np.asarray([i for i in flatslits if i.split('_')[0][-2:]==slit_num_str])
+
+
+
         fuel_updated_slits.append(this_slit)
         slit_num +=1
 
