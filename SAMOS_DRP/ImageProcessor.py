@@ -20,6 +20,9 @@ from .drp_mods import (define_trim_section,get_overscan_region,
                      create_master_bias,create_master_flats,name_master_flats,
                      normalize_master_flat,get_best_flat,combine_data,
                      call_cosmic_rejection,identify_slits)
+import SAMOS_DRP.Spectroscopy.wcs
+import SAMOS_DRP.Spectroscopy.wavelength
+from SAMOS_DRP.Spectroscopy.wavelength import WavelengthCalibration
 
 import warnings
 warnings.filterwarnings('ignore')
@@ -242,9 +245,11 @@ class ImageProcessor:
                     try:
 
                         log.debug('Attempting to find slit trim section')
-
+                        slit_reference_file = os.path.join(\
+                                        os.path.split(self.working_dir)[0],'slit_refs')
                         self.slit_edges_x,self.slit_edges_y = \
-                                    identify_slits(master_flat=master_flat)
+                                    identify_slits(master_flat=master_flat,
+                                    slit_reference_file=slit_reference_file)
                     except AttributeError:
                         log.critical("Master flat inexistent, can't find slit trim "
                                       "section, exiting")

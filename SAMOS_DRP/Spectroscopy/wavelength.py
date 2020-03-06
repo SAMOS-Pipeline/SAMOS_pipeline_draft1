@@ -78,7 +78,7 @@ class WavelengthCalibration:
         self.cross_corr_tolerance = 5
         self.reference_data_dir = None
         self.reference_data = None
-
+        self.wcal_targ_file = []
         # Instrument configuration and spectral characteristics
         self.serial_binning = None
         self.parallel_binning = None
@@ -236,6 +236,7 @@ class WavelengthCalibration:
                         plot_results=plot_results,
                         save_plots=save_plots,
                         plots=plots)
+                    self.wcal_targ_file.append(saved_file_name)
                     all_solution_info.append({
                         'solution_info': {'rms_error': "{:.4f}".format(self.rms_error),
                                           'npoints': "{:d}".format(self.n_points),
@@ -250,6 +251,7 @@ class WavelengthCalibration:
             elif len(wavelength_solutions) == 1:
                 self.wsolution = wavelength_solutions[0]
                 self.wcal_lamp_file = reference_lamp_names[0]
+
                 ccd = self.wcs.write_SRP_wcs(ccd=ccd, model=self.wsolution)
 
                 saved_file_name = self._save_science_data(
@@ -260,6 +262,7 @@ class WavelengthCalibration:
                     save_plots=save_plots,
                     index=object_number,
                     plots=plots)
+                self.wcal_targ_file.append(saved_file_name)
                 if json_output:
                     return {
                         'wavelength_solution': [

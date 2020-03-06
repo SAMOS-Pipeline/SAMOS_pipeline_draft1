@@ -1149,13 +1149,14 @@ def combine_data(image_list, dest_path, prefix=None, output_name=None,
 
 
 
-def identify_slits(master_flat,slit_reference_file='slit_refs.txt',cutout_size=10,binsize=40):
+def identify_slits(master_flat,slit_reference_file='slit_refs',cutout_size=10,binsize=40):
     """
     approx_edge is approximate y-pixel for top of the slit.
     cutout size is number of y rows of pixels to check for variation.
     binsize is number of x columns to include each step.
     algorithms adapted for python based on Flame data reduction pipeline written in IDL (Belli, Contursi, and Davies (2017))
     """
+    print(slit_reference_file)
 
     # read in file of approximate slit edges
     approx_edges = np.genfromtxt(slit_reference_file,unpack=True,usecols=0)
@@ -1597,6 +1598,37 @@ def evaluate_wavelength_solution(clipped_differences):
         rms_error))
 
     return rms_error, n_points, n_rejections
+
+def get_central_wavelength(grating, grt_ang, cam_ang):
+    """Calculates the central wavelength for a given spectroscopic mode
+    The equation used to calculate the central wavelength is the following
+    .. math::
+        \\lambda_{central} = \\frac{1e6}{GRAT}
+        \\sin\\left(\\frac{\\alpha \\pi}{180}\\right) +
+        \\sin\\left(\\frac{\\beta \\pi}{180}\\right)
+    Args:
+        grating (str): Grating frequency as a string. Example '400'.
+        grt_ang (str): Grating Angle as a string. Example '12.0'.
+        cam_ang (str): Camera Angle as a string. Example '20.0'
+    Returns:
+        central_wavelength (float): Central wavelength as a float value.
+    """
+
+    grating_frequency = float(grating) / units.mm
+    grt_ang = float(grt_ang) * units.deg
+    cam_ang = float(cam_ang) * units.deg
+
+    alpha = grt_ang.to(units.rad)
+    beta = cam_ang.to(units.rad) - grt_ang.to(units.rad)
+
+    # central_wavelength = (1e6 / grating_frequency) * \
+    #                      (np.sin(alpha * np.pi / 180.) +
+    #                       np.sin(beta * np.pi / 180.))
+    central_wavelength = (np.sin(alpha) + np.sin(beta)) / grating_frequency
+    central_wavelength = central_wavelength.to(units.angstrom)
+    log.debug('Found {:.3f} as central wavelength'.format(central_wavelength))
+
+    return central_wavelength
 
 def get_lines_in_lamp(ccd, plots=False):
     """Identify peaks in a lamp spectrum
@@ -2644,7 +2676,7 @@ class ReferenceData:
                                 "WAVMODE = {}".format(header['OBJECT'],
                                                       header['WAVMODE'])
                 self.log.error(error_message)
-                
+
                 raise NoMatchFound(error_message)
 
         if len(filtered_collection) == 1:

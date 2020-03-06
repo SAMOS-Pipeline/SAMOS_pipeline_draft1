@@ -55,7 +55,9 @@ class SAMOSNight:
                          'wavmode']
 
         self.processing_dir = proc_dir
-        if os.listdir(proc_dir):
+        if not os.path.exists(proc_dir):
+            os.mkdir(proc_dir)
+        elif os.listdir(proc_dir):
             self.log.debug("starting with a clean processing directory for %s"%(proc_dir))
             [os.remove(i) for i in glob.glob(os.path.join(proc_dir,"*.fits"))]
 

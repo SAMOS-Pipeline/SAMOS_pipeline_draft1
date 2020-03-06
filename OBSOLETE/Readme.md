@@ -1,3 +1,4 @@
+##!!!THIS IS NO LONGER RELEVANT!!##
 # SAMOS Data Reduction pipeline
 Written by Dana Koeppe, Michigan State University 2016-present
 

@@ -1,5 +1,7 @@
 .loc*
 __pycache__
+OBSOLETE
+COMP_GDMN_DATA
 LMask*.db
 Lmask*
 Docs/SAMOS_Manual.aux
@@ -28,4 +30,4 @@ jupyterNB_tutorial/jupyter_docs/*dia*
 jupyterNB_tutorial/logfile
 jupyterNB_tutorial/*tex
 jupyterNB_tutorial/*checkpoint.ipynb
-
+jupyterNB_tutorial/testing*
