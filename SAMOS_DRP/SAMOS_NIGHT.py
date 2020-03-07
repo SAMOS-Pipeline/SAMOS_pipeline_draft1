@@ -30,6 +30,9 @@ class SAMOSNight:
         self.obsid = obsid
         self.log = logging.getLogger(__name__)
         self.raw_data_dir = raw_data_dir
+        self.processing_dir = proc_dir #where pipeline products are stored
+        self.work_dir = os.getcwd() #where the user is running the pipeline
+                                    #usually one directory up from proc_dir
         self.ignore_bias = ignore_bias
         self.ignore_flats = ignore_flats
         self.FULL_bucket = None
@@ -54,7 +57,7 @@ class SAMOSNight:
                          'ccdsum',
                          'wavmode']
 
-        self.processing_dir = proc_dir
+
         if not os.path.exists(proc_dir):
             os.mkdir(proc_dir)
         elif os.listdir(proc_dir):

@@ -30,6 +30,7 @@ class SlitBuckets:
         self.log = logging.getLogger(__name__)
         self.raw_data_dir = imgproc_night_bucket.raw_data_dir
         self.processing_dir = imgproc_night_bucket.processing_dir
+        self.work_dir = imgproc_night_bucket.work_dir
         self.mask_proc_dir = None
         self.gain = imgproc_night_bucket.gain
         self.rdnoise = imgproc_night_bucket.rdnoise

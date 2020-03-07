@@ -10,6 +10,7 @@ import numpy as np
 import ccdproc
 from ccdproc import CCDData,ImageFileCollection
 import logging
+from pathlib import Path
 import argparse
 from .DataBucket import DataBucket
 from .SAMOSHelpers import save_bucket_status,MuyMalo
@@ -43,6 +44,7 @@ class ImageProcessor:
         print(night_bucket.raw_data_dir)
         self.raw_data_dir = night_bucket.raw_data_dir
         self.processing_dir = night_bucket.processing_dir
+        self.work_dir = night_bucket.work_dir
         self.gain = night_bucket.FULL_bucket.gain
         self.rdnoise = night_bucket.FULL_bucket.rdnoise
         self.ccdsum = night_bucket.FULL_bucket.ccdsum
@@ -245,12 +247,19 @@ class ImageProcessor:
                     try:
 
                         log.debug('Attempting to find slit trim section')
-                        slit_reference_file = os.path.join(\
-                                        os.path.split(self.working_dir)[0],'slit_refs')
+                        slit_reference_file = os.path.join(self.work_dir,'slit_refs')
+                        if not os.path.exists(slit_reference_file):
+
+                            slit_reference_file = os.path.join(Path(self.work_dir).parents[0],
+                                                               'slit_refs')
+                        #look for slit_refs file in the directory one above cwd
+                        print("looking for slit refs in dir %s"%(Path(self.work_dir).parents[0]))
+
                         self.slit_edges_x,self.slit_edges_y = \
                                     identify_slits(master_flat=master_flat,
                                     slit_reference_file=slit_reference_file)
                     except AttributeError:
+                        print("looking for slit refs in dir %s"%(os.path.split(self.raw_data_dir)[0]))
                         log.critical("Master flat inexistent, can't find slit trim "
                                       "section, exiting")
                         MuyMalo("something went wrong, no slit edges found"

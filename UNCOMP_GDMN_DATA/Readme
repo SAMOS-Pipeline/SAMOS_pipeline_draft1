@@ -1,5 +1,0 @@
-This contains the main fits data file from the set of observations taken 
-with the Goodman spectrograph.  The original files are compressed with a 
-primary header containing the basic information for the exposure, (see 
-`../COMP_GDMN_DATA/Readme') but the pipeline cannot process that type of 
-file properly, so I split them up. 

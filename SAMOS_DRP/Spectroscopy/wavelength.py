@@ -655,8 +655,8 @@ class WavelengthCalibration:
             fig.canvas.set_window_title(ccd.header['SRP_FNAM'])
             # ax1 = fig.add_subplot(111)
 
-            mng = plt.get_current_fig_manager()
-            mng.window.showMaximized()
+            #mng = plt.get_current_fig_manager()
+            #mng.frame.showMaximized()
 
             ax1.set_title(fig_title)
             ax1.set_xlabel('Wavelength (Angstrom)')
