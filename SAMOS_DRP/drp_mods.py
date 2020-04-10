@@ -35,6 +35,8 @@ warnings.filterwarnings('ignore')
 
 log = logging.getLogger(__name__)
 
+#core functions for SAMOS DRP
+
 
 def astroscrappy_lacosmic(ccd, red_path=None, save_mask=False):
 

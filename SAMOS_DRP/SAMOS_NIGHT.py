@@ -18,17 +18,19 @@ from .SAMOSHelpers import check_header_notes
 warnings.filterwarnings('ignore')
 
 
+
+
 class SAMOSNight:
 
     """Defines and initializes the variables for processing the data
     from a specific night with SAMOS.
     """
 
-    def __init__(self,obsid,raw_data_dir,proc_dir,altworkdir=False,
+    def __init__(self,obsid,raw_data_dir,proc_dir,LOG_FILENAME,altworkdir=False,
                 ignore_bias=False,ignore_flats=False):
 
         self.obsid = obsid
-        self.log = logging.getLogger(__name__)
+
         self.raw_data_dir = raw_data_dir
         self.processing_dir = proc_dir #where pipeline products are stored
         self.work_dir = os.getcwd() #where the user is running the pipeline
@@ -58,6 +60,12 @@ class SAMOSNight:
                          'wavmode']
 
 
+
+        if os.path.exists(LOG_FILENAME):
+            os.remove(LOG_FILENAME)
+        logging.basicConfig(filename=LOG_FILENAME,level=logging.DEBUG)
+        #is this how this works or am I being redundant??
+        self.log = logging.getLogger(__name__)
         if not os.path.exists(proc_dir):
             os.mkdir(proc_dir)
         elif os.listdir(proc_dir):
@@ -69,7 +77,8 @@ class SAMOSNight:
 
         FULL_bucket = ImageFileCollection(self.raw_data_dir,self.header_keys)
         self.FULL_bucket = FULL_bucket.summary.to_pandas()
-        print(self.raw_data_dir)
+
+        print("the pipeline is sorting your buckets")
 
         self.FULL_bucket['radeg'] = ''
         self.FULL_bucket['decdeg'] = ''
