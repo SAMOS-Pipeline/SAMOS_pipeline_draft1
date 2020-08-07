@@ -15,8 +15,8 @@ import argparse
 from .DataBucket import DataBucket
 from .SAMOSHelpers import save_bucket_status,MuyMalo
 from .SAMOS_NIGHT import SAMOSNight
-from .drp_mods import classify_spectroscopic_data
-from .drp_mods import (define_trim_section,get_overscan_region,
+from .SAMOS_mods import classify_spectroscopic_data
+from .SAMOS_mods import (define_trim_section,get_overscan_region,
                      image_trim,image_overscan,read_fits,write_fits,
                      create_master_bias,create_master_flats,name_master_flats,
                      normalize_master_flat,get_best_flat,combine_data,

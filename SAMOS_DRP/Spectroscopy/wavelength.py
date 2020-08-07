@@ -28,7 +28,7 @@ from matplotlib.backends.backend_pdf import PdfPages
 
 from .wcs import WCS
 
-from ..drp_mods import (add_linear_wavelength_solution,
+from ..SAMOS_mods import (add_linear_wavelength_solution,
                     bin_reference_data,
                     cross_correlation,
                     evaluate_wavelength_solution,
@@ -36,7 +36,7 @@ from ..drp_mods import (add_linear_wavelength_solution,
                     linearize_spectrum,
                     write_fits)
 
-from ..drp_mods import (ReferenceData, NoMatchFound)
+from ..SAMOS_mods import (ReferenceData, NoMatchFound)
 
 log = logging.getLogger(__name__)
 

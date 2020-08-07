@@ -13,7 +13,7 @@ import logging
 import argparse
 from astropy.io.fits.verify import VerifyError
 from ccdproc import ImageFileCollection
-from .drp_mods import cutout_slit,read_fits,write_fits
+from .SAMOS_mods import cutout_slit,read_fits,write_fits
 
 
 class SlitBuckets:

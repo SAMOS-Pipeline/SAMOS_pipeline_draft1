@@ -5,7 +5,7 @@ import numpy as np
 import logging
 import warnings
 warnings.filterwarnings('ignore')
-from SAMOS_DRP.drp_mods import add_wcs_keys,read_fits
+from SAMOS_DRP.SAMOS_mods import add_wcs_keys,read_fits
 import SAMOS_DRP.Spectroscopy.wcs
 import SAMOS_DRP.Spectroscopy.wavelength
 from SAMOS_DRP.Spectroscopy.wavelength import WavelengthCalibration

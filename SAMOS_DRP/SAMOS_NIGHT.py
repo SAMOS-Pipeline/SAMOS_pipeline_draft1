@@ -27,7 +27,7 @@ class SAMOSNight:
     """
 
     def __init__(self,obsid,raw_data_dir,proc_dir,LOG_FILENAME,altworkdir=False,
-                ignore_bias=False,ignore_flats=False):
+                ignore_bias=True,ignore_flats=False):
 
         self.obsid = obsid
 
