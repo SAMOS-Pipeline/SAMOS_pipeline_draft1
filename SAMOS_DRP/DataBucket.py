@@ -50,9 +50,11 @@ class DataBucket:
 
             class_info = str("{:s}\n"
                              "SAMOS Observation ID: {:s}\n"
-                             "Data Directory: {:s}".format(str(self.__class__),
+                             "Data Directory: {:s}\n"
+                             "Working Directory: {:s}".format(str(self.__class__),
                                                       self.obsid,
-                                                      self.data_path))
+                                                      os.path.split(self.data_path)[1],
+                                                      os.path.split(os.getcwd())[1]))
 
             if all([self.gain, self.rdnoise, self.ccdsum]):
                 class_info += str("\nGain: {:.2f}\n"

@@ -1,0 +1,172 @@
+%% This is emulateapj reformatting of the AASTEX sample document
+%%
+%\documentclass[onecolumn]{aastex62}
+\documentclass[manuscript]{aastex62}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{mathdots}
+
+
+
+%\newcommand{\vdag}{(v)^\dagger}
+%\newcommand{\myemail}{koeppeda@msu.edu}
+
+%% You can insert a short comment on the title page using the command below.
+
+\newcommand{\vdag}{(v)^\dagger}
+\newcommand\aastex{AAS\TeX}
+\newcommand\latex{La\TeX}
+\newcommand{\code}{\texttt}
+
+\newcommand{\includeCroppedPdf}[2][]{%
+    \immediate\write18{pdfcrop #2}%
+    \includegraphics[#1]{#2-crop}}
+
+
+\begin{document}
+
+
+\section{Introduction}
+
+This document reviews the data reduction process for the SOAR Adaptive-Module Optical Spectrograph (SAMOS) \citep{Robberto_2016}.  The current version is equipped for reduction of test data from the Goodman High-Throughput Spectrograph.  Eventually, it will be used to reduce multi-object spectroscopy data taken with the SAMOS.  For information on the instrument, see \href{https://www.spiedigitallibrary.org/conference-proceedings-of-spie/9908/1/SAMOS--a-versatile-multi-object-spectrograph-for-the-GLAO/10.1117/12.2233094.full}{\citep{Robberto_2016}}.  This pipeline is based (heavily) on the \href{https://goodman.readthedocs.io/en/latest/}{Goodman Spectroscopic Pipeline}, and the Flame data reduction pipeline for near-infrared and optical multi-slit spectroscopy.  Flame is written in IDL, while the Goodman and SAMOS pipelines are written in Python3.  I would like everyone to know that  $\star$\textit{this}$\star$ pipeline would not be nearly as good as it is (is it even good? lol idk yet) without the beautifully organized/documented code that I used as a foundation.
+
+\begin{itemize}
+  \setlength{\itemsep}{0.3\baselineskip}
+  \item \code{SAMOS-working-dir/}:
+        \begin{itemize}
+          \setlength{\itemsep}{0.1\baselineskip}
+          \item[$\ast$] \code{Docs/} you are here :)
+          \item[$\ast$] Readme.md
+          \item[$\ast$] \code{UNCOMP$\_$GDMN$\_$DATA/} test data from Goodman HTS.
+          \item[$\ast$] \code{SAMOS$\_$DRP/} directory for main pipeline.
+          \item[$\ast$] \code{comp$\_$refs/} reference spectra for various Goodman comparison lamp setups.
+          \item[$\ast$] \code{slit$\_$refs/} manually selected pixel positions for slit edges (will be unnecessary with SAMOS data).
+          \item[$\ast$] \code{SAMOSenv.yml} file for creating the  environment in which to use SAMOS$\_$DRP.
+        \end{itemize}
+
+\end{itemize}
+
+
+
+
+\section{Initialization}
+
+The current version of the pipeline can be run in iPython or JuPyter notebook.  A new data reduction session starts with the initialization script `\code{SAMOS$\_$DRP.SAMOS$\_$NIGHT}'.  This module is responsible for reading the headers from the sample data in \code{UNCOMP$\_$GDMN$\_$DATA/}, and organizing the information into data structures (buckets) for use by the rest of the code.
+
+The initialization script takes five input arguments, the name of the SAMOS observation ID after which the output information will be named (not based on real data yet so feel free to get wild with it), raw data directory path (Goodman test data, for now), path for processed data, and whether or not to ignore bias/flat frames.  The Goodman test data has an overscan region which is used for bias correction, so the `ignore$\_$bias' option should be set to true. The initialization then returns the main data structure of the pipeline.  The call for this step should look like:
+
+\begin{verbatim}
+  In [1]: from SAMOS_DRP.SAMOS_NIGHT import SAMOSNight
+  In [2]: SAMOS_reduction = SAMOSNight(obsid='anYtHinG',
+                         raw_data_dir=`UNCOMP_GDMN_DATA',
+                         proc_dir=`AnyWhErE',
+                         ignore_bias=True,
+                         ignore_flats=False)
+\end{verbatim}
+
+
+If you are in a juPyter notebook, the initialization cell is shown in figure \ref{fig:init_step}.
+This step uses \code{ccdproc.ImageFileCollection} to read your images and sorts them based on information in the FITS header.  The main data buckets are for bias frames, quartz flats, comparison lamps, and science/comparison pairs.  Figure \ref{fig:bucket_info} shows an example of the output once the data is organized.
+
+\begin{figure}
+ \centering
+ \includegraphics[width=\textwidth,angle=0,origin=c]{jupyter_import_packages_cell-crop}
+ \caption{Relevant SDRP packages for reducing SAMOS data.}
+  \label{fig:import_packages}
+\end{figure}
+
+\begin{figure}
+ \centering
+ \includegraphics[width=\textwidth,angle=0,origin=c]{initialize_SAMOS_step1-crop}
+ \caption{Initialization step for SAMOS data reduction.}
+  \label{fig:init_step}
+\end{figure}
+
+\begin{figure}
+ \centering
+ \includegraphics[width=0.5\textwidth,angle=0,origin=c]{bucket_group_info-crop}
+ \caption{Initialization step for SAMOS data reduction.}
+  \label{fig:bucket_info}
+\end{figure}
+
+
+\section{\code{CCD Processing: Overscan/Bias}}
+
+Next, we have to determine the overscan and trim the edges of the fits data.  \code{ccdproc.subtract$\_$overscan} reads a CCD image and performs the overscan correction and trimming.  The relevant FITS header keywords are `BIASSEC', which gives the overscan region in the format `[y0:y1,x0:x1]', with `y' as the spatial direction, and `x' as the dispersion direction.
+
+
+The bias is due to a combination of the camera noise from the readout process and electric ``pre-charge'' on a CCD chip by the electronics.  The BIASSEC header gives the region of overscan, which contains information for this bias.  An array of this overscan region is made by grabbing the rows and columns from the data array (\code{d = f[0].data.astype(``f'')} $\rightarrow$ \code{overscan = d[biassec rows, biassec columns]}). The function then takes the median (or mean) of the overscan regions along the rows (axis=1), and subtracts these values from each data value in their respective data rows.  The general procedure is shown in the figure below.
+
+$$
+ \begin{pmatrix}
+  cropped & and\\\
+  bias & subtraced\\\
+  data & matrix
+ \end{pmatrix} =
+ \begin{pmatrix}
+ d11 & d12 & d13 & ... & d1m\\\
+ d21 & d22 & ... & ... & d2m\\\
+ ... & ... & ... & ... & ...\\\
+ dn1 & ... & ... & ... & dnm
+ \end{pmatrix} -
+ \begin{pmatrix}
+  [b1]\\\
+  [b2]\\\
+  [b3]\\\
+  [...]\\\
+  [bn]
+ \end{pmatrix}
+$$
+
+
+
+
+
+\section{\code{Flat Field Correction}}
+
+Once we have our cropped and bias subtracted fits files, we need to locate and combine the flat frames into one master flat, which will be divided from the science frames.
+First we make a stack of the flat field frames and scale them by their median.  Then the stack is median combined and normalized, which gives the pixel-to-pixel variation in detector sensitivity.
+The function outputs a fits file named LMask(1,2)master$\_$flat.  Finally, the science frames are divided by the master flat and written out to new frames, which are placed in a directory named  \textbf{flat$\_$fielded}.
+
+To call this routine, use
+\begin{verbatim}
+> ./NormDivFlats LMask(1,2).db
+\end{verbatim}
+
+The function also creates thumbnail images of the output data frames.
+
+This step also cleans cosmic rays by calling \texttt{astroscrappy}.
+
+\section{\code{OutlineSlits}}
+
+Since the headers for the test data do not contain slit information, I typed up a text file of slit positions called \textbf{LMask(1,2)$\_$ycoords$\_$c1.txt}.  This file contains the top edge pixel for each of the slits in the field image.  The module \code{Slit$\_$id.py} contains the function \code{get$\_$edges(\ldots)}, which is responsible for tracing the slits, using the master flat output from \code{NormDivFlats} as a template.  \code{get$\_$edges} takes the master flat and the slit positions text file as input.  The function steps along cutouts of the FITS data frame based on the y-axis positions given in the text.  For each step, the median of the cutout along the x-axis is taken, and then the derivative along the y-axis is computed to locate the transition from the chip to the slid edge.  This steps along the slit until it reaches the end, storing the x and y positions.  The arrays of slit positions are written to a region file called \textbf{reg$\_$txt.reg} within the corresponding mask directory, and can be loaded into DS9.  An example of this for LMask2 is shown in figure \ref{fig:regtxt}.  The slits outlined here are representative of the slits found in the image of the mask field, so not all of the slits in a science image will be included in this step.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.5]{region_file_ex}
+  \caption{\textbf{helper\_files/slitsLMask2.reg} overlayed onto science image in DS9.}\label{fig:regtxt}
+\end{figure}
+
+To run this step, use
+
+\begin{verbatim}
+  > ./OutlineSlits LMask(1,2).db
+\end{verbatim}
+
+\section{TL;DR}
+
+This is the most up to date version of the documentation for the SAMOS pipeline thus far.  Currently, there is no main script to run all the processes at once, so the user will have to run them step by step.  To summarize, the user input for data reduction up to and including slit identification is,
+
+\begin{equation}
+  \begin{split}
+    &\code{> ./WhichFITSFiles 2017-11-30 LMask*}\\
+    &\code{> ./OverscanAndTrim LMask*.db}\\
+    &\code{> ./NormDivFlats LMask*.db}\\
+    &\code{> ./OutlineSlits LMask*.db}
+  \end{split}
+\end{equation}
+
+\bibliography{SAMOSbib}
+
+\end{document}

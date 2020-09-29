@@ -1,0 +1,9 @@
+\begin{thebibliography}{}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{Robberto {et~al.}(2016)Robberto, Donahue, Ninkov, Smee, Barkhouser,
+  Gennaro, \& Tokovinin}]{Robberto_2016}
+Robberto, M., Donahue, M., Ninkov, Z., {et~al.} 2016, Ground-based and Airborne
+  Instrumentation for Astronomy VI, doi:10.1117/12.2233094
+
+\end{thebibliography}
