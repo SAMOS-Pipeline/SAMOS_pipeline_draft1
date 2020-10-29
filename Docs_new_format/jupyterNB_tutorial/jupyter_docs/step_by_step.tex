@@ -1,0 +1,248 @@
+%% This is emulateapj reformatting of the AASTEX sample document
+%%
+%\documentclass[onecolumn]{aastex62}
+\documentclass[manuscript]{aastex62}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{mathdots}
+
+
+
+%\newcommand{\vdag}{(v)^\dagger}
+%\newcommand{\myemail}{koeppeda@msu.edu}
+
+%% You can insert a short comment on the title page using the command below.
+
+\newcommand{\vdag}{(v)^\dagger}
+\newcommand\aastex{AAS\TeX}
+\newcommand\latex{La\TeX}
+\newcommand{\code}{\texttt}
+
+
+\begin{document}
+
+\title{Jupyter Notebook Tutorial}
+
+\section{Introduction}
+
+This tutorial explains the basic data reduction process for the SOAR Adaptive-Module Optical Spectrograph (SAMOS).  The accompanying jupyter notebook is aptly named `\code{jupyter\_SAMOS}'.
+
+\section{Starting Up}
+
+As of now, the pipeline uses PyRAF for spectral line identification, which requires Python2.  The  environment file \code{EnvSAMOS.yml} is located in the main working directory.  The user may copy the environment to their own computer by executing `\code{conda env create --file EnvSAMOS.yml}' in their terminal.
+
+The user's working directory should contain the following:
+
+
+\begin{itemize}
+  \setlength{\itemsep}{0.5\baselineskip}
+  \item \code{SAMOS-working-dir/}:
+        \begin{itemize}
+          \setlength{\itemsep}{0.03\baselineskip}
+          \item \code{cleaner.sh}
+          \item Readme.md
+          \item \code{Docs/}
+          \item \code{jupyterNB$\_$tutorial/} \textbf{you are here}
+          \item \code{LDSS3/}
+          \item \code{helper$\_$files/}
+          \item \code{linelists/}
+          \item \code{py$\_$mods/}
+        \end{itemize}
+  \item \code{SAMOS-working-dir/py$\_$mods/}:
+        \begin{itemize}
+          \setlength{\itemsep}{0.03\baselineskip}
+          \item \code{CreateFuelStructure.py}
+          \item \code{CreateInput.py}
+          \item \code{CreateSlitStructure.py}
+          \item \code{FlatNorm.py}
+          \item \code{InitializeSAMOS.py}
+          \item \code{NormDivFlats.py}
+          \item \code{OutlineSlits.py}
+          \item \code{Overscan.py}
+          \item \code{OverscanAndTrim.py}
+          \item \code{SAMOSHelpers.py}
+          \item \code{SlitCutout.py}
+          \item \code{SlitID.py}
+          \item \code{PyrafIdentify.py}
+          \item \code{PyrafTransform.py}
+          \item \code{iraf$\_$steps.py}
+          \item \code{iraf$\_$params.py}
+          \item \code{viewFITS.py}
+          \item \code{StartFrom.py}
+          \item \code{$\_\_$init$\_\_$.py}
+        \end{itemize}
+  \item \code{SAMOS-working-dir/helper$\_$files}:
+        \begin{itemize}
+          \setlength{\itemsep}{0.03\baselineskip}
+          \item LMask1.SMF
+          \item LMask2.SMF
+          \item LMask1$\_$ycoords$\_$c1.txt
+          \item LMask2$\_$ycoords$\_$c1.txt
+          \item LMask2$\_$ycoords$\_$red$\_$c1.txt
+        \end{itemize}
+\end{itemize}
+
+To run this pipeline on their own, I recommend the user create a separate working directory with symbolic links from the cloned repository.  In your terminal, start a new session from scratch by running `\code{./cleaner.sh}' in the working directory to clean up files and directories left over from previous runs.  Then, open the JupyterNB tutorial by typing `\code{jupyter-notebook SAMOS-working-dir/jupyterNB$\_$tutorial/jupyter$\_$SAMOS.ipynb}' in your terminal.
+Note that the helper files are specifically for reducing the LDSS3 test data.  These files will be obsoleted when we have sufficient data from the SAMOS instrument.  When that happens, I will be adjusting the pipeline according to the instrument data.  It should therefore be noted that parts of the pipeline that call these helper files employ less robust data reduction methods.
+
+Eventually, the pipeline will be used to reduce multi-object spectroscopy data taken with the SOAR Adaptive-Module Optical Spectrograph (SAMOS).  For information on the instrument, see \href{https://www.spiedigitallibrary.org/conference-proceedings-of-spie/9908/1/SAMOS--a-versatile-multi-object-spectrograph-for-the-GLAO/10.1117/12.2233094.full}{(Robberto et al. 2016)}.  In order to avoid reinventing the wheel, this pipeline is heavily based on the \href{https://github.com/siriobelli/flame}{Flame DRP} written by \href{https://arxiv.org/pdf/1710.05924.pdf}{Belli, Contursi, and Davies (2017)}.  Flame is written in IDL, while the SAMOS pipeline will ultimately be written in Python2.
+
+
+
+\section{Notebook Walkthrough}
+
+\subsection{\normalfont{\large{\code{fuel$\_$init = initialize$\_$SAMOS(data$\_$dir,mask)}}}}
+
+The first cell of notebook sets up the paths to the various modules needed to run the pipeline so the notebook can find and use them.
+
+%angle=270,origin=c,width=\textwidth,
+\begin{figure}[ht]
+  \hspace*{-1cm}
+  \centering
+  \includegraphics[angle=-90,origin=c,width=\textwidth,trim={7cm 0cm 7.9cm 0},clip]{SAMOSnb_startup}
+  \vspace*{-7cm}\caption{Cell initialization for a new data reduction session.}\label{fig:firstcell}
+\end{figure}
+
+
+First, the pipeline runs the function \code{initialize$\_$SAMOS}, which the FITS headers creates the basic data structure, separating the calibration files from the science files.
+
+The output while the script is running will give the names of files blah.
+
+\begin{figure}[ht]
+  %\vspace*{-5cm}
+  \hspace*{-1cm}
+  \centering
+  \includegraphics[angle=-90,origin=c,width=\textwidth,trim={5cm 0cm 0cm 0cm},clip]{init_output}
+  \vspace*{-8cm}\caption{output from running the first step of the code.}\label{fig:initial_out}
+\end{figure}
+
+Each instance of the fuel structure returned by \code{initialize$\_$SAMOS} is organized as follows:
+
+
+
+\begin{figure}[ht]
+  \vspace*{-2cm}
+  \hspace*{-2cm}
+  \centering
+  \includegraphics[angle=-90,origin=c,width=\textwidth,trim={3cm 0cm 3cm 0cm},clip]{init_data_structure}
+  \vspace*{-6cm}\caption{Base data structure created upon initialization.}\label{fig:initial_attr}
+\end{figure}
+
+
+\begin{figure}[ht]
+  \vspace*{-3cm}
+  \hspace*{-1cm}
+  \centering
+  \includegraphics[scale=0.75,trim={3cm 1cm 3cm 0cm},clip]{BaseFuelStructure}
+  \vspace*{-6cm}\caption{Base data structure flowchart.(Until I make more nice flow charts that better demonstrate the data structures, I will include screenshots of printed instance attributes when relevant.)}\label{fig:fuelstruct}
+\end{figure}
+
+
+
+The pipeline gets most of the initial information from header files and creates empty files and directories for future use, but slit locations for the current test data were created manually and stored in one of the helper files.  The SAMOS instrument is a Digital Micromirror Device (DMD) \citep{smee2018}, allowing for multiple slit configurations in a single observing run.  Each exposure will have the slit configurations stored in the FITS headers so the pipeline will be able to access them easily and have them stored upon instantiation.  For now, the slit position file is stored as \code{fuel$\_$init.input.slit$\_$position$\_$file}.
+
+
+\newpage
+
+\subsection{\normalfont{\large{\code{fuel$\_$ost = overscan$\_$and$\_$trim(fuel$\_$init)}}}}
+
+
+Next, we have to determine the overscan and trim the edges of the fits data. This code reads the database file and creates arrays which separate the data into flats, comparison lamps, and science data.
+
+The main part of \code{overscan$\_$and$\_$trim} is the calling of the module \code{Overscan.py}.  This module parses the fits data array into regions of bias and target data by reading the fits headers BIASSEC and DATASEC respectively.  There is a function in \code{Overscan.py} called \code{FieldTrim(\ldots)} that trims the field mask to the correct size.
+
+The bias is due to a combination of the camera noise from the readout process and electric ``pre-charge'' on a CCD chip by the electronics.  The BIASSEC header gives the region of overscan, which contains information for this bias.  An array of this overscan region is made by grabbing the rows and columns from the data array (\code{d = f[0].data.astype(``f'')} $\rightarrow$ \code{overscan = d[biassec rows, biassec columns]}). The function then takes the median (or mean) of the overscan regions along the rows (axis=1), and subtracts these values from each data value in their respective data rows.  The main procedure is shown in the figure below.
+
+\begin{equation}
+ \begin{pmatrix}
+  cropped & and\\\
+  bias & subtraced\\\
+  data & matrix
+ \end{pmatrix} =
+ \begin{pmatrix}
+ d11 & d12 & d13 & ... & d1m\\\
+ d21 & d22 & ... & ... & d2m\\\
+ ... & ... & ... & ... & ...\\\
+ dn1 & ... & ... & ... & dnm
+ \end{pmatrix} -
+ \begin{pmatrix}
+  [b1]\\\
+  [b2]\\\
+  [b3]\\\
+  [...]\\\
+  [bn]
+ \end{pmatrix}
+ \label{eq:osc_trm}
+\end{equation}
+
+
+During this task, the pipeline prints the input (\code{fuel$\_$ost.util.DTYPE.raw$\_$files}) and output  (\code{fuel$\_$ost.util.intermediate$\_$dir}) file locations as it progresses.
+
+\begin{figure}[ht]
+  %\vspace*{-2cm}
+  \hspace*{-1cm}
+  \centering
+  \includegraphics[angle=-90,origin=c,width=\textwidth,trim={4cm 0cm 4cm 0cm},clip]{step2ost}
+  \vspace*{-6cm}\caption{Step 2 for bias subtraction and overscan trimming.}\label{fig:step3}
+\end{figure}
+
+
+\subsection{\normalfont{\large{\code{fuel$\_$ndf = norm$\_$div$\_$flats(fuel$\_$ost)}}}}
+
+Flat field images used to charactarize the variation in pixel sensitivity across the detector.  During this step, each flat is scaled by its median.  The data are then median-combined and normalized to create the master flat.  Finally, the pipeline divides the master flat from the science and arc lamp images.
+
+The user can view FITS files used/created by the pipeline by calling the \code{view$\_$FITS(filename)} function from the \code{viewFITS} module, shown in figure \ref{fig:mfplot}.
+
+
+\begin{figure}[ht!]
+  %\vspace*{-2cm}
+  \hspace*{-1cm}
+  \centering
+  \includegraphics[width=0.85\textwidth,trim={0.5cm 0cm 1.5cm 2cm},clip]{master_flat_plot}
+  \vspace*{-2.5cm}\caption{Master slit flat created by the function \code{norm$\_$div$\_$flats.} }\label{fig:mfplot}
+\end{figure}
+
+
+\newpage
+
+\subsection{\normalfont{\large{\code{fuel$\_$os = outline$\_$slits(fuel$\_$ndf)}}}}
+
+The current version of this pipeline uses data from LDSS3 on Magellan, which uses slit masks for multi-object spectroscopy.  Since this will be replaced in the future, the method for identifying and excising individual slits from the images uses a manually made text file of pixel locations.  SAMOS is desigend with a large Digital Micromirror Device (DMD).  The mirrors can be programmed to direct light to a spectrograph arm or an imaging arm, with the slit configurations stored in the FITS headers for each exposure.
+
+Eventually, this pipeline will be modified to analyze real instrument data.
+
+As the pipeline cycles through each slit, it creates an instance of the \code{CreateSlitStructure} class, and stores it in \code{fuel$\_$os.slits} as a list element.  Some attributes for a few of the slits are shown in figure \ref{fig:slitattr}.
+
+\begin{figure}[ht!]
+  %\vspace*{-2cm}
+  \hspace*{-1cm}
+  \centering
+  \includegraphics[angle=-90,origin=c,width=\textwidth,trim={3cm 1cm 1.5cm 2cm},clip]{slit_attr}
+  \vspace*{-4cm}\caption{Some attributes for each slit extracted during \code{fuel$\_$os}.} \label{fig:slitattr}
+\end{figure}
+
+
+\section{Saving Pipeline Progress}
+
+The two modules responsible for object serialization are \code{SaveFuel.py} and \code{GetFuel.py} under \code{py$\_$mods}.
+
+The pipeline automatically saves the current class structure after each step and outputs the location of the saved data.  The user can also call the \code{save$\_$fuel$\_$step} on their own using the fuel structure and a filename as input.  To reconstruct a fuel structure, call the \code{get$\_$fuel$\_$step} with the storage directory and file name (without the `.txt' extnesion) as input.  Running this function constructs a copy of the class data structure from the saved file and can be used to pick the pipeline up wherever the user left off.  An example of this can be seen in figure \ref{fig:pickle}.
+
+\begin{figure}[ht!]
+  %\vspace*{-2cm}
+  \hspace*{-1cm}
+  \centering
+  \includegraphics[width=\textwidth,trim={0cm 4.5cm 1.5cm 8.5cm},clip]{obj_serialization}
+  \vspace*{-4cm}\caption{Use of modules \code{SaveFuel} and \code{GetFuel} for object serialization.} \label{fig:pickle}
+\end{figure}
+
+
+
+\newpage
+
+\begin{thebibliography}{}
+  \bibitem[Smee et al.(2018)]{smee2018} Smee, S.~A., Barkhouser, R., Harding, A., et al.\ 2018, Ground-based and Airborne Instrumentation for Astronomy VII, 107021O
+\end{thebibliography}
+
+\end{document}

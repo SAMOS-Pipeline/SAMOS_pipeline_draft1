@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Pipeline Organization &#8212; SAMOS Data Reduction Pipeline Summer 2021 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Step 0: Initialization" href="samos_step0_init.html" />
+    <link rel="prev" title="Introduction to SAMOS" href="samos_overview.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="pipeline-organization">
+<h1>Pipeline Organization<a class="headerlink" href="#pipeline-organization" title="Permalink to this headline">¶</a></h1>
+<p>The SAMOS reduction pipeline is meant to be run within a <code class="docutils literal notranslate"><span class="pre">Jupyter</span></code> notebook,
+as it allows for the user to track the reduction progress.  Begin each new
+session with the execution of the <code class="docutils literal notranslate"><span class="pre">SAMOSNight</span></code> class.  This class stores
+the data and information for a particular night (defined by some observation ID),
+which is updated with each step of the data reduction.  The current capabilities
+of the SAMOS pipeline are summarized in table, and each step is further described in the sections below.  Each section
+is prefaced by the code used to execute the step.  The code represented in this
+chapter is from the tutorial <code class="docutils literal notranslate"><span class="pre">jupyter_NBtutorial/SAMOS_tutorial</span></code>.</p>
+<span id="statustable"></span><table class="colwidths-given docutils align-default" id="id1">
+<caption><span class="caption-text">SAMOS Pipeline Status</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 33%" />
+<col style="width: 17%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Reduction Step</p></th>
+<th class="head"><p>Step Description</p></th>
+<th class="head"><p>Current Status</p></th>
+<th class="head"><p>Planned Updates</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><cite>SAMOSNight</cite></p></td>
+<td><p>Initialize pipeline and organize raw data</p></td>
+<td><p>Complete</p></td>
+<td><p>Will eventually include the ability to make SQL queries for SAMOS data stored on a separate server.</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>ImageProcessor</cite></p></td>
+<td><p>Image trim, overscan, flat correction</p></td>
+<td><p>Complete</p></td>
+<td><p>Add bias level correction using bias frames</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>SlitBuckets</cite></p></td>
+<td><p>Trace and crop individual slits</p></td>
+<td><p>Complete</p></td>
+<td><p>Slit tracing method will need to read SAMOS slit mask patterns from the FITS.</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>WaveCalBuckets</cite></p></td>
+<td><p>Fits wavelength solution using comparison lamp data.</p></td>
+<td><p>Complete</p></td>
+<td><p>Linelists for first-guess solutions will refer to those obtained from calibration lamps observed with SAMOS.</p></td>
+</tr>
+<tr class="row-even"><td><p>Sky Subtraction/Flux Calibration</p></td>
+<td><p>Subtract sky contribution from spectrum</p></td>
+<td><p>In progress</p></td>
+<td><p>(soon)</p></td>
+</tr>
+</tbody>
+</table>
+<p>Major updates for this pipeline will occur when we obtain test data from the SAMOS instrument.
+It should therefore be noted that some parts of the pipeline in its current state employ more
+generic data reduction methods, with the plan that more sophisticated methods can be chosen
+and applied once the actual parameters of the operational system are better known.  Until then,
+we have adapted some working assumptions about the performance of the spectrograph which may
+differ from its actual performance.  For instance, the pipeline assumes that the spectrum will
+not perfectly co-align with the rows and columns of the detector, the data have an overscan
+region which can be used for bias calibrations, and that other calibrations such as arc lamp
+exposures can be taken in the afternoon or during the night.  The methods used for SAMOS data
+anaysis are heavily influenced by the Goodman Spectroscopic Pipeline cite(GSP2019) and the
+Astropy image reduction package <code class="docutils literal notranslate"><span class="pre">ccdproc</span></code> cite(CCDPROC).</p>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">SAMOS Data Reduction Pipeline</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="samos_overview.html">Intro</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Pipeline Organization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="samos_step0_init.html">Pipeline Initialization</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="samos_overview.html" title="previous chapter">Introduction to SAMOS</a></li>
+      <li>Next: <a href="samos_step0_init.html" title="next chapter">Step 0: Initialization</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Dana Koeppe.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/samos_organization.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
